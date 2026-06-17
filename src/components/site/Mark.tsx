@@ -1,12 +1,13 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
+import markSrc from "../../../public/brand/mark.png";
 
 /**
- * The firm mark — gold emblem, recurring as the signature throughout the site.
+ * The firm mark — the gold negative-space bull/elephant emblem.
  *
- * PLACEHOLDER GEOMETRY: a dignified negative-space emblem standing in for the
- * production elephant/bull mark (patience + drive). It is intentionally
- * abstract and swappable — replace the <path> data with the final artwork and
- * every usage updates. Tone is set: gold (Aurum), restrained, evidence-grade.
+ * Rendered from the production artwork (public/brand/mark.png), a transparent
+ * gold PNG, so it sits correctly on any ground. Square source; `size` sets the
+ * rendered box. `className` still applies (sizing, opacity) for hover states.
  */
 export function Mark({
   size = 40,
@@ -19,33 +20,14 @@ export function Mark({
 }) {
   const style: CSSProperties = { width: size, height: size };
   return (
-    <svg
-      viewBox="0 0 64 64"
-      role="img"
-      aria-label={title}
-      className={className}
+    <Image
+      src={markSrc}
+      alt={title}
+      width={size}
+      height={size}
       style={style}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>{title}</title>
-      {/* Ring */}
-      <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="1.5" />
-      {/* Negative-space form: two rising curves (horns/tusks) cradling a mass —
-          patience grounded, drive rising. */}
-      <path
-        d="M20 46c0-9 3-15 12-15s12 6 12 15"
-        stroke="currentColor"
-        strokeWidth="2.25"
-        strokeLinecap="round"
-      />
-      <path
-        d="M24 31c-4-4-5-9-3-14M40 31c4-4 5-9 3-14"
-        stroke="currentColor"
-        strokeWidth="2.25"
-        strokeLinecap="round"
-      />
-      <circle cx="32" cy="34" r="3" fill="currentColor" />
-    </svg>
+      className={className}
+      priority={false}
+    />
   );
 }
