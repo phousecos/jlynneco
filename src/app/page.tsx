@@ -118,16 +118,23 @@ export default function Home() {
           the moment demands — and the firm routes you to the right altitude.
         </p>
 
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 md:grid-cols-3">
-          {ladder.map((rung) => (
-            <LadderCard key={rung.href} rung={rung} />
-          ))}
+        {/* Horizontal scroller — distinct from the card grids elsewhere on the
+            page. Apex doors first; Program (the floor) trails, muted. */}
+        <div className="mt-12 -mx-6 overflow-x-auto px-6 pb-5 sm:-mx-8 sm:px-8">
+          <ul className="flex snap-x snap-mandatory gap-4">
+            {[...ladder, programRung].map((rung) => (
+              <li
+                key={rung.href}
+                className="w-[280px] shrink-0 snap-start sm:w-[320px]"
+              >
+                <LadderCard rung={rung} muted={rung.altitude === "floor"} />
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Program Management — present, but deliberately quieter and lower. */}
-        <div className="mt-px">
-          <LadderCard rung={programRung} muted />
-        </div>
+        <p className="eyebrow mt-1 text-graphite" aria-hidden>
+          Scroll →
+        </p>
       </Section>
 
       <EngageCTA />

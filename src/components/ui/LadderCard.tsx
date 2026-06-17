@@ -21,7 +21,7 @@ export function LadderCard({
     <Link
       href={rung.href}
       className={clsx(
-        "group flex flex-col border p-7 transition-colors",
+        "group flex h-full flex-col border p-7 transition-colors",
         muted
           ? "border-counsel-ink/12 bg-transparent hover:border-counsel-ink/30"
           : "border-counsel-ink/15 bg-bone/50 hover:border-aurum/70",
