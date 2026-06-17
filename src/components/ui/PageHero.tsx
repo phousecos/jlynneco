@@ -23,7 +23,7 @@ export function PageHero({
     >
       <Container className="py-20 sm:py-28">
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="font-display mt-5 max-w-3xl text-4xl leading-[1.05] sm:text-5xl">
+        <h1 className="font-display font-display-hero mt-5 max-w-3xl text-4xl leading-[1.05] sm:text-5xl">
           {title}
         </h1>
         {lede && (

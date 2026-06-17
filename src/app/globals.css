@@ -48,12 +48,25 @@
     color: var(--color-counsel-ink);
   }
 
-  /* Display headings use Fraunces with a high optical size for authority. */
+  /* Display headings — Fraunces.
+     Optical sizing is left on AUTO so the opsz axis tracks the font size:
+     large heroes get the dramatic high-contrast cut, smaller headings stay
+     sturdy and legible. A touch more weight gives gravitas without hairlines,
+     and WONK/SOFT are dialed to the formal, refined end of the family. */
   .font-display {
     font-family: var(--font-display), Georgia, serif;
     font-optical-sizing: auto;
-    font-variation-settings: "opsz" 140;
-    letter-spacing: -0.012em;
+    font-weight: 480;
+    /* No opsz here — listing it would override optical-sizing:auto. */
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+    letter-spacing: -0.018em;
+    line-height: 1.05;
+  }
+
+  /* The hero line carries the most weight and the tightest cut. */
+  .font-display-hero {
+    font-weight: 520;
+    letter-spacing: -0.022em;
   }
 
   /* Visible keyboard focus — part of the unannounced quality floor. */

@@ -43,7 +43,7 @@ export default function Home() {
             </p>
           </div>
 
-          <h1 className="font-display mt-12 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
+          <h1 className="font-display font-display-hero mt-12 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
             Enterprise transformations don&apos;t fail on technology. They fail
             on judgment — and judgment is the one thing you can&apos;t buy by
             the phase.
