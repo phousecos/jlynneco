@@ -120,30 +120,20 @@ export default function Home() {
       <Section ground="bone">
         <Eyebrow>How the firm engages</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          One ladder. Start at the top.
+          One firm, four modes.
         </h2>
-        <p className="mt-5 max-w-2xl text-counsel-ink/75">
-          Three doors into the firm, apex first. Where you enter depends on what
-          the moment demands — and the firm routes you to the right altitude.
-        </p>
 
-        {/* Horizontal scroller — distinct from the card grids elsewhere on the
-            page. Apex doors first; Program (the floor) trails, muted. */}
-        <div className="mt-12 -mx-6 overflow-x-auto px-6 pb-5 sm:-mx-8 sm:px-8">
-          <ul className="flex snap-x snap-mandatory gap-4">
-            {[...ladder, programRung].map((rung) => (
-              <li
-                key={rung.href}
-                className="w-[280px] shrink-0 snap-start sm:w-[320px]"
-              >
-                <LadderCard rung={rung} muted={rung.altitude === "floor"} />
-              </li>
-            ))}
-          </ul>
+        {/* Two-by-two grid. Apex/product doors first; Program (the floor)
+            trails, muted. */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          {[...ladder, programRung].map((rung) => (
+            <LadderCard
+              key={rung.href}
+              rung={rung}
+              muted={rung.altitude === "floor"}
+            />
+          ))}
         </div>
-        <p className="eyebrow mt-1 text-graphite" aria-hidden>
-          Scroll →
-        </p>
       </Section>
 
       <EngageCTA />
