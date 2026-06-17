@@ -4,12 +4,13 @@ import type { LadderRung } from "@/content/site";
 
 const altitudeNote: Record<LadderRung["altitude"], string> = {
   apex: "Apex — sold on judgment",
-  product: "Productized — the firm's thinking, packaged",
+  product: "Productized — packaged",
   floor: "Senior delivery",
 };
 
-// One door on the ladder. Apex rungs read bold; the floor (Program) is
-// deliberately quieter via the `muted` flag.
+// One door on the ladder. Apex/product doors read as bold dark cards (the
+// inverse of the light-paper exhibits); the floor (Program) stays a quiet
+// outlined card so the hierarchy still shows.
 export function LadderCard({
   rung,
   muted = false,
@@ -17,33 +18,61 @@ export function LadderCard({
   rung: LadderRung;
   muted?: boolean;
 }) {
+  const cta = rung.title === "CIO Advisra" ? "Go to the program" : "Read on";
+
   return (
     <Link
       href={rung.href}
       className={clsx(
-        "group flex h-full flex-col border p-7 transition-colors",
+        "group flex h-full flex-col justify-between border p-7 transition-colors",
         muted
-          ? "border-counsel-ink/12 bg-transparent hover:border-counsel-ink/30"
-          : "border-counsel-ink/15 bg-bone/50 hover:border-aurum/70",
+          ? "border-counsel-ink/15 bg-transparent text-counsel-ink hover:border-counsel-ink/40"
+          : "border-counsel-ink bg-counsel-ink text-bone hover:border-aurum",
       )}
     >
-      <div className="flex items-center justify-between">
-        <span className="eyebrow text-aurum">Door {rung.exhibit}</span>
-        <span className="eyebrow text-graphite">{altitudeNote[rung.altitude]}</span>
+      <div>
+        <div className="flex items-baseline justify-between gap-3">
+          <span
+            className={clsx(
+              "font-display leading-none",
+              muted ? "text-4xl text-counsel-ink/35" : "text-5xl text-aurum",
+            )}
+          >
+            {rung.rank}
+          </span>
+          <span
+            className={clsx(
+              "eyebrow",
+              muted ? "text-graphite" : "text-bone/55",
+            )}
+          >
+            {altitudeNote[rung.altitude]}
+          </span>
+        </div>
+        <h3
+          className={clsx(
+            "font-display mt-6 leading-tight",
+            muted ? "text-xl text-counsel-ink/90" : "text-2xl",
+          )}
+        >
+          {rung.title}
+        </h3>
+        <p
+          className={clsx(
+            "mt-3 text-[0.95rem] leading-relaxed",
+            muted ? "text-counsel-ink/70" : "text-bone/70",
+          )}
+        >
+          {rung.blurb}
+        </p>
       </div>
-      <h3
+      <span
         className={clsx(
-          "font-display mt-5 leading-tight",
-          muted ? "text-xl text-counsel-ink/90" : "text-2xl",
+          "mt-7 inline-flex items-center gap-1.5 text-sm font-medium transition-colors group-hover:text-aurum",
+          muted ? "text-counsel-ink" : "text-bone",
         )}
       >
-        {rung.title}
-      </h3>
-      <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-counsel-ink/75">
-        {rung.blurb}
-      </p>
-      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-counsel-ink transition-colors group-hover:text-aurum">
-        {rung.title === "CIO Advisra" ? "Go to the program" : "Read on"}
+        {cta}
         <span aria-hidden>→</span>
       </span>
     </Link>

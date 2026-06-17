@@ -70,16 +70,25 @@ export default function Home() {
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           The case for judgment across the full lifecycle.
         </h2>
-        <div className="mt-14 grid gap-px bg-counsel-ink/12 md:grid-cols-3">
+        {/* Editorial numbered sequence — deliberately unlike the exhibit grid
+            and the ladder scroller below. */}
+        <div className="mt-12 border-t border-counsel-ink/15">
           {argument.map((beat) => (
-            <div key={beat.n} className="bg-bone p-7 sm:p-8">
-              <span className="font-mono text-sm text-aurum">{beat.n}</span>
-              <h3 className="font-display mt-4 text-xl leading-snug">
-                {beat.title}
-              </h3>
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-counsel-ink/80">
-                {beat.body}
-              </p>
+            <div
+              key={beat.n}
+              className="grid gap-3 border-b border-counsel-ink/15 py-8 md:grid-cols-[5rem_1fr] md:gap-10 md:py-10"
+            >
+              <span className="font-display text-4xl leading-none text-aurum sm:text-5xl">
+                {beat.n}
+              </span>
+              <div className="max-w-2xl">
+                <h3 className="font-display text-2xl leading-snug">
+                  {beat.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-counsel-ink/80">
+                  {beat.body}
+                </p>
+              </div>
             </div>
           ))}
         </div>
