@@ -131,18 +131,18 @@ export default function ExpertWitnessPage() {
       </Section>
 
       {/* How to engage — low-friction, confidential. */}
-      <Section ground="ink" size="prose">
+      <Section ground="bone" size="prose">
         <Eyebrow>How to engage</Eyebrow>
         <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
           A confidential, low-friction intake.
         </h2>
-        <p className="mt-6 text-lg leading-relaxed text-bone/80">
+        <p className="mt-6 text-lg leading-relaxed text-counsel-ink/80">
           Open a matter and the firm will run a conflicts check and review the
           posture of the case before any engagement letter. Confidentiality
           applies from first contact.
         </p>
         <div className="mt-10">
-          <CTALink href="/engage#counsel" variant="onDark">
+          <CTALink href="/engage" variant="solid">
             Open a confidential matter
           </CTALink>
         </div>

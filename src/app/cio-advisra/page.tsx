@@ -87,7 +87,7 @@ export default function CioAdvisraPage() {
             <CTALink href={site.cioAdvisra.href} variant="solid">
               Continue to CIO Advisra
             </CTALink>
-            <CTALink href="/engage#client" variant="ghost">
+            <CTALink href="/engage" variant="ghost">
               Or engage the firm directly <span aria-hidden>→</span>
             </CTALink>
           </div>

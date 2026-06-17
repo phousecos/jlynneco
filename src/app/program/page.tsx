@@ -52,15 +52,15 @@ export default function ProgramPage() {
         </div>
       </Section>
 
-      <Section ground="bone" size="prose" className="pt-0">
-        <p className="text-lg leading-relaxed text-counsel-ink/85">
+      <Section ground="ink" size="prose">
+        <p className="text-lg leading-relaxed text-bone/85">
           Program management is the revenue floor that keeps the firm engaged
           between its highest-trust work — and it is delivered to the same
           standard. If you need senior delivery on a program already in motion,
           the firm can take it.
         </p>
         <div className="mt-8">
-          <CTALink href="/engage#client" variant="solid">
+          <CTALink href="/engage" variant="onDark">
             Discuss a delivery engagement
           </CTALink>
         </div>

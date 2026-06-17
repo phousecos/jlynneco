@@ -59,12 +59,12 @@ export default function FirmPage() {
       </Section>
 
       {/* What the firm believes. */}
-      <Section ground="bone" className="pt-0">
+      <Section ground="ink">
         <Eyebrow>The lens</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           Three convictions the firm advises from.
         </h2>
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 md:grid-cols-3">
+        <div className="mt-12 grid gap-px bg-bone/15 md:grid-cols-3">
           {beliefs.map((b) => (
             <div key={b.claim} className="bg-bone p-7 sm:p-8">
               <h3 className="font-display text-xl leading-snug text-counsel-ink">
@@ -79,9 +79,9 @@ export default function FirmPage() {
       </Section>
 
       {/* Authority as evidence the lens is earned — not a résumé. */}
-      <Section ground="ink" size="prose">
+      <Section ground="bone" size="prose">
         <Eyebrow>Why the lens is earned</Eyebrow>
-        <div className="mt-6 space-y-6 text-lg leading-relaxed text-bone/85">
+        <div className="mt-6 space-y-6 text-lg leading-relaxed text-counsel-ink/85">
           <p>
             The point of view is not borrowed. It comes from stewarding an $88M
             implementation through the failure pattern and back, from a standing
@@ -95,7 +95,7 @@ export default function FirmPage() {
           </p>
         </div>
         <div className="mt-10">
-          <CTALink href="/proof" variant="onDark">
+          <CTALink href="/proof" variant="solid">
             See the record
           </CTALink>
         </div>

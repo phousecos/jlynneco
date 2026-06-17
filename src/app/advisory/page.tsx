@@ -90,7 +90,7 @@ export default function AdvisoryPage() {
               </p>
             </div>
             <div className="mt-9">
-              <CTALink href="/engage#client" variant="onDark">
+              <CTALink href="/engage" variant="onDark">
                 Start a readiness audit
               </CTALink>
             </div>

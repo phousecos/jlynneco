@@ -7,7 +7,7 @@ import { CTALink } from "@/components/ui/CTALink";
 import { LadderCard } from "@/components/ui/LadderCard";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
 import { EngageCTA } from "@/components/ui/EngageCTA";
-import { site, credentials, ladder, programRung } from "@/content/site";
+import { site, ladder, programRung } from "@/content/site";
 import { exhibitsFor } from "@/content/exhibits";
 
 // The three beats of the argument — the depth signal that replaces a
@@ -56,28 +56,9 @@ export default function Home() {
             expert-witness work, and the CIO Advisra program.
           </p>
 
-          {/* Credibility row — restrained, mono, evidence voice. */}
-          <ul className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-3">
-            {credentials.map((c, i) => (
-              <li key={c.label} className="flex items-center gap-3">
-                {i > 0 && (
-                  <span className="text-aurum/60" aria-hidden>
-                    ·
-                  </span>
-                )}
-                <span className="font-mono text-xs uppercase tracking-wider text-bone/85">
-                  {c.label}
-                </span>
-              </li>
-            ))}
-          </ul>
-
           <div className="mt-12 flex flex-wrap gap-4">
-            <CTALink href="/engage#counsel" variant="onDark">
-              Retaining for a matter
-            </CTALink>
-            <CTALink href="/engage#client" variant="onDark">
-              Engaging the firm
+            <CTALink href="/engage" variant="onDark">
+              Schedule a discovery call
             </CTALink>
           </div>
         </Container>
@@ -104,8 +85,30 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Exhibit strip — first taste of the signature. Dark ground sits
+          between the two light sections so neither touches the other. */}
+      <Section ground="deep">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <Eyebrow>The evidence</Eyebrow>
+            <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
+              The argument, entered as exhibits.
+            </h2>
+          </div>
+          <Link
+            href="/proof"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-bone transition-colors hover:text-aurum"
+          >
+            See the full record <span aria-hidden>→</span>
+          </Link>
+        </div>
+        <div className="mt-12">
+          <ExhibitStrip exhibits={exhibitsFor("home", 3)} columns={3} />
+        </div>
+      </Section>
+
       {/* The ladder, previewed — apex first; Program lower by design. */}
-      <Section ground="bone" className="pt-0">
+      <Section ground="bone">
         <Eyebrow>How the firm engages</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           One ladder. Start at the top.
@@ -124,27 +127,6 @@ export default function Home() {
         {/* Program Management — present, but deliberately quieter and lower. */}
         <div className="mt-px">
           <LadderCard rung={programRung} muted />
-        </div>
-      </Section>
-
-      {/* Exhibit strip — first taste of the signature. */}
-      <Section ground="deep">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <Eyebrow>The evidence</Eyebrow>
-            <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
-              The argument, entered as exhibits.
-            </h2>
-          </div>
-          <Link
-            href="/proof"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-bone transition-colors hover:text-aurum"
-          >
-            See the full record <span aria-hidden>→</span>
-          </Link>
-        </div>
-        <div className="mt-12">
-          <ExhibitStrip exhibits={exhibitsFor("home", 3)} columns={3} />
         </div>
       </Section>
 
