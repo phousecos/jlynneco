@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   J. Lynne & Co. — design tokens
+   Gravitas and restraint. Gold (Aurum) is the single bold note: one accent
+   per view. Deliberately off the AI-default palettes.
+---------------------------------------------------------------------------- */
+@theme inline {
+  /* Color — 5 named values */
+  --color-counsel-ink: #1a1d23; /* primary authority ground (warm charcoal) */
+  --color-aurum: #b0852f; /* signature gold — the mark, key rules, one accent */
+  --color-bone: #e9e5dd; /* warm neutral light ground */
+  --color-graphite: #6b7078; /* secondary text and captions */
+  --color-ink-deep: #0f1115; /* deepest layer — footer / contrast blocks */
+
+  /* Semantic aliases */
+  --color-background: var(--color-bone);
+  --color-foreground: var(--color-counsel-ink);
+
+  /* Type — three roles */
+  --font-display: var(--font-fraunces); /* warm old-style serif, headlines only */
+  --font-body: var(--font-hanken); /* humanist grotesk, readable at length */
+  --font-mono: var(--font-plex-mono); /* data/labels/eyebrows/exhibit numbers */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: var(--color-bone);
+    color: var(--color-counsel-ink);
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-aurum) 28%, transparent);
+    color: var(--color-counsel-ink);
+  }
+
+  /* Display headings use Fraunces with a high optical size for authority. */
+  .font-display {
+    font-family: var(--font-display), Georgia, serif;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 140;
+    letter-spacing: -0.012em;
+  }
+
+  /* Visible keyboard focus — part of the unannounced quality floor. */
+  :focus-visible {
+    outline: 2px solid var(--color-aurum);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+}
+
+@layer components {
+  /* Mono eyebrow / exhibit label — the "evidence" voice. */
+  .eyebrow {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Scroll-reveal — the one restrained motion, on the exhibits. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
