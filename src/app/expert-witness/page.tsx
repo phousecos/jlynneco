@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
 import { CTALink } from "@/components/ui/CTALink";
+import { ConfidentialEmailButton } from "@/components/ui/ConfidentialEmailButton";
 import { exhibitsFor } from "@/content/exhibits";
 
 export const metadata: Metadata = {
@@ -130,21 +131,27 @@ export default function ExpertWitnessPage() {
         </div>
       </Section>
 
-      {/* How to engage — low-friction, confidential. */}
+      {/* How to engage — confidential, by direct encrypted email (not a web
+          form, which would route a matter through a third-party backend). */}
       <Section ground="bone" size="prose">
         <Eyebrow>How to engage</Eyebrow>
         <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
           A confidential, low-friction intake.
         </h2>
         <p className="mt-6 text-lg leading-relaxed text-counsel-ink/80">
-          Open a matter and the firm will run a conflicts check and review the
-          posture of the case before any engagement letter. Confidentiality
-          applies from first contact.
+          Open a matter by email and the firm will run a conflicts check and
+          review the posture of the case before any engagement letter.
+        </p>
+        <p className="mt-4 text-[0.95rem] leading-relaxed text-graphite">
+          Keep first contact to what a conflicts check needs — the parties
+          involved — and hold privileged detail until a secure channel is
+          established. The firm corresponds from an encrypted (Proton) account;
+          for end-to-end encryption, write from an encrypted account as well.
         </p>
         <div className="mt-10">
-          <CTALink href="/engage" variant="solid">
+          <ConfidentialEmailButton>
             Open a confidential matter
-          </CTALink>
+          </ConfidentialEmailButton>
         </div>
       </Section>
     </>
