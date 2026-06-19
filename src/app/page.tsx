@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -57,7 +56,7 @@ export default function Home() {
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <CTALink href="/engage" variant="onDark">
+            <CTALink href="https://cal.com/jerribland/j.-lynne-meeting-request" variant="onDark">
               Schedule a discovery call
             </CTALink>
           </div>
@@ -97,20 +96,10 @@ export default function Home() {
       {/* Exhibit strip — first taste of the signature. Dark ground sits
           between the two light sections so neither touches the other. */}
       <Section ground="deep">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <Eyebrow>The evidence</Eyebrow>
-            <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
-              The argument, entered as exhibits.
-            </h2>
-          </div>
-          <Link
-            href="/proof"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-bone transition-colors hover:text-aurum"
-          >
-            See the full record <span aria-hidden>→</span>
-          </Link>
-        </div>
+        <Eyebrow>The evidence</Eyebrow>
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
+          The argument, entered as exhibits.
+        </h2>
         <div className="mt-12">
           <ExhibitStrip exhibits={exhibitsFor("home", 3)} columns={3} />
         </div>

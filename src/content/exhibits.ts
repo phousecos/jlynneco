@@ -1,5 +1,5 @@
 // The signature: proof rendered as case exhibits. This data feeds the exhibit
-// strips on Home, Firm, and Expert Witness, and the full /proof spine.
+// strips on Home, Firm, and Expert Witness.
 //
 // PLACEHOLDER COPY — realistic stand-ins to be swapped for real case detail,
 // publication links, and named testimonials. Structure is production-ready.
@@ -14,7 +14,7 @@ export type Exhibit = {
   body: string; // the substance — diagnosis/judgment, not a deliverables list
   metric?: { value: string; unit: string }; // optional anchored figure
   source?: string; // attribution / venue / role
-  // Which surfaces this exhibit may surface on, beyond /proof.
+  // Which surfaces this exhibit may appear on.
   surfaces: Array<"home" | "firm" | "expert-witness">;
 };
 

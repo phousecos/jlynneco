@@ -8,7 +8,6 @@ export const primaryNav: NavItem[] = [
   { label: "Advisory & Audits", href: "/advisory" },
   { label: "Program Management", href: "/program" },
   { label: "CIO Advisra", href: "/cio-advisra" },
-  { label: "Proof", href: "/proof" },
 ];
 
 export const engageHref = "/engage";

@@ -18,7 +18,7 @@ export function EngageCTA() {
           starts with one conversation.
         </p>
         <div className="mt-9 flex justify-center">
-          <CTALink href="/engage" variant="onDark">
+          <CTALink href="https://cal.com/jerribland/j.-lynne-meeting-request" variant="onDark">
             Schedule a discovery call
           </CTALink>
         </div>
