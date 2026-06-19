@@ -1,6 +1,7 @@
 import { Eyebrow } from "./Eyebrow";
 import { CTALink } from "./CTALink";
 import { Mark } from "@/components/site/Mark";
+import { site } from "@/content/site";
 
 // A single closing call-to-action — one intake, one discovery call. Reused
 // across pages on the dark authority ground.
@@ -18,7 +19,7 @@ export function EngageCTA() {
           starts with one conversation.
         </p>
         <div className="mt-9 flex justify-center">
-          <CTALink href="https://cal.com/jerribland/j.-lynne-meeting-request" variant="onDark">
+          <CTALink href={site.discoveryCall} variant="onDark">
             Schedule a discovery call
           </CTALink>
         </div>

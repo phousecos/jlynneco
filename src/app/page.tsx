@@ -56,7 +56,7 @@ export default function Home() {
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <CTALink href="https://cal.com/jerribland/j.-lynne-meeting-request" variant="onDark">
+            <CTALink href={site.discoveryCall} variant="onDark">
               Schedule a discovery call
             </CTALink>
           </div>

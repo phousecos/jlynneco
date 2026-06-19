@@ -16,6 +16,8 @@ export const site = {
     label: "CIO Advisra",
     href: "https://cioadvisra.com",
   },
+  // Booking link for discovery calls — used by every "Schedule a call" CTA.
+  discoveryCall: "https://cal.com/jerribland/j.-lynne-meeting-request",
 };
 
 // Credibility row — restrained, active, no filler.

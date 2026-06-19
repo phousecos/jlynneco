@@ -3,6 +3,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Program Management",
@@ -53,7 +54,7 @@ export default function ProgramPage() {
         title="Accountable program leadership for implementations that can't afford to fail."
         lede="When a program is in motion and the cost of failure is real, the firm takes accountable ownership of delivery — governance, sequencing, risk, and the hard calls. Principal-led, with senior delivery behind it."
       >
-        <CTALink href="https://cal.com/jerribland/j.-lynne-meeting-request" variant="onDark">
+        <CTALink href={site.discoveryCall} variant="onDark">
           Schedule a discovery call
         </CTALink>
       </PageHero>
