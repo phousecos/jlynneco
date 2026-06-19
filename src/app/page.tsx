@@ -130,7 +130,7 @@ export default function Home() {
             <LadderCard
               key={rung.href}
               rung={rung}
-              muted={rung.altitude === "floor"}
+              navy={rung.altitude === "floor"}
             />
           ))}
         </div>

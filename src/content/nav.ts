@@ -6,7 +6,7 @@ export const primaryNav: NavItem[] = [
   { label: "The Firm", href: "/firm" },
   { label: "Expert Witness", href: "/expert-witness" },
   { label: "Advisory & Audits", href: "/advisory" },
-  { label: "Program", href: "/program" },
+  { label: "Program Management", href: "/program" },
   { label: "CIO Advisra", href: "/cio-advisra" },
   { label: "Proof", href: "/proof" },
 ];

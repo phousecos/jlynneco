@@ -70,28 +70,36 @@ export default function ProgramPage() {
           </p>
         </div>
 
-        {/* Scope boundary — stated plainly so delivery and insight never blur. */}
-        <div className="mt-12 grid gap-px bg-bone/15 md:grid-cols-2">
-          <div className="bg-counsel-ink p-7 sm:p-8">
-            <span className="eyebrow text-aurum">Delivery</span>
-            <h3 className="font-display mt-4 text-xl leading-snug">
-              PMO Command — hands-on operation
-            </h3>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-bone/75">
-              The firm operates the program for you — owning the plan, the
-              cadence, and the decisions, accountable for the outcome.
-            </p>
-          </div>
-          <div className="bg-counsel-ink p-7 sm:p-8">
-            <span className="eyebrow text-graphite">Insight</span>
-            <h3 className="font-display mt-4 text-xl leading-snug">
-              CIO Advisra add-on — advisory only
-            </h3>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-bone/75">
-              Informs briefings and strategy, but is not run on your behalf. One
-              is delivery; one is insight — and they stay separate.
-            </p>
-          </div>
+        {/* Four levels of personnel available on retainer, junior to senior. */}
+        <p className="mt-10 eyebrow text-aurum">
+          Four levels of personnel, available on retainer
+        </p>
+        <div className="mt-5 grid gap-px bg-bone/15 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              level: "Project Administrator",
+              note: "Coordination, tracking, and the operational backbone.",
+            },
+            {
+              level: "Project Manager",
+              note: "Owns a workstream end to end.",
+            },
+            {
+              level: "Program Manager",
+              note: "Runs the whole program — governance, sequencing, risk.",
+            },
+            {
+              level: "Senior Partner",
+              note: "Principal-level oversight and the hard calls.",
+            },
+          ].map((p) => (
+            <div key={p.level} className="bg-counsel-ink p-6 sm:p-7">
+              <h3 className="font-display text-xl leading-snug">{p.level}</h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-bone/70">
+                {p.note}
+              </p>
+            </div>
+          ))}
         </div>
 
         <div className="mt-10">
