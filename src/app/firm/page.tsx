@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
 import { CTALink } from "@/components/ui/CTALink";
+import { leadership } from "@/content/site";
 import { exhibitsFor } from "@/content/exhibits";
 
 export const metadata: Metadata = {
@@ -78,26 +79,50 @@ export default function FirmPage() {
         </div>
       </Section>
 
-      {/* Authority as evidence the lens is earned — not a résumé. */}
-      <Section ground="bone" size="prose">
-        <Eyebrow>Why the lens is earned</Eyebrow>
-        <div className="mt-6 space-y-6 text-lg leading-relaxed text-counsel-ink/85">
-          <p>
-            The point of view is not borrowed. It comes from stewarding an $88M
-            implementation through the failure pattern and back, from a standing
-            research program on why ERP programs fail, and from a book-length
-            argument that puts the thesis in print and on the record.
-          </p>
-          <p>
-            That rigor is what lets the firm hold a position under pressure —
-            with a steering committee, with a board, and, when it comes to it,
-            under cross-examination.
-          </p>
-        </div>
-        <div className="mt-10">
-          <CTALink href="/proof" variant="solid">
-            See the record
-          </CTALink>
+      {/* Leadership — the founding principal, voiced as the firm. Names Jerri
+          prominently; reads as the source of the firm's authority, not an
+          About-Me. Built as a container that holds more than one principal. */}
+      <Section ground="bone">
+        <Eyebrow>Leadership</Eyebrow>
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
+          The authority is the firm&apos;s. Its source has a name.
+        </h2>
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-counsel-ink/80">
+          The point of view is not borrowed. The firm&apos;s lens originates
+          with its founding principal — and the rigor behind it is what lets the
+          firm hold a position under pressure: with a steering committee, with a
+          board, and, when it comes to it, under cross-examination.
+        </p>
+
+        <div className="mt-12 grid gap-px bg-counsel-ink/12">
+          {leadership.map((p) => (
+            <article
+              key={p.name}
+              className="grid gap-6 bg-bone p-7 sm:grid-cols-[auto_1fr] sm:gap-8 sm:p-9"
+            >
+              {/* Monogram — placeholder for a boardroom-grade headshot. */}
+              <div
+                aria-hidden
+                className="flex h-20 w-20 items-center justify-center border border-aurum/60 font-display text-2xl text-aurum"
+              >
+                {p.initials}
+              </div>
+              <div>
+                <h3 className="font-display text-2xl leading-tight">{p.name}</h3>
+                <p className="eyebrow mt-1.5 text-graphite">{p.role}</p>
+                <p className="mt-4 leading-relaxed text-counsel-ink/80">
+                  {p.bio}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-x-7 gap-y-2">
+                  {p.links.map((l) => (
+                    <CTALink key={l.href} href={l.href} variant="ghost">
+                      {l.label} <span aria-hidden>→</span>
+                    </CTALink>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </Section>
 

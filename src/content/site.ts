@@ -80,6 +80,32 @@ export const programRung: LadderRung = {
   altitude: "floor",
 };
 
+// Leadership — the founding principal, voiced as the firm. Names the principal
+// prominently (a vetting buyer must see who stands behind the firm) but reads
+// as the credential basis of the firm's authority, not an "About Me" story.
+// Modeled as an array so it becomes a /leadership page the day there's a
+// second name.
+export type Principal = {
+  name: string;
+  role: string;
+  initials: string; // monogram placeholder until a boardroom-grade headshot
+  bio: string;
+  links: { label: string; href: string }[];
+};
+
+export const leadership: Principal[] = [
+  {
+    name: "Jerri Bland, Ed.D.",
+    role: "Founding Principal",
+    initials: "JB",
+    bio: "Twenty-five years inside enterprise IT — through the implementations that held and the ones that didn't. The firm's authority rests on that record: senior enterprise leadership, a standing research program on why ERP programs fail, and a published book that puts the thesis on record.",
+    links: [
+      { label: "Author & speaker — JerriBland.com", href: site.personSite.href },
+      { label: "The full CV counsel vets", href: "/expert-witness" },
+    ],
+  },
+];
+
 // Legal entities — Canady appears in invoicing and legal pages only, never
 // marketing. Vaughan Group on legal pages per portfolio convention.
 export const legal = {
