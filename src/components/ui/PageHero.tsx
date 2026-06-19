@@ -8,11 +8,13 @@ export function PageHero({
   title,
   lede,
   ground = "ink",
+  children,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   lede?: React.ReactNode;
   ground?: "ink" | "deep";
+  children?: React.ReactNode;
 }) {
   return (
     <header
@@ -31,6 +33,7 @@ export function PageHero({
             {lede}
           </p>
         )}
+        {children && <div className="mt-9">{children}</div>}
       </Container>
     </header>
   );

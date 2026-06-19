@@ -3,12 +3,11 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
-import { Mark } from "@/components/site/Mark";
 
 export const metadata: Metadata = {
   title: "Program Management",
   description:
-    "Accountable, principal-led program leadership for enterprise implementations that can't afford to fail — including the PMO Command retainer.",
+    "PMO Command — accountable, principal-led program leadership on retainer for implementations that can't afford to fail. Plus AgentPMO, the firm's recommended AI-driven project portfolio management tool.",
 };
 
 const delivery = [
@@ -26,16 +25,40 @@ const delivery = [
   },
 ];
 
+const team = [
+  {
+    level: "Project Administrator",
+    note: "Coordination, tracking, and the operational backbone.",
+  },
+  {
+    level: "Project Manager",
+    note: "Owns a workstream end to end.",
+  },
+  {
+    level: "Program Manager",
+    note: "Runs the whole program — governance, sequencing, risk.",
+  },
+  {
+    level: "Senior Partner",
+    note: "Principal-level oversight and the hard calls.",
+  },
+];
+
 export default function ProgramPage() {
   return (
     <>
       <PageHero
         ground="deep"
-        eyebrow="Program Management"
+        eyebrow="PMO Command"
         title="Accountable program leadership for implementations that can't afford to fail."
         lede="When a program is in motion and the cost of failure is real, the firm takes accountable ownership of delivery — governance, sequencing, risk, and the hard calls. Principal-led, with senior delivery behind it."
-      />
+      >
+        <CTALink href="/engage" variant="onDark">
+          Schedule a discovery call
+        </CTALink>
+      </PageHero>
 
+      {/* What it is. */}
       <Section ground="bone">
         <Eyebrow>What it is</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
@@ -53,46 +76,28 @@ export default function ProgramPage() {
         </div>
       </Section>
 
-      {/* Named retainer — PMO Command. The named, buyable vehicle for hands-on
-          delivery: the firm operating the program, not only advising it.
-          (Internal platform/entity names are never surfaced.) */}
+      {/* How it works — the retainer model and the team available. */}
       <Section ground="ink">
-        <Eyebrow>Named retainer · PMO Command</Eyebrow>
+        <Eyebrow>How it works</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          PMO Command — the firm runs the program, not just advises it.
+          One retainer. The resources the program demands.
         </h2>
         <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-bone/85">
           <p>
-            PMO Command is the named vehicle for hands-on delivery: the firm
-            operating the program on your behalf — not only advising it. Senior
-            program leadership engaged on a monthly retainer, scaled to the
-            seniority the program actually needs.
+            PMO Command runs on a monthly retainer — the firm operating the
+            program on your behalf, not only advising it. The firm provides the
+            resources to meet program demands, scaling effort and seniority up or
+            down as the work requires, so you have the right people on the
+            program at the right moment.
           </p>
         </div>
 
-        {/* Four levels of personnel available on retainer, junior to senior. */}
-        <p className="mt-10 eyebrow text-aurum">
+        {/* The team available on retainer, junior to senior. */}
+        <p className="eyebrow mt-12 text-aurum">
           Four levels of personnel, available on retainer
         </p>
         <div className="mt-5 grid gap-px bg-bone/15 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            {
-              level: "Project Administrator",
-              note: "Coordination, tracking, and the operational backbone.",
-            },
-            {
-              level: "Project Manager",
-              note: "Owns a workstream end to end.",
-            },
-            {
-              level: "Program Manager",
-              note: "Runs the whole program — governance, sequencing, risk.",
-            },
-            {
-              level: "Senior Partner",
-              note: "Principal-level oversight and the hard calls.",
-            },
-          ].map((p) => (
+          {team.map((p) => (
             <div key={p.level} className="bg-counsel-ink p-6 sm:p-7">
               <h3 className="font-display text-xl leading-snug">{p.level}</h3>
               <p className="mt-3 text-[0.95rem] leading-relaxed text-bone/70">
@@ -109,19 +114,27 @@ export default function ProgramPage() {
         </div>
       </Section>
 
-      <Section ground="bone" size="prose">
-        <div className="flex items-center gap-3">
-          <Mark size={28} className="text-aurum" />
-          <Eyebrow>For a program already in motion</Eyebrow>
+      {/* AgentPMO — the firm's recommended tool. */}
+      <Section ground="bone">
+        <Eyebrow>Recommended tool · AgentPMO</Eyebrow>
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
+          AgentPMO — AI-driven project portfolio management.
+        </h2>
+        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-counsel-ink/80">
+          <p>
+            For managing the portfolio itself, the firm recommends AgentPMO:
+            AI-driven project portfolio management across the full arc — from
+            vision to go-live and everything in between.
+          </p>
+          <p>
+            It gives leadership a live, intelligent view of the portfolio —
+            planning, sequencing, risk, and status in one place — so decisions
+            are made on current reality, not last month&apos;s status deck.
+          </p>
         </div>
-        <p className="mt-6 text-lg leading-relaxed text-counsel-ink/85">
-          If a live implementation needs an accountable hand on the wheel, the
-          firm can take it — delivered to the same standard as its highest-trust
-          work.
-        </p>
-        <div className="mt-8">
+        <div className="mt-9">
           <CTALink href="/engage" variant="solid">
-            Discuss a delivery engagement
+            Ask about AgentPMO
           </CTALink>
         </div>
       </Section>
