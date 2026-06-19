@@ -67,14 +67,16 @@ export const ladder: LadderRung[] = [
   },
 ];
 
-// Program Management — the revenue floor, deliberately lower in the hierarchy.
+// Program Management — accountable, principal-led program leadership. (The
+// `floor` altitude is an internal sequencing token only; copy never frames
+// this as lesser or in-between work — see the spec's Voice & register rules.)
 export const programRung: LadderRung = {
   rank: 4,
   exhibit: "04",
   title: "Program Management",
   href: "/program",
   blurb:
-    "Senior delivery that keeps momentum between major engagements. Seasoned program leadership, not a staffing shop.",
+    "Accountable, principal-led ownership of delivery when a live implementation can't afford to fail — governance, sequencing, risk, and the hard calls. Made buyable by the PMO Command retainer.",
   altitude: "floor",
 };
 

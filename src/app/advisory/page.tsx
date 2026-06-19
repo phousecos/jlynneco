@@ -8,7 +8,7 @@ import { Mark } from "@/components/site/Mark";
 export const metadata: Metadata = {
   title: "Advisory & Audits",
   description:
-    "Judgment across the full lifecycle: pre-implementation strategy, audits including SACS accreditation readiness, and post-implementation remediation.",
+    "Judgment across the full lifecycle: pre-implementation strategy, audits (SACS readiness, Vendor Detox), and post-implementation remediation.",
 };
 
 const lifecycle = [
@@ -41,13 +41,20 @@ export default function AdvisoryPage() {
         lede="One practice, organized as the full lifecycle — because that arc is the point. The same diagnostic judgment that decides readiness audits the build and remediates the aftermath."
       />
 
-      {/* The lifecycle. */}
+      {/* Judgment, not headcount — the advisory differentiator (firm voice),
+          set as the lead, with the lifecycle beneath it. */}
       <Section ground="bone">
-        <Eyebrow>The lifecycle</Eyebrow>
+        <Eyebrow>Judgment, not headcount</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
-          One arc, three points of judgment.
+          What the firm sells is judgment — not bodies on a timeline.
         </h2>
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 md:grid-cols-3">
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-counsel-ink/80">
+          The read on whether you&apos;re ready, what&apos;s actually wrong, and
+          the call to make. That judgment runs the full lifecycle — before,
+          during, and after.
+        </p>
+
+        <div className="mt-14 grid gap-px bg-counsel-ink/12 md:grid-cols-3">
           {lifecycle.map((p) => (
             <div key={p.n} className="bg-bone p-7 sm:p-8">
               <div className="flex items-baseline justify-between">
@@ -131,21 +138,72 @@ export default function AdvisoryPage() {
         </div>
       </Section>
 
-      {/* Two handoffs. */}
+      {/* Named engagement — Vendor Detox. Lives in the audit family alongside
+          SACS: assess, then tell you the truth, pointed at the vendor stack.
+          (Pricing display is a pricing-page decision — kept off here.) */}
       <Section ground="bone">
+        <Eyebrow>Named engagement · Vendor Detox&trade;</Eyebrow>
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
+          Vendor Detox&trade; — rationalize the stack, on a clock.
+        </h2>
+        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-counsel-ink/80">
+          <p>
+            A focused diagnostic that maps your vendor and contract stack,
+            surfaces the redundancy, overspend, and risk hiding in it, and
+            returns a clear consolidate-or-cut recommendation. The same
+            assess-then-tell-you-the-truth muscle as the firm&apos;s audits,
+            pointed at the vendor portfolio.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-px bg-counsel-ink/12 sm:grid-cols-3">
+          {[
+            {
+              t: "Productized",
+              d: "Three scoped tiers, with a standalone read available against the full-scope engagement.",
+            },
+            {
+              t: "On a clock",
+              d: "A defined 30–45 day window. The engagement clock starts on receipt of your complete data package.",
+            },
+            {
+              t: "Capped per cycle",
+              d: "Intake is capped each cycle to protect delivery quality — the read stays high-touch.",
+            },
+          ].map((item) => (
+            <div key={item.t} className="bg-bone p-7">
+              <p className="font-mono text-xs uppercase tracking-wider text-aurum">
+                {item.t}
+              </p>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+                {item.d}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <CTALink href="/engage" variant="solid">
+            Scope a Vendor Detox&trade;
+          </CTALink>
+        </div>
+      </Section>
+
+      {/* Two handoffs. */}
+      <Section ground="deep">
         <Eyebrow>Two handoffs</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           The right altitude for the need.
         </h2>
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 md:grid-cols-2">
+        <div className="mt-12 grid gap-px bg-bone/15 md:grid-cols-2">
           {/* Down to CIO Advisra — productized assessment. */}
-          <div className="flex flex-col bg-bone p-7 sm:p-9">
+          <div className="flex flex-col bg-bone p-7 text-counsel-ink sm:p-9">
             <span className="eyebrow text-aurum">Down → CIO Advisra</span>
             <h3 className="font-display mt-5 text-2xl leading-snug">
               Need the structured assessment, not the bespoke engagement?
             </h3>
             <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-counsel-ink/80">
-              The bespoke accreditation audit — Jerri&apos;s judgment,
+              The bespoke accreditation audit — the firm&apos;s judgment,
               high-touch — belongs to the firm. The productized six-pillar
               maturity assessment belongs to CIO Advisra. Same vertical, two
               altitudes. If you need the structured read, the firm routes you
@@ -159,7 +217,7 @@ export default function AdvisoryPage() {
           </div>
 
           {/* Up to Expert Witness — the audits generate the authority. */}
-          <div className="flex flex-col bg-bone p-7 sm:p-9">
+          <div className="flex flex-col bg-bone p-7 text-counsel-ink sm:p-9">
             <span className="eyebrow text-aurum">Up → Expert Witness</span>
             <h3 className="font-display mt-5 text-2xl leading-snug">
               When a failure becomes contested.
