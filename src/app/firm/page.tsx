@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
 import { CTALink } from "@/components/ui/CTALink";
+import { Avatar } from "@/components/ui/Avatar";
 import { leadership } from "@/content/site";
 import { exhibitsFor } from "@/content/exhibits";
 
@@ -100,13 +101,8 @@ export default function FirmPage() {
               key={p.name}
               className="grid gap-6 bg-bone p-7 sm:grid-cols-[auto_1fr] sm:gap-8 sm:p-9"
             >
-              {/* Monogram — placeholder for a boardroom-grade headshot. */}
-              <div
-                aria-hidden
-                className="flex h-20 w-20 items-center justify-center border border-aurum/60 font-display text-2xl text-aurum"
-              >
-                {p.initials}
-              </div>
+              {/* Headshot if present in /public, else the gold monogram. */}
+              <Avatar src={p.image} alt={p.name} initials={p.initials} />
               <div>
                 <h3 className="font-display text-2xl leading-tight">{p.name}</h3>
                 <p className="eyebrow mt-1.5 text-graphite">{p.role}</p>

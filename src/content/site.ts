@@ -90,7 +90,8 @@ export const programRung: LadderRung = {
 export type Principal = {
   name: string;
   role: string;
-  initials: string; // monogram placeholder until a boardroom-grade headshot
+  initials: string; // monogram fallback if no headshot is present
+  image?: string; // headshot in /public; falls back to the monogram if missing
   bio: string;
   links: { label: string; href: string }[];
 };
@@ -100,6 +101,7 @@ export const leadership: Principal[] = [
     name: "Jerri Bland, Ed.D.",
     role: "Founding Principal",
     initials: "JB",
+    image: "/brand/jerri-bland.jpg",
     bio: "Twenty-five years inside enterprise IT — through the implementations that held and the ones that didn't. The firm's authority rests on that record: senior enterprise leadership, a standing research program on why ERP programs fail, and a published book that puts the thesis on record.",
     links: [
       { label: "Author & speaker — JerriBland.com", href: site.personSite.href },
