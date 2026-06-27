@@ -23,7 +23,7 @@ export function SiteHeader() {
           aria-label="J. Lynne & Co. — home"
           onClick={() => setOpen(false)}
         >
-          <Mark size={34} className="text-aurum" />
+          <Mark size={68} className="text-aurum" />
           <span className="font-display text-lg leading-none tracking-tight">
             J. Lynne <span className="text-graphite">&amp; Co.</span>
           </span>

@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { Mark } from "@/components/site/Mark";
 import { CTALink } from "@/components/ui/CTALink";
 import { LadderCard } from "@/components/ui/LadderCard";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
@@ -25,7 +24,7 @@ const argument = [
   {
     n: "03",
     title: "What judgment across the lifecycle changes",
-    body: "Read honestly before, during, and after, the same program looks different. You can say not yet. You can name the risk while it is still cheap. And when it is contested, the analysis holds up under cross-examination.",
+    body: "Read honestly before, during, and after, the same program looks different. You can say not yet — and when the call is to move, the firm owns it and drives, accountable for the outcome and not only the advice. You can name the risk while it is still cheap. And when it is contested, the analysis holds up under cross-examination.",
   },
 ];
 
@@ -33,25 +32,35 @@ export default function Home() {
   return (
     <>
       {/* Hero — a thesis, not a greeting. */}
-      <section className="bg-counsel-ink text-bone">
+      <section className="relative isolate overflow-hidden bg-counsel-ink text-bone">
+        {/* Banner — the dark operations image sits behind the thesis. Zoomed
+            past cover and anchored right so the image's own black margins crop
+            off-frame and the figure/dashboards bleed edge to edge. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 scale-125 bg-[url('/banner.webp')] bg-[position:65%_30%] bg-no-repeat bg-cover"
+        />
+        {/* Gentle, even tint so the banner reads full-width across the hero. */}
+        <div aria-hidden className="absolute inset-0 -z-10 bg-counsel-ink/25" />
+        {/* Extra shade only behind the left-aligned copy, fading to clear so
+            the figure and dashboards stay visible to the right edge. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-counsel-ink via-counsel-ink/40 to-transparent"
+        />
         <Container className="py-24 sm:py-32">
-          <div className="flex items-center gap-4">
-            <Mark size={56} className="text-aurum" />
-            <p className="font-display text-base text-bone/70">
-              {site.tagline}
-            </p>
-          </div>
+          <p className="font-display text-base text-aurum">{site.tagline}</p>
 
           <h1 className="font-display font-display-hero mt-12 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
             Enterprise transformations don&apos;t fail on technology. They fail
-            on judgment — and judgment is the one thing you can&apos;t buy by
-            the phase.
+            on judgment.
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-bone/75">
             J. Lynne &amp; Co. is an advisory firm for the programs that
             can&apos;t afford to fail: ERP and enterprise transformation, read
-            honestly before, during, and after. Bespoke advisory and audits,
+            honestly before, during, and after — then driven, with someone
+            accountable for the outcome. Bespoke advisory and audits,
             expert-witness work, and the CIO Advisra program.
           </p>
 
