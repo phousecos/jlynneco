@@ -33,7 +33,18 @@ export default function Home() {
   return (
     <>
       {/* Hero — a thesis, not a greeting. */}
-      <section className="bg-counsel-ink text-bone">
+      <section className="relative isolate overflow-hidden bg-counsel-ink text-bone">
+        {/* Banner — the dark operations image sits behind the thesis. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-[url('/banner.webp')] bg-cover bg-center"
+        />
+        {/* Scrim — darkest under the left-aligned copy, easing toward the
+            figure on the right so the headline stays legible. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-counsel-ink via-counsel-ink/85 to-counsel-ink/30"
+        />
         <Container className="py-24 sm:py-32">
           <div className="flex items-center gap-4">
             <Mark size={56} className="text-aurum" />
