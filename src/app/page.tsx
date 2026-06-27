@@ -34,10 +34,12 @@ export default function Home() {
     <>
       {/* Hero — a thesis, not a greeting. */}
       <section className="relative isolate overflow-hidden bg-counsel-ink text-bone">
-        {/* Banner — the dark operations image sits behind the thesis. */}
+        {/* Banner — the dark operations image sits behind the thesis. Zoomed
+            past cover and anchored right so the image's own black margins crop
+            off-frame and the figure/dashboards bleed edge to edge. */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[url('/banner.webp')] bg-cover bg-center"
+          className="absolute inset-0 -z-10 scale-125 bg-[url('/banner.webp')] bg-[position:65%_30%] bg-no-repeat bg-cover"
         />
         {/* Gentle, even tint so the banner reads full-width across the hero. */}
         <div aria-hidden className="absolute inset-0 -z-10 bg-counsel-ink/25" />
