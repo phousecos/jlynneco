@@ -59,7 +59,8 @@ export default function Home() {
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-bone/75">
             J. Lynne &amp; Co. is an advisory firm for the programs that
             can&apos;t afford to fail: ERP and enterprise transformation, read
-            honestly before, during, and after. Bespoke advisory and audits,
+            honestly before, during, and after — then driven, with someone
+            accountable for the outcome. Bespoke advisory and audits,
             expert-witness work, and the CIO Advisra program.
           </p>
 
