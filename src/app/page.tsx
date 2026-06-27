@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { Mark } from "@/components/site/Mark";
 import { CTALink } from "@/components/ui/CTALink";
 import { LadderCard } from "@/components/ui/LadderCard";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
@@ -50,12 +49,7 @@ export default function Home() {
           className="absolute inset-0 -z-10 bg-gradient-to-r from-counsel-ink via-counsel-ink/40 to-transparent"
         />
         <Container className="py-24 sm:py-32">
-          <div className="flex items-center gap-4">
-            <Mark size={56} className="text-aurum" />
-            <p className="font-display text-base text-bone/70">
-              {site.tagline}
-            </p>
-          </div>
+          <p className="font-display text-base text-aurum">{site.tagline}</p>
 
           <h1 className="font-display font-display-hero mt-12 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
             Enterprise transformations don&apos;t fail on technology. They fail
