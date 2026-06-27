@@ -24,7 +24,7 @@ const argument = [
   {
     n: "03",
     title: "What judgment across the lifecycle changes",
-    body: "Read honestly before, during, and after, the same program looks different. You can say not yet. You can name the risk while it is still cheap. And when it is contested, the analysis holds up under cross-examination.",
+    body: "Read honestly before, during, and after, the same program looks different. You can say not yet — and when the call is to move, the firm owns it and drives, accountable for the outcome and not only the advice. You can name the risk while it is still cheap. And when it is contested, the analysis holds up under cross-examination.",
   },
 ];
 
