@@ -39,11 +39,13 @@ export default function Home() {
           aria-hidden
           className="absolute inset-0 -z-10 bg-[url('/banner.webp')] bg-cover bg-center"
         />
-        {/* Scrim — darkest under the left-aligned copy, easing toward the
-            figure on the right so the headline stays legible. */}
+        {/* Gentle, even tint so the banner reads full-width across the hero. */}
+        <div aria-hidden className="absolute inset-0 -z-10 bg-counsel-ink/25" />
+        {/* Extra shade only behind the left-aligned copy, fading to clear so
+            the figure and dashboards stay visible to the right edge. */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-counsel-ink via-counsel-ink/85 to-counsel-ink/30"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-counsel-ink via-counsel-ink/40 to-transparent"
         />
         <Container className="py-24 sm:py-32">
           <div className="flex items-center gap-4">
