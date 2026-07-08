@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { clsx } from "@/lib/clsx";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -31,6 +32,33 @@ const lifecycle = [
     body: "When a go-live has landed badly, remediation framed as diagnosis and judgment — what broke, why, and the smallest set of moves that restores the program — not a deliverables list.",
   },
 ];
+
+// The verticals the named work reaches. Deliberately understated — a small
+// line near the CTA that answers "is this me?" without turning the page into a
+// directory.
+const VERTICALS =
+  "Higher education, financial services, mid-market companies, law firms, public-sector agencies, healthcare.";
+
+function VerticalsLine({ onDark = false }: { onDark?: boolean }) {
+  return (
+    <p
+      className={clsx(
+        "mt-8 max-w-2xl text-sm leading-relaxed",
+        onDark ? "text-bone/55" : "text-counsel-ink/60",
+      )}
+    >
+      <span
+        className={clsx(
+          "font-mono text-xs uppercase tracking-wider",
+          onDark ? "text-bone/45" : "text-counsel-ink/50",
+        )}
+      >
+        Verticals
+      </span>{" "}
+      — {VERTICALS}
+    </p>
+  );
+}
 
 export default function AdvisoryPage() {
   return (
@@ -72,12 +100,89 @@ export default function AdvisoryPage() {
         </div>
       </Section>
 
-      {/* SACS — named engagement, reaffirmation cycle as the urgency hook. The
+      {/* Framing — the named work below is representative, not the full menu.
+          Sets reader expectation before the first engagement section. */}
+      <Section ground="ink">
+        <Eyebrow>Representative work</Eyebrow>
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
+          Named engagements, not the menu.
+        </h2>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-bone/85">
+          The work below shows how the firm&apos;s judgment gets applied. Each
+          engagement covers a specific type of situation and names the
+          institutional contexts where it applies. If the situation you&apos;re
+          carrying isn&apos;t named here, the right first move is a conversation.
+        </p>
+        <div className="mt-9">
+          <CTALink href="/engage" variant="onDark">
+            Start a conversation
+          </CTALink>
+        </div>
+      </Section>
+
+      {/* Named engagement — Vendor Detox. Lives in the audit family alongside
+          SACS: assess, then tell you the truth, pointed at the vendor stack.
+          (Pricing display is a pricing-page decision — kept off here.) */}
+      <Section ground="bone">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div>
+            <Eyebrow>Named engagement</Eyebrow>
+            <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
+              Vendor Detox&trade; — rationalize the stack, on a clock.
+            </h2>
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-counsel-ink/80">
+              <p>
+                A focused diagnostic that maps your vendor and contract stack,
+                surfaces the redundancy, overspend, and risk hiding in it, and
+                returns a clear consolidate-or-cut recommendation. The same
+                assess-then-tell-you-the-truth muscle as the firm&apos;s audits,
+                pointed at the vendor portfolio.
+              </p>
+            </div>
+            <VerticalsLine />
+            <div className="mt-9">
+              <CTALink href="/engage" variant="solid">
+                Scope a Vendor Detox&trade;
+              </CTALink>
+            </div>
+          </div>
+
+          {/* Callout box — SACS-style, restyled for the light ground. */}
+          <aside className="border border-counsel-ink/15 p-7">
+            <div className="flex justify-end border-b border-counsel-ink/12 pb-4">
+              <Mark size={24} className="text-aurum/70" />
+            </div>
+            <dl className="mt-6 space-y-5">
+              {[
+                {
+                  t: "Productized",
+                  d: "Three scoped tiers, with customizable options available.",
+                },
+                {
+                  t: "On a clock",
+                  d: "A defined 30–45 day window. The engagement clock starts on receipt of your complete data package.",
+                },
+              ].map((row) => (
+                <div key={row.t}>
+                  <dt className="font-mono text-xs uppercase tracking-wider text-counsel-ink/60">
+                    {row.t}
+                  </dt>
+                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+                    {row.d}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
+        </div>
+      </Section>
+
+      {/* SACS — audit practice, reaffirmation cycle as the urgency hook. The
           higher-ed reader must see themselves immediately. */}
       <Section ground="ink">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <Eyebrow>Named engagement · higher education</Eyebrow>
+            <Eyebrow>Audit practice · higher education</Eyebrow>
             <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
               SACS accreditation-readiness, run against the reaffirmation clock.
             </h2>
@@ -96,6 +201,7 @@ export default function AdvisoryPage() {
                 defensible before the committee — not after.
               </p>
             </div>
+            <VerticalsLine onDark />
             <div className="mt-9">
               <CTALink href="/engage" variant="onDark">
                 Start a readiness audit
@@ -138,54 +244,65 @@ export default function AdvisoryPage() {
         </div>
       </Section>
 
-      {/* Named engagement — Vendor Detox. Lives in the audit family alongside
-          SACS: assess, then tell you the truth, pointed at the vendor stack.
-          (Pricing display is a pricing-page decision — kept off here.) */}
+      {/* Advisory practice — Vendor & System Selection. Variable-scope judgment
+          applied to the major system decision. */}
       <Section ground="bone">
-        <Eyebrow>Named engagement · Vendor Detox&trade;</Eyebrow>
-        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
-          Vendor Detox&trade; — rationalize the stack, on a clock.
-        </h2>
-        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-counsel-ink/80">
-          <p>
-            A focused diagnostic that maps your vendor and contract stack,
-            surfaces the redundancy, overspend, and risk hiding in it, and
-            returns a clear consolidate-or-cut recommendation. The same
-            assess-then-tell-you-the-truth muscle as the firm&apos;s audits,
-            pointed at the vendor portfolio.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 sm:grid-cols-3">
-          {[
-            {
-              t: "Productized",
-              d: "Three scoped tiers, with a standalone read available against the full-scope engagement.",
-            },
-            {
-              t: "On a clock",
-              d: "A defined 30–45 day window. The engagement clock starts on receipt of your complete data package.",
-            },
-            {
-              t: "Capped per cycle",
-              d: "Intake is capped each cycle to protect delivery quality — the read stays high-touch.",
-            },
-          ].map((item) => (
-            <div key={item.t} className="bg-bone p-7">
-              <p className="font-mono text-xs uppercase tracking-wider text-aurum">
-                {item.t}
-              </p>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-counsel-ink/80">
-                {item.d}
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div>
+            <Eyebrow>Advisory practice</Eyebrow>
+            <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
+              Vendor &amp; System Selection — the right choice, run cleanly.
+            </h2>
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-counsel-ink/80">
+              <p>
+                The major system decision — core banking, matter management,
+                SIS, ERP, EHR — is the one most institutions run infrequently
+                and least well. Requirements aren&apos;t fully surfaced. The RFP
+                reflects vendor language rather than institutional need.
+                Evaluation collapses into demos and gut feel. The firm runs the
+                selection process the way it should be run: requirements built
+                from the institution&apos;s actual work, an RFP that asks what
+                matters, an evaluation that produces a defensible recommendation.
+                Three entry points depending on where the client needs help —
+                from requirements through contract, or joining the work already
+                in flight.
               </p>
             </div>
-          ))}
-        </div>
+            <VerticalsLine />
+            <div className="mt-9">
+              <CTALink href="/engage" variant="solid">
+                Scope a Selection Engagement
+              </CTALink>
+            </div>
+          </div>
 
-        <div className="mt-10">
-          <CTALink href="/engage" variant="solid">
-            Scope a Vendor Detox&trade;
-          </CTALink>
+          {/* Callout box — SACS-style, restyled for the light ground. */}
+          <aside className="border border-counsel-ink/15 p-7">
+            <div className="flex justify-end border-b border-counsel-ink/12 pb-4">
+              <Mark size={24} className="text-aurum/70" />
+            </div>
+            <dl className="mt-6 space-y-5">
+              {[
+                {
+                  t: "Three entry points",
+                  d: "Full-scope (requirements through contract), scoped (requirements, RFP, and evaluation with contract handoff to client), or evaluation-only (client has the RFP and needs help scoring and deciding).",
+                },
+                {
+                  t: "On the clock",
+                  d: "A 16–24 week engagement reflecting the real cadence of institutional selection decisions. The clock isn't compressed — the discipline is.",
+                },
+              ].map((row) => (
+                <div key={row.t}>
+                  <dt className="font-mono text-xs uppercase tracking-wider text-counsel-ink/60">
+                    {row.t}
+                  </dt>
+                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+                    {row.d}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         </div>
       </Section>
 
