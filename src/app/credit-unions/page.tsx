@@ -112,20 +112,18 @@ export default function CreditUnionsPage() {
       {/* Why this matters — the NCUA oversight gap. The single sharpest fact for
           this reader, set as a pull statement. */}
       <Section ground="bone">
-        <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-start">
-          <Eyebrow>Why this matters for a credit union</Eyebrow>
-          <div className="max-w-2xl space-y-5">
-            <p className="font-display text-2xl leading-snug text-counsel-ink sm:text-3xl">
-              The federal banking agencies can examine a bank&apos;s technology
-              service providers directly. The NCUA cannot.
-            </p>
-            <p className="text-lg leading-relaxed text-counsel-ink/80">
-              Which means that for a credit union, oversight of the core
-              processor and the vendors around it has no regulatory backstop. It
-              belongs to the board, the Supervisory Committee, and no one else.
-              Most institutions this size discover that during the conversion.
-            </p>
-          </div>
+        <Eyebrow>Why this matters for a credit union</Eyebrow>
+        <div className="mt-6 max-w-2xl space-y-5">
+          <p className="font-display text-2xl leading-snug text-counsel-ink sm:text-3xl">
+            The federal banking agencies can examine a bank&apos;s technology
+            service providers directly. The NCUA cannot.
+          </p>
+          <p className="text-lg leading-relaxed text-counsel-ink/80">
+            Which means that for a credit union, oversight of the core processor
+            and the vendors around it has no regulatory backstop. It belongs to
+            the board, the Supervisory Committee, and no one else. Most
+            institutions this size discover that during the conversion.
+          </p>
         </div>
       </Section>
 
