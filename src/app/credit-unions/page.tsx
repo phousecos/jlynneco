@@ -109,8 +109,9 @@ export default function CreditUnionsPage() {
         </div>
       </PageHero>
 
-      {/* How the firm works — four stages, in the order they happen. */}
-      <Section ground="ink" id="work">
+      {/* How the firm works — four stages, in the order they happen. A hairline
+          top rule sets this dark section apart from the (also dark) hero. */}
+      <Section ground="ink" id="work" className="border-t border-bone/15">
         <Eyebrow>How the firm works</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Four stages, in the order they actually happen.
