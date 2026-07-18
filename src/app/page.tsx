@@ -34,12 +34,12 @@ export default function Home() {
       {/* Hero — a thesis, not a greeting. Dark ink ground; the ampersand from
           "& Co." bleeds off the right as an oversized brand device. */}
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
-        {/* Oversized ampersand — the firm's "& Co." mark, turned into the hero
-            graphic. Tone-on-tone blue so it reads as texture, not decoration. */}
+        {/* Oversized ampersand — the firm's "& Co." mark as pure decoration:
+            not the point, just enough interest. Mid-strength tone-on-tone blue. */}
         <span
           aria-hidden
           style={{ fontSize: "clamp(30rem, 48vw, 62rem)" }}
-          className="pointer-events-none absolute -right-16 top-1/2 hidden -translate-y-1/2 select-none font-display font-display-hero leading-none text-brand-primary/20 lg:block"
+          className="pointer-events-none absolute -right-16 top-1/2 hidden -translate-y-1/2 select-none font-display font-display-hero leading-none text-brand-primary/40 lg:block"
         >
           &amp;
         </span>
@@ -49,8 +49,9 @@ export default function Home() {
           </p>
 
           <h1 className="font-display font-display-hero mt-12 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
-            Enterprise transformations don&apos;t fail on technology. They fail
-            on{" "}
+            Enterprise transformations don&apos;t fail on technology.
+            <br />
+            They fail on{" "}
             <em className="not-italic text-brand-secondary">judgment</em>.
           </h1>
 
