@@ -1,9 +1,32 @@
 @import "tailwindcss";
 
+/* Shared brand preset (colors, type scale, radii, shadows). Tailwind v4 is
+   CSS-first and does not auto-read tailwind.config.ts, so it is loaded here.
+   Path is relative to this file (src/app/globals.css -> repo root). */
+@config "../../tailwind.config.ts";
+
+/* =========================================================================
+   SHARED BRAND TOKENS — J. Lynne & Co. (:root block from theme.css)
+   -------------------------------------------------------------------------
+   Space-separated RGB triples so Tailwind opacity works (bg-brand-primary/80).
+   The preset's brand-* utilities resolve from these. Fonts are set by
+   next/font (see src/app/fonts.ts) -> --font-display / --font-body, so the
+   font lines from theme.css are intentionally omitted here.
+   ========================================================================= */
+:root {
+  --brand-primary-rgb:   37 82 222;    /* Royal Blue    #2552DE */
+  --brand-secondary-rgb: 201 162 39;   /* Antique Gold  #C9A227 */
+  --brand-tertiary-rgb:  27 158 142;   /* House Teal    #1B9E8E */
+  --brand-ink-rgb:       20 22 26;     /* Ink           #14161A */
+  --brand-slate-rgb:     74 79 88;     /* Slate         #4A4F58 */
+  --brand-mist-rgb:      233 235 240;  /* Mist          #E9EBF0 */
+  --brand-paper-rgb:     255 255 255;  /* Paper         #FFFFFF */
+}
+
 /* ----------------------------------------------------------------------------
-   J. Lynne & Co. — design tokens
-   Gravitas and restraint. Gold (Aurum) is the single bold note: one accent
-   per view. Deliberately off the AI-default palettes.
+   J. Lynne & Co. — existing bespoke design tokens (kept alongside the shared
+   brand system above so current components keep working). Gold (Aurum) is the
+   single bold note: one accent per view.
 ---------------------------------------------------------------------------- */
 @theme inline {
   /* Color — 5 named values */
@@ -18,9 +41,8 @@
   --color-background: var(--color-bone);
   --color-foreground: var(--color-counsel-ink);
 
-  /* Type — three roles */
-  --font-display: var(--font-fraunces); /* warm old-style serif, headlines only */
-  --font-body: var(--font-hanken); /* humanist grotesk, readable at length */
+  /* Type — display/body come from the shared preset + next/font
+     (--font-display = Poppins, --font-body = Inter). Mono kept here. */
   --font-mono: var(--font-plex-mono); /* data/labels/eyebrows/exhibit numbers */
 }
 
