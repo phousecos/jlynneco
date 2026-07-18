@@ -21,7 +21,7 @@ export default function EngagePage() {
             Whether you&apos;re retaining for a matter or engaging the firm, it
             starts here.
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-bone/80">
+          <p className="mt-6 text-lg leading-relaxed text-brand-paper/80">
             For counsel, the call is confidential and begins with a conflicts
             check before any engagement letter. For clients, it&apos;s a direct
             conversation about where you are in the lifecycle and what the moment
@@ -33,17 +33,17 @@ export default function EngagePage() {
             </CTALink>
           </div>
 
-          <div className="mt-8 border border-bone/20 p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-aurum">
+          <div className="mt-8 border border-brand-paper/20 p-5">
+            <p className="font-mono text-xs uppercase tracking-wider text-brand-secondary">
               Lighter need?
             </p>
-            <p className="mt-2 text-[0.95rem] leading-relaxed text-bone/80">
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-brand-paper/80">
               If you need a structured maturity read rather than a bespoke
               engagement, the firm routes you to the CIO Advisra program.
             </p>
             <div className="mt-4">
               <CTALink href={site.cioAdvisra.href} variant="ghost">
-                <span className="text-aurum">Go to CIO Advisra →</span>
+                <span className="text-brand-secondary">Go to CIO Advisra →</span>
               </CTALink>
             </div>
           </div>

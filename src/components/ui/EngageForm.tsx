@@ -42,13 +42,13 @@ export function EngageForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border border-bone/20 bg-bone p-7 text-counsel-ink sm:p-9"
+      className="border border-brand-paper/20 bg-brand-paper p-7 text-brand-ink sm:p-9"
       aria-label="Discovery call request"
     >
       <p className="font-display text-xl leading-snug">
         Prefer we reach out? Send a few details.
       </p>
-      <p className="mt-2 text-[0.95rem] leading-relaxed text-graphite">
+      <p className="mt-2 text-[0.95rem] leading-relaxed text-brand-slate">
         The firm follows up to confirm a time.
       </p>
 
@@ -61,7 +61,7 @@ export function EngageForm() {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="service"
-            className="font-mono text-xs uppercase tracking-wider text-graphite"
+            className="font-mono text-xs uppercase tracking-wider text-brand-slate"
           >
             What do you need?
           </label>
@@ -71,7 +71,7 @@ export function EngageForm() {
               name="service"
               defaultValue=""
               required
-              className="w-full appearance-none border border-counsel-ink/20 bg-bone/60 px-4 py-3 pr-10 text-[0.95rem] outline-none focus:border-aurum"
+              className="w-full appearance-none border border-brand-ink/20 bg-brand-paper/60 px-4 py-3 pr-10 text-[0.95rem] outline-none focus:border-brand-primary"
             >
               <option value="" disabled>
                 Select a service…
@@ -84,7 +84,7 @@ export function EngageForm() {
             </select>
             <span
               aria-hidden
-              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-graphite"
+              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-brand-slate"
             >
               ▾
             </span>
@@ -94,7 +94,7 @@ export function EngageForm() {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="details"
-            className="font-mono text-xs uppercase tracking-wider text-graphite"
+            className="font-mono text-xs uppercase tracking-wider text-brand-slate"
           >
             A little about the situation
           </label>
@@ -103,18 +103,18 @@ export function EngageForm() {
             name="details"
             rows={4}
             placeholder="Where you are in the lifecycle, or the posture of the matter. No privileged detail at this stage."
-            className="border border-counsel-ink/20 bg-bone/60 px-4 py-3 text-[0.95rem] outline-none placeholder:text-graphite/70 focus:border-aurum"
+            className="border border-brand-ink/20 bg-brand-paper/60 px-4 py-3 text-[0.95rem] outline-none placeholder:text-brand-slate/70 focus:border-brand-primary"
           />
         </div>
       </div>
 
       <button
         type="submit"
-        className="mt-8 inline-flex items-center gap-2 rounded-full bg-counsel-ink px-6 py-3 text-sm font-medium text-bone transition-colors hover:bg-ink-deep"
+        className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-ink px-6 py-3 text-sm font-medium text-brand-paper transition-colors hover:bg-brand-ink"
       >
         Request a discovery call
       </button>
-      <p className="mt-4 text-xs leading-relaxed text-graphite">
+      <p className="mt-4 text-xs leading-relaxed text-brand-slate">
         Submitting opens your email client to send the request to the firm. It
         does not create an engagement or, for counsel, any privileged
         relationship. Engagements are contracted through {legal.engagementEntity}.
@@ -138,7 +138,7 @@ function Field({
     <div className="flex flex-col gap-2">
       <label
         htmlFor={id}
-        className="font-mono text-xs uppercase tracking-wider text-graphite"
+        className="font-mono text-xs uppercase tracking-wider text-brand-slate"
       >
         {label}
       </label>
@@ -147,7 +147,7 @@ function Field({
         name={id}
         type={type}
         required={required}
-        className="border border-counsel-ink/20 bg-bone/60 px-4 py-3 text-[0.95rem] outline-none focus:border-aurum"
+        className="border border-brand-ink/20 bg-brand-paper/60 px-4 py-3 text-[0.95rem] outline-none focus:border-brand-primary"
       />
     </div>
   );

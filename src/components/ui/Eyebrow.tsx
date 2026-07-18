@@ -11,6 +11,6 @@ export function Eyebrow({
   as?: "p" | "span" | "div";
 }) {
   return (
-    <Tag className={clsx("eyebrow text-aurum", className)}>{children}</Tag>
+    <Tag className={clsx("eyebrow text-brand-secondary", className)}>{children}</Tag>
   );
 }

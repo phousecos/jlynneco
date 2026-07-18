@@ -1,19 +1,19 @@
 import { clsx } from "@/lib/clsx";
 import { Container } from "./Container";
 
-type Ground = "bone" | "ink" | "deep";
+type Ground = "paper" | "ink" | "deep";
 
 const grounds: Record<Ground, string> = {
-  bone: "bg-bone text-counsel-ink",
-  ink: "bg-counsel-ink text-bone",
-  deep: "bg-ink-deep text-bone",
+  paper: "bg-brand-paper text-brand-ink",
+  ink: "bg-brand-ink text-brand-paper",
+  deep: "bg-brand-ink text-brand-paper",
 };
 
-// Vertical section with a chosen ground. One accent (gold) per view — let the
-// ground do the structural work, not color.
+// Vertical section with a chosen ground — let the ground do the structural
+// work; colour comes from the brand accents (blue leads, gold, teal).
 export function Section({
   children,
-  ground = "bone",
+  ground = "paper",
   className,
   size = "default",
   containerSize,

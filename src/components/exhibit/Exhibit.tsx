@@ -29,31 +29,31 @@ export function Exhibit({
   return (
     <article
       className={clsx(
-        "group relative flex h-full flex-col border border-counsel-ink/12 bg-bone",
-        "transition-colors hover:border-aurum/60",
+        "group relative flex h-full flex-col border border-brand-ink/12 bg-brand-paper",
+        "transition-colors hover:border-brand-secondary/60",
         compact ? "p-6" : "p-7 sm:p-9",
         className,
       )}
     >
       {/* Exhibit header — the evidence stamp. */}
-      <div className="flex items-center justify-between gap-4 border-b border-counsel-ink/12 pb-4">
+      <div className="flex items-center justify-between gap-4 border-b border-brand-ink/12 pb-4">
         <div className="flex items-baseline gap-3">
-          <span className="eyebrow text-aurum">Exhibit {id}</span>
-          <span className="eyebrow text-graphite">{kindLabel[kind]}</span>
+          <span className="eyebrow text-brand-secondary">Exhibit {id}</span>
+          <span className="eyebrow text-brand-slate">{kindLabel[kind]}</span>
         </div>
         <Mark
           size={compact ? 22 : 26}
-          className="text-aurum/70 transition-colors group-hover:text-aurum"
+          className="text-brand-secondary/70 transition-colors group-hover:text-brand-secondary"
         />
       </div>
 
-      <p className="mt-4 font-mono text-xs uppercase tracking-wider text-graphite">
+      <p className="mt-4 font-mono text-xs uppercase tracking-wider text-brand-slate">
         {label}
       </p>
 
       <h3
         className={clsx(
-          "font-display mt-3 leading-tight text-counsel-ink",
+          "font-display mt-3 leading-tight text-brand-ink",
           compact ? "text-xl" : "text-2xl sm:text-[1.75rem]",
         )}
       >
@@ -61,24 +61,24 @@ export function Exhibit({
       </h3>
 
       {!compact && (
-        <p className="mt-4 text-[0.975rem] leading-relaxed text-counsel-ink/80">
+        <p className="mt-4 text-[0.975rem] leading-relaxed text-brand-ink/80">
           {body}
         </p>
       )}
 
       <div className="mt-auto pt-6">
         {metric && (
-          <div className="flex items-baseline gap-3 border-t border-counsel-ink/10 pt-4">
-            <span className="font-display text-3xl text-aurum">
+          <div className="flex items-baseline gap-3 border-t border-brand-ink/10 pt-4">
+            <span className="font-display text-3xl text-brand-tertiary">
               {metric.value}
             </span>
-            <span className="font-mono text-xs leading-tight text-graphite">
+            <span className="font-mono text-xs leading-tight text-brand-slate">
               {metric.unit}
             </span>
           </div>
         )}
         {source && (
-          <p className="mt-3 font-mono text-[0.7rem] uppercase tracking-wider text-graphite">
+          <p className="mt-3 font-mono text-[0.7rem] uppercase tracking-wider text-brand-slate">
             {source}
           </p>
         )}

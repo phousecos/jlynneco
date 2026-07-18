@@ -22,6 +22,7 @@ const brandPreset = {
         brand: {
           primary:   withAlpha("--brand-primary-rgb"),
           secondary: withAlpha("--brand-secondary-rgb"),
+          tertiary:  withAlpha("--brand-tertiary-rgb"),
           ink:       withAlpha("--brand-ink-rgb"),
           slate:     withAlpha("--brand-slate-rgb"),
           mist:      withAlpha("--brand-mist-rgb"),

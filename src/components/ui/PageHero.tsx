@@ -19,8 +19,8 @@ export function PageHero({
   return (
     <header
       className={clsx(
-        ground === "deep" ? "bg-ink-deep" : "bg-counsel-ink",
-        "text-bone",
+        ground === "deep" ? "bg-brand-ink" : "bg-brand-ink",
+        "text-brand-paper",
       )}
     >
       <Container className="py-20 sm:py-28">
@@ -29,7 +29,7 @@ export function PageHero({
           {title}
         </h1>
         {lede && (
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-bone/75">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-paper/75">
             {lede}
           </p>
         )}

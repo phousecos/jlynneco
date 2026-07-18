@@ -24,22 +24,15 @@
 }
 
 /* ----------------------------------------------------------------------------
-   J. Lynne & Co. — existing bespoke design tokens (kept alongside the shared
-   brand system above so current components keep working). Gold (Aurum) is the
-   single bold note: one accent per view.
+   J. Lynne & Co. now renders on the shared brand system: colors come from the
+   preset's brand-* utilities (blue leads, gold accents, teal supports), which
+   resolve from the RGB triples above. Only the mono font role — outside the
+   shared system — is registered here.
 ---------------------------------------------------------------------------- */
 @theme inline {
-  /* Color — 5 named values */
-  --color-counsel-ink: #1a1d23; /* primary authority ground (warm charcoal) */
-  --color-aurum: #b0852f; /* signature gold — the mark, key rules, one accent */
-  --color-bone: #e9e5dd; /* warm neutral light ground */
-  --color-graphite: #6b7078; /* secondary text and captions */
-  --color-ink-deep: #0f1115; /* deepest layer — footer / contrast blocks */
-  --color-navy: #16233d; /* deep navy — used to set one card apart */
-
-  /* Semantic aliases */
-  --color-background: var(--color-bone);
-  --color-foreground: var(--color-counsel-ink);
+  /* Semantic aliases -> brand neutrals */
+  --color-background: rgb(var(--brand-paper-rgb));
+  --color-foreground: rgb(var(--brand-ink-rgb));
 
   /* Type — display/body come from the shared preset + next/font
      (--font-display = Poppins, --font-body = Inter). Mono kept here. */
@@ -59,42 +52,37 @@
   }
 
   body {
-    background: var(--color-bone);
-    color: var(--color-counsel-ink);
+    background: rgb(var(--brand-paper-rgb));
+    color: rgb(var(--brand-ink-rgb));
     font-family: var(--font-body), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--color-aurum) 28%, transparent);
-    color: var(--color-counsel-ink);
+    background: rgb(var(--brand-primary-rgb) / 0.22);
+    color: rgb(var(--brand-ink-rgb));
   }
 
-  /* Display headings — Fraunces.
-     Optical sizing is left on AUTO so the opsz axis tracks the font size:
-     large heroes get the dramatic high-contrast cut, smaller headings stay
-     sturdy and legible. A touch more weight gives gravitas without hairlines,
-     and WONK/SOFT are dialed to the formal, refined end of the family. */
+  /* Display headings — Poppins (shared brand display face).
+     Semibold with a slight negative tracking gives the geometric sans a
+     confident, modern headline cut. */
   .font-display {
-    font-family: var(--font-display), Georgia, serif;
-    font-optical-sizing: auto;
-    font-weight: 480;
-    /* No opsz here — listing it would override optical-sizing:auto. */
-    font-variation-settings: "SOFT" 0, "WONK" 0;
-    letter-spacing: -0.018em;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.05;
   }
 
   /* The hero line carries the most weight and the tightest cut. */
   .font-display-hero {
-    font-weight: 520;
-    letter-spacing: -0.022em;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 
-  /* Visible keyboard focus — part of the unannounced quality floor. */
+  /* Visible keyboard focus — the blue lead accent, part of the quality floor. */
   :focus-visible {
-    outline: 2px solid var(--color-aurum);
+    outline: 2px solid rgb(var(--brand-primary-rgb));
     outline-offset: 3px;
     border-radius: 1px;
   }

@@ -60,16 +60,16 @@ export default function ProgramPage() {
       </PageHero>
 
       {/* What it is. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>What it is</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           The judgment that runs the firm, now accountable for the program.
         </h2>
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 md:grid-cols-3">
+        <div className="mt-12 grid gap-px bg-brand-ink/12 md:grid-cols-3">
           {delivery.map((d) => (
-            <div key={d.title} className="bg-bone p-7 sm:p-8">
+            <div key={d.title} className="bg-brand-paper p-7 sm:p-8">
               <h3 className="font-display text-xl leading-snug">{d.title}</h3>
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-brand-ink/80">
                 {d.body}
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function ProgramPage() {
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           One retainer. The resources the program demands.
         </h2>
-        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-bone/85">
+        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-brand-paper/85">
           <p>
             PMO Command runs on a monthly retainer — the firm operating the
             program on your behalf, not only advising it. The firm provides the
@@ -94,14 +94,14 @@ export default function ProgramPage() {
         </div>
 
         {/* The team available on retainer, junior to senior. */}
-        <p className="eyebrow mt-12 text-aurum">
+        <p className="eyebrow mt-12 text-brand-secondary">
           Four levels of personnel, available on retainer
         </p>
-        <div className="mt-5 grid gap-px bg-bone/15 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-5 grid gap-px bg-brand-paper/15 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((p) => (
-            <div key={p.level} className="bg-counsel-ink p-6 sm:p-7">
+            <div key={p.level} className="bg-brand-ink p-6 sm:p-7">
               <h3 className="font-display text-xl leading-snug">{p.level}</h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-bone/70">
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-brand-paper/70">
                 {p.note}
               </p>
             </div>
@@ -116,12 +116,12 @@ export default function ProgramPage() {
       </Section>
 
       {/* AgentPMO — the firm's recommended tool. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>Recommended tool · AgentPMO</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           AgentPMO — AI-driven project portfolio management.
         </h2>
-        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-counsel-ink/80">
+        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-brand-ink/80">
           <p>
             For managing the portfolio itself, the firm recommends AgentPMO:
             AI-driven project portfolio management across the full arc — from

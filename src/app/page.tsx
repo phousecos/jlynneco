@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { CTALink } from "@/components/ui/CTALink";
 import { LadderCard } from "@/components/ui/LadderCard";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
 import { EngageCTA } from "@/components/ui/EngageCTA";
@@ -31,9 +31,7 @@ const argument = [
 export default function Home() {
   return (
     <>
-      {/* Hero — a thesis, not a greeting.
-          BRAND PREVIEW: re-skinned to the shared system (brand-ink ground,
-          Royal-Blue lead accent, Poppins). Scoped to this block only. */}
+      {/* Hero — a thesis, not a greeting. Dark ink ground, blue lead accent. */}
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
         {/* Banner — the dark operations image sits behind the thesis. Zoomed
             past cover and anchored right so the image's own black margins crop
@@ -69,22 +67,17 @@ export default function Home() {
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <Link
-              href={site.discoveryCall}
-              className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-3 text-sm font-medium text-brand-paper transition-colors hover:bg-brand-primary/90"
-            >
+            <CTALink href={site.discoveryCall} variant="solid">
               Schedule a discovery call
-            </Link>
+            </CTALink>
           </div>
         </Container>
       </section>
 
-      {/* The argument — 3 beats.
-          BRAND PREVIEW: re-skinned to the shared system (brand-paper ground,
-          Royal-Blue lead accent, brand-ink text). Scoped to this block only. */}
+      {/* The argument — 3 beats. Paper ground, gold eyebrow, blue numerals. */}
       <section className="bg-brand-paper text-brand-ink py-20 sm:py-28">
         <Container>
-          <p className="eyebrow text-brand-primary">The argument</p>
+          <Eyebrow>The argument</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
             The case for judgment across the full lifecycle.
           </h2>
@@ -117,7 +110,7 @@ export default function Home() {
           between the two light sections so neither touches the other. */}
       <Section ground="deep">
         <Eyebrow>The evidence</Eyebrow>
-        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
           The argument, entered as exhibits.
         </h2>
         <div className="mt-12">
@@ -126,7 +119,7 @@ export default function Home() {
       </Section>
 
       {/* The ladder, previewed — apex first; Program lower by design. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>How the firm engages</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           One firm, four modes.
