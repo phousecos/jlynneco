@@ -69,7 +69,7 @@ export function Exhibit({
       <div className="mt-auto pt-6">
         {metric && (
           <div className="flex items-baseline gap-3 border-t border-brand-ink/10 pt-4">
-            <span className="font-display text-3xl text-brand-tertiary">
+            <span className="font-display text-3xl text-brand-primary">
               {metric.value}
             </span>
             <span className="font-mono text-xs leading-tight text-brand-slate">

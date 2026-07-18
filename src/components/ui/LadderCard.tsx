@@ -9,7 +9,8 @@ const altitudeNote: Record<LadderRung["altitude"], string> = {
 };
 
 // One door on the ladder. All read as bold dark cards (the inverse of the
-// light-paper exhibits); the `navy` floor card is set apart with a blue edge.
+// light-paper exhibits); the `navy` floor card — the supporting-delivery
+// tier — is set apart with a teal edge (teal = supports).
 export function LadderCard({
   rung,
   navy = false,
@@ -24,7 +25,7 @@ export function LadderCard({
       href={rung.href}
       className={clsx(
         "group flex h-full flex-col justify-between border p-7 text-brand-paper transition-colors hover:border-brand-secondary",
-        navy ? "border-brand-primary bg-brand-ink" : "border-brand-ink bg-brand-ink",
+        navy ? "border-brand-tertiary bg-brand-ink" : "border-brand-ink bg-brand-ink",
       )}
     >
       <div>

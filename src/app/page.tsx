@@ -49,7 +49,7 @@ export default function Home() {
           className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/40 to-transparent"
         />
         <Container className="py-24 sm:py-32">
-          <p className="font-display text-base text-brand-primary">
+          <p className="font-display text-base text-brand-secondary">
             {site.tagline}
           </p>
 
