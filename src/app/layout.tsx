@@ -1,23 +1,12 @@
 import type { Metadata } from "next";
-import { Fraunces, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
+import { display, body } from "./fonts";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
-// Display — warm, authoritative old-style serif (variable, optical-size axis).
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  axes: ["opsz", "SOFT", "WONK"],
-  display: "swap",
-});
-
-// Body — humanist grotesk, clean and readable at length.
-const hanken = Hanken_Grotesk({
-  variable: "--font-hanken",
-  subsets: ["latin"],
-  display: "swap",
-});
+// Display + body come from the shared brand system (./fonts):
+//   Poppins -> --font-display, Inter -> --font-body.
 
 // Data/utility — monospace; data set in mono reads like an exhibit.
 const plexMono = IBM_Plex_Mono({
@@ -51,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${hanken.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bone text-counsel-ink">
         <a
