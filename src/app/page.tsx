@@ -31,31 +31,27 @@ const argument = [
 export default function Home() {
   return (
     <>
-      {/* Hero — a thesis, not a greeting. Dark ink ground, blue lead accent. */}
+      {/* Hero — a thesis, not a greeting. Dark ink ground; the ampersand from
+          "& Co." bleeds off the right as an oversized brand device. */}
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
-        {/* Banner — the dark operations image sits behind the thesis. Zoomed
-            past cover and anchored right so the image's own black margins crop
-            off-frame and the figure/dashboards bleed edge to edge. */}
-        <div
+        {/* Oversized ampersand — the firm's "& Co." mark, turned into the hero
+            graphic. Tone-on-tone blue so it reads as texture, not decoration. */}
+        <span
           aria-hidden
-          className="absolute inset-0 -z-10 scale-125 bg-[url('/banner.webp')] bg-[position:65%_30%] bg-no-repeat bg-cover"
-        />
-        {/* Gentle, even tint so the banner reads full-width across the hero. */}
-        <div aria-hidden className="absolute inset-0 -z-10 bg-brand-ink/25" />
-        {/* Extra shade only behind the left-aligned copy, fading to clear so
-            the figure and dashboards stay visible to the right edge. */}
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/40 to-transparent"
-        />
-        <Container className="py-24 sm:py-32">
+          style={{ fontSize: "clamp(30rem, 48vw, 62rem)" }}
+          className="pointer-events-none absolute -right-16 top-1/2 hidden -translate-y-1/2 select-none font-display font-display-hero leading-none text-brand-primary/20 lg:block"
+        >
+          &amp;
+        </span>
+        <Container className="relative py-24 sm:py-32">
           <p className="font-display text-base text-brand-secondary">
             {site.tagline}
           </p>
 
           <h1 className="font-display font-display-hero mt-12 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
             Enterprise transformations don&apos;t fail on technology. They fail
-            on judgment.
+            on{" "}
+            <em className="not-italic text-brand-secondary">judgment</em>.
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-brand-paper/75">
