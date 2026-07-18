@@ -150,7 +150,7 @@ export default function AdvisoryPage() {
           {/* Callout box — SACS-style, restyled for the light ground. */}
           <aside className="border border-brand-ink/15 p-7">
             <div className="flex justify-end border-b border-brand-ink/12 pb-4">
-              <Mark size={24} className="text-brand-secondary/70" />
+              <Mark size={24} className="text-brand-primary/70" />
             </div>
             <dl className="mt-6 space-y-5">
               {[
@@ -213,7 +213,7 @@ export default function AdvisoryPage() {
           <aside className="border border-brand-paper/20 p-7">
             <div className="flex items-center justify-between border-b border-brand-paper/15 pb-4">
               <span className="eyebrow text-brand-secondary">The cycle clock</span>
-              <Mark size={24} className="text-brand-secondary/70" />
+              <Mark size={24} className="text-brand-paper/70" />
             </div>
             <dl className="mt-6 space-y-5">
               {[
@@ -279,7 +279,7 @@ export default function AdvisoryPage() {
           {/* Callout box — SACS-style, restyled for the light ground. */}
           <aside className="border border-brand-ink/15 p-7">
             <div className="flex justify-end border-b border-brand-ink/12 pb-4">
-              <Mark size={24} className="text-brand-secondary/70" />
+              <Mark size={24} className="text-brand-primary/70" />
             </div>
             <dl className="mt-6 space-y-5">
               {[

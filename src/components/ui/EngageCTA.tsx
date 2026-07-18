@@ -8,7 +8,7 @@ export function EngageCTA() {
   return (
     <div className="bg-brand-primary text-brand-paper">
       <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
-        <Mark size={44} className="mx-auto text-brand-secondary" />
+        <Mark size={44} className="mx-auto text-brand-paper" />
         <p className="eyebrow mt-6 text-brand-paper/80">Engage the firm</p>
         <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
           The patience to see it. The drive to move it.

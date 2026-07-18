@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { clsx } from "@/lib/clsx";
 
-type Variant = "solid" | "outline" | "ghost" | "onDark" | "onColor";
+type Variant =
+  | "solid"
+  | "outline"
+  | "ghost"
+  | "ghostOnDark"
+  | "onDark"
+  | "onColor";
 
 const styles: Record<Variant, string> = {
   // Primary action — the blue lead accent.
@@ -9,8 +15,13 @@ const styles: Record<Variant, string> = {
     "bg-brand-primary text-brand-paper border border-brand-primary hover:bg-brand-primary/90",
   outline:
     "border border-brand-ink text-brand-ink hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper",
+  // Inline cross-link on a light ground — hovers to the blue lead.
   ghost:
     "text-brand-ink underline-offset-4 hover:text-brand-primary hover:underline px-0",
+  // Inline cross-link on a dark ground — hovers to teal (the on-dark accent),
+  // which stays legible where blue would go muddy.
+  ghostOnDark:
+    "text-brand-paper/80 underline-offset-4 hover:text-brand-tertiary hover:underline px-0",
   // Action on a dark ground — fills to blue on hover.
   onDark:
     "border border-brand-paper/40 text-brand-paper hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper",

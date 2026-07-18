@@ -71,7 +71,7 @@ export default function CioAdvisraPage() {
       <Section ground="paper">
         <div className="border border-brand-ink/15 bg-brand-paper/50 p-8 sm:p-12">
           <div className="flex items-center gap-4">
-            <Mark size={32} className="text-brand-secondary" />
+            <Mark size={32} className="text-brand-primary" />
             <Eyebrow>The handoff</Eyebrow>
           </div>
           <h2 className="font-display mt-6 max-w-2xl text-2xl leading-snug sm:text-3xl">

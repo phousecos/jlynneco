@@ -103,7 +103,7 @@ export default function CreditUnionsPage() {
           <CTALink href={site.discoveryCall} variant="onDark">
             Book a 30-minute call
           </CTALink>
-          <CTALink href="#work" variant="ghost" className="text-brand-paper/80">
+          <CTALink href="#work" variant="ghostOnDark">
             See how the firm works <span aria-hidden>→</span>
           </CTALink>
         </div>
@@ -178,7 +178,7 @@ export default function CreditUnionsPage() {
                 {o.body}
               </p>
               <div className="mt-6">
-                <CTALink href={o.href} variant="ghost" className="text-brand-paper/80">
+                <CTALink href={o.href} variant="ghostOnDark">
                   {o.cta} <span aria-hidden>→</span>
                 </CTALink>
               </div>
@@ -286,7 +286,7 @@ export default function CreditUnionsPage() {
               <CTALink href="/firm" variant="onDark">
                 About the firm
               </CTALink>
-              <CTALink href="/expert-witness" variant="ghost" className="text-brand-paper/80">
+              <CTALink href="/expert-witness" variant="ghostOnDark">
                 The full CV counsel vets <span aria-hidden>→</span>
               </CTALink>
             </div>

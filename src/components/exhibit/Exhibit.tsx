@@ -43,7 +43,7 @@ export function Exhibit({
         </div>
         <Mark
           size={compact ? 22 : 26}
-          className="text-brand-secondary/70 transition-colors group-hover:text-brand-secondary"
+          className="text-brand-primary/70 transition-colors group-hover:text-brand-primary"
         />
       </div>
 
