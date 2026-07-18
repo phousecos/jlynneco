@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
+import { HeroAmpersand } from "@/components/ui/HeroAmpersand";
 import { LadderCard } from "@/components/ui/LadderCard";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
 import { EngageCTA } from "@/components/ui/EngageCTA";
@@ -36,13 +37,7 @@ export default function Home() {
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
         {/* Oversized ampersand — the firm's "& Co." mark as pure decoration:
             not the point, just enough interest. Mid-strength tone-on-tone blue. */}
-        <span
-          aria-hidden
-          style={{ fontSize: "clamp(30rem, 48vw, 62rem)" }}
-          className="pointer-events-none absolute -right-16 top-1/2 hidden -translate-y-1/2 select-none font-display font-display-hero leading-none text-brand-primary/40 lg:block"
-        >
-          &amp;
-        </span>
+        <HeroAmpersand />
         <Container className="relative py-24 sm:py-32">
           <p className="font-display text-base text-brand-secondary">
             {site.tagline}

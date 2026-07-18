@@ -1,8 +1,10 @@
 import { Container } from "./Container";
 import { Eyebrow } from "./Eyebrow";
+import { HeroAmpersand } from "./HeroAmpersand";
 import { clsx } from "@/lib/clsx";
 
 // Interior-page header on the dark authority ground. Cooler, formal register.
+// Carries the same oversized ampersand device as the home hero.
 export function PageHero({
   eyebrow,
   title,
@@ -19,11 +21,12 @@ export function PageHero({
   return (
     <header
       className={clsx(
+        "relative isolate overflow-hidden text-brand-paper",
         ground === "deep" ? "bg-brand-ink" : "bg-brand-ink",
-        "text-brand-paper",
       )}
     >
-      <Container className="py-20 sm:py-28">
+      <HeroAmpersand />
+      <Container className="relative py-20 sm:py-28">
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1 className="font-display font-display-hero mt-5 max-w-3xl text-4xl leading-[1.05] sm:text-5xl">
           {title}
