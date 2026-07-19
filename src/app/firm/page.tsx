@@ -34,7 +34,13 @@ export default function FirmPage() {
     <>
       <PageHero
         eyebrow="The Firm — Point of View"
-        title="A firm organized around proof and a point of view, not a service menu."
+        title={
+          <>
+            A firm organized around{" "}
+            <em className="not-italic text-brand-secondary">proof</em> and a
+            point of view, not a service menu.
+          </>
+        }
         lede="J. Lynne & Co. exists for the enterprise programs that cannot afford to fail. This is what the firm believes about why they do — and the lens it brings to every engagement."
       />
 
