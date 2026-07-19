@@ -51,7 +51,13 @@ export default function ProgramPage() {
       <PageHero
         ground="deep"
         eyebrow="PMO Command"
-        title="Accountable program leadership for implementations that can't afford to fail."
+        title={
+          <>
+            <em className="not-italic text-brand-secondary">Accountable</em>{" "}
+            program leadership for implementations that can&apos;t afford to
+            fail.
+          </>
+        }
         lede="When a program is in motion and the cost of failure is real, the firm takes accountable ownership of delivery — governance, sequencing, risk, and the hard calls. Principal-led, with senior delivery behind it."
       >
         <CTALink href={site.discoveryCall} variant="onDark">

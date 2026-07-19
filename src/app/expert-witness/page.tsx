@@ -47,7 +47,12 @@ export default function ExpertWitnessPage() {
       <PageHero
         ground="deep"
         eyebrow="Expert Witness"
-        title="Retained when an implementation failure becomes a matter."
+        title={
+          <>
+            Retained when an implementation failure becomes a{" "}
+            <em className="not-italic text-brand-secondary">matter</em>.
+          </>
+        }
         lede="For general counsel, litigators, and audit committees: independent analysis of ERP and enterprise-implementation failure — standard of care, causation, and the technical record — that holds up under cross-examination."
       />
 

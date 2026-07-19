@@ -65,7 +65,16 @@ export default function AdvisoryPage() {
     <>
       <PageHero
         eyebrow="Advisory & Audits"
-        title="The firm doesn't parachute in when it's broken. It has judgment before, during, and after."
+        title={
+          <>
+            The firm doesn&apos;t parachute in when it&apos;s broken. It has
+            judgment{" "}
+            <em className="not-italic text-brand-secondary">
+              before, during, and after
+            </em>
+            .
+          </>
+        }
         lede="One practice, organized as the full lifecycle — because that arc is the point. The same diagnostic judgment that decides readiness audits the build and remediates the aftermath."
       />
 

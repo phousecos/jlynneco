@@ -26,7 +26,12 @@ export default function CioAdvisraPage() {
     <>
       <PageHero
         eyebrow="CIO Advisra — the productized program"
-        title="The firm's thinking, packaged."
+        title={
+          <>
+            The firm&apos;s thinking,{" "}
+            <em className="not-italic text-brand-secondary">packaged</em>.
+          </>
+        }
         lede="CIO Advisra is J. Lynne & Co.'s productized program: a structured six-pillar maturity assessment for the client who needs the firm's judgment in a defined, right-sized form."
       />
 
