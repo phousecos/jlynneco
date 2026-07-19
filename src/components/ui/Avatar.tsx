@@ -26,7 +26,7 @@ export function Avatar({
       <div
         aria-hidden
         style={box}
-        className="flex items-center justify-center border border-aurum/60 font-display text-2xl text-aurum"
+        className="flex items-center justify-center border border-brand-secondary/60 font-display text-2xl text-brand-secondary"
       >
         {initials}
       </div>
@@ -41,7 +41,7 @@ export function Avatar({
       height={size}
       style={box}
       onError={() => setFailed(true)}
-      className="border border-counsel-ink/15 object-cover"
+      className="border border-brand-ink/15 object-cover"
     />
   );
 }

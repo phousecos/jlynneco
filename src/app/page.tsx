@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
+import { HeroAmpersand } from "@/components/ui/HeroAmpersand";
 import { LadderCard } from "@/components/ui/LadderCard";
 import { ExhibitStrip } from "@/components/exhibit/ExhibitStrip";
 import { EngageCTA } from "@/components/ui/EngageCTA";
@@ -31,32 +32,25 @@ const argument = [
 export default function Home() {
   return (
     <>
-      {/* Hero — a thesis, not a greeting. */}
-      <section className="relative isolate overflow-hidden bg-counsel-ink text-bone">
-        {/* Banner — the dark operations image sits behind the thesis. Zoomed
-            past cover and anchored right so the image's own black margins crop
-            off-frame and the figure/dashboards bleed edge to edge. */}
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 scale-125 bg-[url('/banner.webp')] bg-[position:65%_30%] bg-no-repeat bg-cover"
-        />
-        {/* Gentle, even tint so the banner reads full-width across the hero. */}
-        <div aria-hidden className="absolute inset-0 -z-10 bg-counsel-ink/25" />
-        {/* Extra shade only behind the left-aligned copy, fading to clear so
-            the figure and dashboards stay visible to the right edge. */}
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-counsel-ink via-counsel-ink/40 to-transparent"
-        />
-        <Container className="py-24 sm:py-32">
-          <p className="font-display text-base text-aurum">{site.tagline}</p>
+      {/* Hero — a thesis, not a greeting. Dark ink ground; the ampersand from
+          "& Co." bleeds off the right as an oversized brand device. */}
+      <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
+        {/* Oversized ampersand — the firm's "& Co." mark as pure decoration:
+            not the point, just enough interest. Mid-strength tone-on-tone blue. */}
+        <HeroAmpersand />
+        <Container className="relative py-24 sm:py-32">
+          <p className="font-display text-base text-brand-secondary">
+            {site.tagline}
+          </p>
 
           <h1 className="font-display font-display-hero mt-12 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
-            Enterprise transformations don&apos;t fail on technology. They fail
-            on judgment.
+            Enterprise transformations don&apos;t fail on technology.
+            <br />
+            They fail on{" "}
+            <em className="not-italic text-brand-secondary">judgment</em>.
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-bone/75">
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-brand-paper/75">
             J. Lynne &amp; Co. is an advisory firm for the programs that
             can&apos;t afford to fail: ERP and enterprise transformation, read
             honestly before, during, and after — then driven, with someone
@@ -65,48 +59,50 @@ export default function Home() {
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <CTALink href={site.discoveryCall} variant="onDark">
+            <CTALink href={site.discoveryCall} variant="solid">
               Schedule a discovery call
             </CTALink>
           </div>
         </Container>
       </section>
 
-      {/* The argument — 3 beats. */}
-      <Section ground="bone">
-        <Eyebrow>The argument</Eyebrow>
-        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          The case for judgment across the full lifecycle.
-        </h2>
-        {/* Editorial numbered sequence — deliberately unlike the exhibit grid
-            and the ladder scroller below. */}
-        <div className="mt-12 border-t border-counsel-ink/15">
-          {argument.map((beat) => (
-            <div
-              key={beat.n}
-              className="grid gap-3 border-b border-counsel-ink/15 py-8 md:grid-cols-[5rem_1fr] md:gap-10 md:py-10"
-            >
-              <span className="font-display text-4xl leading-none text-aurum sm:text-5xl">
-                {beat.n}
-              </span>
-              <div className="max-w-2xl">
-                <h3 className="font-display text-2xl leading-snug">
-                  {beat.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-counsel-ink/80">
-                  {beat.body}
-                </p>
+      {/* The argument — 3 beats. Paper ground, gold eyebrow, blue numerals. */}
+      <section className="bg-brand-paper text-brand-ink py-20 sm:py-28">
+        <Container>
+          <Eyebrow>The argument</Eyebrow>
+          <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
+            The case for judgment across the full lifecycle.
+          </h2>
+          {/* Editorial numbered sequence — deliberately unlike the exhibit grid
+              and the ladder scroller below. */}
+          <div className="mt-12 border-t border-brand-ink/15">
+            {argument.map((beat) => (
+              <div
+                key={beat.n}
+                className="grid gap-3 border-b border-brand-ink/15 py-8 md:grid-cols-[5rem_1fr] md:gap-10 md:py-10"
+              >
+                <span className="font-display text-4xl leading-none text-brand-primary sm:text-5xl">
+                  {beat.n}
+                </span>
+                <div className="max-w-2xl">
+                  <h3 className="font-display text-2xl leading-snug">
+                    {beat.title}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-brand-ink/80">
+                    {beat.body}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       {/* Exhibit strip — first taste of the signature. Dark ground sits
           between the two light sections so neither touches the other. */}
       <Section ground="deep">
         <Eyebrow>The evidence</Eyebrow>
-        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
           The argument, entered as exhibits.
         </h2>
         <div className="mt-12">
@@ -115,7 +111,7 @@ export default function Home() {
       </Section>
 
       {/* The ladder, previewed — apex first; Program lower by design. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>How the firm engages</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           One firm, four modes.

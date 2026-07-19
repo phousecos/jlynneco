@@ -1,17 +1,33 @@
 import Link from "next/link";
 import { clsx } from "@/lib/clsx";
 
-type Variant = "solid" | "outline" | "ghost" | "onDark";
+type Variant =
+  | "solid"
+  | "outline"
+  | "ghost"
+  | "ghostOnDark"
+  | "onDark"
+  | "onColor";
 
 const styles: Record<Variant, string> = {
+  // Primary action — the blue lead accent.
   solid:
-    "bg-counsel-ink text-bone border border-counsel-ink hover:bg-ink-deep",
+    "bg-brand-primary text-brand-paper border border-brand-primary hover:bg-brand-primary/90",
   outline:
-    "border border-counsel-ink text-counsel-ink hover:border-aurum hover:bg-counsel-ink hover:text-bone",
+    "border border-brand-ink text-brand-ink hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper",
+  // Inline cross-link on a light ground — hovers to the blue lead.
   ghost:
-    "text-counsel-ink underline-offset-4 hover:text-aurum hover:underline px-0",
+    "text-brand-ink underline-offset-4 hover:text-brand-primary hover:underline px-0",
+  // Inline cross-link on a dark ground — hovers to teal (the on-dark accent),
+  // which stays legible where blue would go muddy.
+  ghostOnDark:
+    "text-brand-paper/80 underline-offset-4 hover:text-brand-tertiary hover:underline px-0",
+  // Action on a dark ground — fills to blue on hover.
   onDark:
-    "border border-bone/40 text-bone hover:border-aurum hover:bg-aurum hover:text-counsel-ink",
+    "border border-brand-paper/40 text-brand-paper hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper",
+  // Action on a colored (blue) ground — a paper button for contrast.
+  onColor:
+    "bg-brand-paper text-brand-primary border border-transparent hover:bg-brand-paper/90",
 };
 
 // Internal/external link styled as an action. Ghost variant is the inline

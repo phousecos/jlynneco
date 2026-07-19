@@ -42,10 +42,10 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-bone text-counsel-ink">
+      <body className="flex min-h-full flex-col bg-brand-paper text-brand-ink">
         <a
           href="#main"
-          className="eyebrow sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-counsel-ink focus:px-4 focus:py-2 focus:text-bone"
+          className="eyebrow sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-brand-ink focus:px-4 focus:py-2 focus:text-brand-paper"
         >
           Skip to content
         </a>

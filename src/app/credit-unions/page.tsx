@@ -94,7 +94,7 @@ export default function CreditUnionsPage() {
         title={
           <>
             It starts before the RFP. It starts with{" "}
-            <em className="not-italic text-aurum">requirements</em>.
+            <em className="not-italic text-brand-secondary">requirements</em>.
           </>
         }
         lede="If your core vendor helps you write your requirements, the RFP gets written to that vendor's capabilities and the decision is made before anyone scores a proposal. The firm works for you, on one side of the table, for a fixed fee — no vendor commissions, no contingency, no reseller agreements."
@@ -103,36 +103,36 @@ export default function CreditUnionsPage() {
           <CTALink href={site.discoveryCall} variant="onDark">
             Book a 30-minute call
           </CTALink>
-          <CTALink href="#work" variant="ghost" className="text-bone/80">
+          <CTALink href="#work" variant="ghostOnDark">
             See how the firm works <span aria-hidden>→</span>
           </CTALink>
         </div>
       </PageHero>
 
       {/* How the firm works — four stages, in the order they happen. */}
-      <Section ground="bone" id="work">
+      <Section ground="paper" id="work">
         <Eyebrow>How the firm works</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Four stages, in the order they actually happen.
         </h2>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-counsel-ink/80">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-ink/80">
           Most institutions bring in help at stage two, after the shortlist is
           already set. By then the expensive decisions have been made — quietly,
           and by someone else.
         </p>
 
-        <div className="mt-14 space-y-px bg-counsel-ink/12">
+        <div className="mt-14 space-y-px bg-brand-ink/12">
           {stages.map((s, i) => (
             <div
               key={s.n}
-              className="grid gap-6 bg-bone py-9 sm:grid-cols-[160px_1fr] sm:gap-10"
+              className="grid gap-6 bg-brand-paper py-9 sm:grid-cols-[160px_1fr] sm:gap-10"
             >
               <div className="flex items-baseline gap-4 sm:flex-col sm:items-start sm:gap-2">
-                <span className="font-mono text-sm text-graphite">{s.n}</span>
+                <span className="font-mono text-sm text-brand-slate">{s.n}</span>
                 <span
                   className={clsx(
                     "eyebrow",
-                    i === 0 ? "text-aurum" : "text-counsel-ink/55",
+                    i === 0 ? "text-brand-secondary" : "text-brand-ink/55",
                   )}
                 >
                   {s.when}
@@ -142,11 +142,11 @@ export default function CreditUnionsPage() {
                 <h3 className="font-display text-xl leading-snug sm:text-2xl">
                   {s.title}
                 </h3>
-                <p className="mt-4 text-[1.02rem] leading-relaxed text-counsel-ink/80">
+                <p className="mt-4 text-[1.02rem] leading-relaxed text-brand-ink/80">
                   {s.body}
                 </p>
                 {s.pull && (
-                  <p className="font-display mt-6 border-l-2 border-aurum pl-5 text-lg leading-snug text-counsel-ink">
+                  <p className="font-display mt-6 border-l-2 border-brand-secondary pl-5 text-lg leading-snug text-brand-ink">
                     {s.pull}
                   </p>
                 )}
@@ -162,23 +162,23 @@ export default function CreditUnionsPage() {
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           Between projects, the same problems keep their shape.
         </h2>
-        <p className="mt-5 max-w-xl text-lg leading-relaxed text-bone/85">
+        <p className="mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
           Three engagements for institutions that are not converting anything
           this year, and still need someone whose only client is them.
         </p>
 
-        <div className="mt-12 grid gap-px bg-bone/15 md:grid-cols-3">
+        <div className="mt-12 grid gap-px bg-brand-paper/15 md:grid-cols-3">
           {ongoing.map((o) => (
-            <div key={o.title} className="flex flex-col bg-counsel-ink p-7 sm:p-8">
-              <span className="eyebrow text-aurum">{o.label}</span>
+            <div key={o.title} className="flex flex-col bg-brand-ink p-7 sm:p-8">
+              <span className="eyebrow text-brand-secondary">{o.label}</span>
               <h3 className="font-display mt-5 text-xl leading-snug">
                 {o.title}
               </h3>
-              <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-bone/80">
+              <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-brand-paper/80">
                 {o.body}
               </p>
               <div className="mt-6">
-                <CTALink href={o.href} variant="ghost" className="text-bone/80">
+                <CTALink href={o.href} variant="ghostOnDark">
                   {o.cta} <span aria-hidden>→</span>
                 </CTALink>
               </div>
@@ -188,22 +188,22 @@ export default function CreditUnionsPage() {
       </Section>
 
       {/* Fit — worth being direct about. Two columns: works / doesn't. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>Fit</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           Worth being direct about.
         </h2>
 
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 md:grid-cols-2">
-          <div className="bg-bone p-7 sm:p-9">
-            <span className="eyebrow text-aurum">This works if</span>
+        <div className="mt-12 grid gap-px bg-brand-ink/12 md:grid-cols-2">
+          <div className="bg-brand-paper p-7 sm:p-9">
+            <span className="eyebrow text-brand-secondary">This works if</span>
             <ul className="mt-6 space-y-px">
               {fitYes.map((line) => (
                 <li
                   key={line}
-                  className="flex gap-3 border-t border-counsel-ink/12 py-3 text-[0.98rem] leading-relaxed text-counsel-ink/90 first:border-t-0"
+                  className="flex gap-3 border-t border-brand-ink/12 py-3 text-[0.98rem] leading-relaxed text-brand-ink/90 first:border-t-0"
                 >
-                  <span className="font-mono text-aurum" aria-hidden>
+                  <span className="font-mono text-brand-tertiary" aria-hidden>
                     +
                   </span>
                   <span>{line}</span>
@@ -211,15 +211,15 @@ export default function CreditUnionsPage() {
               ))}
             </ul>
           </div>
-          <div className="bg-bone p-7 sm:p-9">
-            <span className="eyebrow text-counsel-ink/50">This doesn&apos;t</span>
+          <div className="bg-brand-paper p-7 sm:p-9">
+            <span className="eyebrow text-brand-ink/50">This doesn&apos;t</span>
             <ul className="mt-6 space-y-px">
               {fitNo.map((line) => (
                 <li
                   key={line}
-                  className="flex gap-3 border-t border-counsel-ink/12 py-3 text-[0.98rem] leading-relaxed text-counsel-ink/55 first:border-t-0"
+                  className="flex gap-3 border-t border-brand-ink/12 py-3 text-[0.98rem] leading-relaxed text-brand-ink/55 first:border-t-0"
                 >
-                  <span className="font-mono text-counsel-ink/40" aria-hidden>
+                  <span className="font-mono text-brand-ink/40" aria-hidden>
                     &minus;
                   </span>
                   <span>{line}</span>
@@ -240,7 +240,7 @@ export default function CreditUnionsPage() {
               institutions that could not afford to get it wrong.
             </h2>
           </div>
-          <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-bone/80">
+          <div className="max-w-2xl space-y-5 text-lg leading-relaxed text-brand-paper/80">
             <p>
               Deputy Chief Information Officer at Columbia University, and
               Associate Vice Chancellor for Enterprise Applications at
@@ -256,7 +256,7 @@ export default function CreditUnionsPage() {
               witness in enterprise systems disputes.
             </p>
 
-            <dl className="mt-8 border-t border-bone/15">
+            <dl className="mt-8 border-t border-brand-paper/15">
               {[
                 { k: "Credentials", d: "Ed.D. · PMP · CSM · ITIL Foundation" },
                 {
@@ -270,12 +270,12 @@ export default function CreditUnionsPage() {
               ].map((row) => (
                 <div
                   key={row.k}
-                  className="flex flex-col gap-1 border-b border-bone/15 py-4 sm:flex-row sm:gap-6"
+                  className="flex flex-col gap-1 border-b border-brand-paper/15 py-4 sm:flex-row sm:gap-6"
                 >
-                  <dt className="font-mono text-xs uppercase tracking-wider text-bone/55 sm:w-32 sm:shrink-0 sm:pt-0.5">
+                  <dt className="font-mono text-xs uppercase tracking-wider text-brand-paper/55 sm:w-32 sm:shrink-0 sm:pt-0.5">
                     {row.k}
                   </dt>
-                  <dd className="text-[0.98rem] leading-relaxed text-bone/85">
+                  <dd className="text-[0.98rem] leading-relaxed text-brand-paper/85">
                     {row.d}
                   </dd>
                 </div>
@@ -286,7 +286,7 @@ export default function CreditUnionsPage() {
               <CTALink href="/firm" variant="onDark">
                 About the firm
               </CTALink>
-              <CTALink href="/expert-witness" variant="ghost" className="text-bone/80">
+              <CTALink href="/expert-witness" variant="ghostOnDark">
                 The full CV counsel vets <span aria-hidden>→</span>
               </CTALink>
             </div>
@@ -295,12 +295,12 @@ export default function CreditUnionsPage() {
       </Section>
 
       {/* Close — start with a conversation. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <div className="max-w-2xl">
           <h2 className="font-display max-w-xl text-3xl leading-tight sm:text-4xl">
             Start with a conversation, not a proposal.
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-counsel-ink/80">
+          <p className="mt-6 text-lg leading-relaxed text-brand-ink/80">
             Thirty minutes. Bring the decision you&apos;re facing, or the one you
             already made and can&apos;t stop thinking about. If the firm
             isn&apos;t the right fit, it will say so and tell you who is.
@@ -313,7 +313,7 @@ export default function CreditUnionsPage() {
               Engage the firm <span aria-hidden>→</span>
             </CTALink>
           </div>
-          <p className="mt-6 font-mono text-xs uppercase tracking-wider text-counsel-ink/50">
+          <p className="mt-6 font-mono text-xs uppercase tracking-wider text-brand-ink/50">
             Durham, NC · Serving institutions nationally
           </p>
         </div>

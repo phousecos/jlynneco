@@ -15,7 +15,7 @@ export function SiteHeader() {
     pathname === href || (href !== "/" && pathname?.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-counsel-ink/10 bg-bone/85 backdrop-blur supports-[backdrop-filter]:bg-bone/70">
+    <header className="sticky top-0 z-40 border-b border-brand-ink/10 bg-brand-paper/85 backdrop-blur supports-[backdrop-filter]:bg-brand-paper/70">
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-8">
         <Link
           href="/"
@@ -23,9 +23,9 @@ export function SiteHeader() {
           aria-label="J. Lynne & Co. — home"
           onClick={() => setOpen(false)}
         >
-          <Mark size={68} className="text-aurum" />
+          <Mark size={68} className="text-brand-primary" />
           <span className="font-display text-lg leading-none tracking-tight">
-            J. Lynne <span className="text-graphite">&amp; Co.</span>
+            J. Lynne <span className="text-brand-primary">&amp; Co.</span>
           </span>
         </Link>
 
@@ -35,10 +35,10 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={clsx(
-                "text-sm transition-colors hover:text-aurum",
+                "text-sm transition-colors hover:text-brand-primary",
                 isActive(item.href)
-                  ? "text-counsel-ink"
-                  : "text-graphite",
+                  ? "text-brand-primary"
+                  : "text-brand-slate",
               )}
             >
               {item.label}
@@ -46,7 +46,7 @@ export function SiteHeader() {
           ))}
           <Link
             href={engageHref}
-            className="rounded-full border border-counsel-ink px-4 py-1.5 text-sm text-counsel-ink transition-colors hover:border-aurum hover:bg-counsel-ink hover:text-bone"
+            className="rounded-full border border-brand-ink px-4 py-1.5 text-sm text-brand-ink transition-colors hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper"
           >
             Engage
           </Link>
@@ -60,7 +60,7 @@ export function SiteHeader() {
           aria-label="Toggle navigation"
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="eyebrow text-counsel-ink">
+          <span className="eyebrow text-brand-ink">
             {open ? "Close" : "Menu"}
           </span>
         </button>
@@ -69,7 +69,7 @@ export function SiteHeader() {
       {open && (
         <nav
           id="mobile-nav"
-          className="border-t border-counsel-ink/10 bg-bone lg:hidden"
+          className="border-t border-brand-ink/10 bg-brand-paper lg:hidden"
           aria-label="Primary"
         >
           <div className="mx-auto flex max-w-6xl flex-col px-6 py-2 sm:px-8">
@@ -79,8 +79,8 @@ export function SiteHeader() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={clsx(
-                  "border-b border-counsel-ink/5 py-3 text-base",
-                  isActive(item.href) ? "text-aurum" : "text-counsel-ink",
+                  "border-b border-brand-ink/5 py-3 text-base",
+                  isActive(item.href) ? "text-brand-primary" : "text-brand-ink",
                 )}
               >
                 {item.label}
@@ -89,7 +89,7 @@ export function SiteHeader() {
             <Link
               href={engageHref}
               onClick={() => setOpen(false)}
-              className="py-4 font-display text-lg text-counsel-ink"
+              className="py-4 font-display text-lg text-brand-ink"
             >
               Engage →
             </Link>

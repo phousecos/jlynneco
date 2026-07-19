@@ -44,13 +44,13 @@ function VerticalsLine({ onDark = false }: { onDark?: boolean }) {
     <p
       className={clsx(
         "mt-8 max-w-2xl text-sm leading-relaxed",
-        onDark ? "text-bone/55" : "text-counsel-ink/60",
+        onDark ? "text-brand-paper/55" : "text-brand-ink/60",
       )}
     >
       <span
         className={clsx(
           "font-mono text-xs uppercase tracking-wider",
-          onDark ? "text-bone/45" : "text-counsel-ink/50",
+          onDark ? "text-brand-paper/45" : "text-brand-ink/50",
         )}
       >
         Verticals
@@ -65,34 +65,43 @@ export default function AdvisoryPage() {
     <>
       <PageHero
         eyebrow="Advisory & Audits"
-        title="The firm doesn't parachute in when it's broken. It has judgment before, during, and after."
+        title={
+          <>
+            The firm doesn&apos;t parachute in when it&apos;s broken. It has
+            judgment{" "}
+            <em className="not-italic text-brand-secondary">
+              before, during, and after
+            </em>
+            .
+          </>
+        }
         lede="One practice, organized as the full lifecycle — because that arc is the point. The same diagnostic judgment that decides readiness audits the build and remediates the aftermath."
       />
 
       {/* Judgment, not headcount — the advisory differentiator (firm voice),
           set as the lead, with the lifecycle beneath it. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>Judgment, not headcount</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           What the firm sells is judgment — not bodies on a timeline.
         </h2>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-counsel-ink/80">
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-brand-ink/80">
           The read on whether you&apos;re ready, what&apos;s actually wrong, and
           the call to make. That judgment runs the full lifecycle — before,
           during, and after.
         </p>
 
-        <div className="mt-14 grid gap-px bg-counsel-ink/12 md:grid-cols-3">
+        <div className="mt-14 grid gap-px bg-brand-ink/12 md:grid-cols-3">
           {lifecycle.map((p) => (
-            <div key={p.n} className="bg-bone p-7 sm:p-8">
+            <div key={p.n} className="bg-brand-paper p-7 sm:p-8">
               <div className="flex items-baseline justify-between">
-                <span className="eyebrow text-aurum">{p.phase}</span>
-                <span className="font-mono text-sm text-graphite">{p.n}</span>
+                <span className="eyebrow text-brand-secondary">{p.phase}</span>
+                <span className="font-mono text-sm text-brand-slate">{p.n}</span>
               </div>
               <h3 className="font-display mt-5 text-xl leading-snug">
                 {p.title}
               </h3>
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-brand-ink/80">
                 {p.body}
               </p>
             </div>
@@ -107,7 +116,7 @@ export default function AdvisoryPage() {
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           Named engagements, not the menu.
         </h2>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-bone/85">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-paper/85">
           The work below shows how the firm&apos;s judgment gets applied. Each
           engagement covers a specific type of situation and names the
           institutional contexts where it applies. If the situation you&apos;re
@@ -123,14 +132,14 @@ export default function AdvisoryPage() {
       {/* Named engagement — Vendor Detox. Lives in the audit family alongside
           SACS: assess, then tell you the truth, pointed at the vendor stack.
           (Pricing display is a pricing-page decision — kept off here.) */}
-      <Section ground="bone">
+      <Section ground="paper">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
             <Eyebrow>Named engagement</Eyebrow>
             <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
               Vendor Detox&trade; — rationalize the stack, on a clock.
             </h2>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-counsel-ink/80">
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-brand-ink/80">
               <p>
                 A focused diagnostic that maps your vendor and contract stack,
                 surfaces the redundancy, overspend, and risk hiding in it, and
@@ -148,9 +157,9 @@ export default function AdvisoryPage() {
           </div>
 
           {/* Callout box — SACS-style, restyled for the light ground. */}
-          <aside className="border border-counsel-ink/15 p-7">
-            <div className="flex justify-end border-b border-counsel-ink/12 pb-4">
-              <Mark size={24} className="text-aurum/70" />
+          <aside className="border border-brand-ink/15 p-7">
+            <div className="flex justify-end border-b border-brand-ink/12 pb-4">
+              <Mark size={24} className="text-brand-primary/70" />
             </div>
             <dl className="mt-6 space-y-5">
               {[
@@ -164,10 +173,10 @@ export default function AdvisoryPage() {
                 },
               ].map((row) => (
                 <div key={row.t}>
-                  <dt className="font-mono text-xs uppercase tracking-wider text-counsel-ink/60">
+                  <dt className="font-mono text-xs uppercase tracking-wider text-brand-ink/60">
                     {row.t}
                   </dt>
-                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-brand-ink/80">
                     {row.d}
                   </dd>
                 </div>
@@ -186,7 +195,7 @@ export default function AdvisoryPage() {
             <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
               SACS accreditation-readiness, run against the reaffirmation clock.
             </h2>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-bone/85">
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-brand-paper/85">
               <p>
                 Reaffirmation does not move. The visiting committee arrives on a
                 date set years out, and the institution&apos;s technology and
@@ -210,10 +219,10 @@ export default function AdvisoryPage() {
           </div>
 
           {/* The clock as a small exhibit-styled panel. */}
-          <aside className="border border-bone/20 p-7">
-            <div className="flex items-center justify-between border-b border-bone/15 pb-4">
-              <span className="eyebrow text-aurum">The cycle clock</span>
-              <Mark size={24} className="text-aurum/70" />
+          <aside className="border border-brand-paper/20 p-7">
+            <div className="flex items-center justify-between border-b border-brand-paper/15 pb-4">
+              <span className="eyebrow text-brand-secondary">The cycle clock</span>
+              <Mark size={24} className="text-brand-paper/70" />
             </div>
             <dl className="mt-6 space-y-5">
               {[
@@ -231,10 +240,10 @@ export default function AdvisoryPage() {
                 },
               ].map((row) => (
                 <div key={row.t}>
-                  <dt className="font-mono text-xs uppercase tracking-wider text-bone/60">
+                  <dt className="font-mono text-xs uppercase tracking-wider text-brand-paper/60">
                     {row.t}
                   </dt>
-                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-bone/85">
+                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-brand-paper/85">
                     {row.d}
                   </dd>
                 </div>
@@ -246,14 +255,14 @@ export default function AdvisoryPage() {
 
       {/* Advisory practice — Vendor & System Selection. Variable-scope judgment
           applied to the major system decision. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
             <Eyebrow>Advisory practice</Eyebrow>
             <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
               Vendor &amp; System Selection — the right choice, run cleanly.
             </h2>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-counsel-ink/80">
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-brand-ink/80">
               <p>
                 The major system decision — core banking, matter management,
                 SIS, ERP, EHR — is the one most institutions run infrequently
@@ -277,9 +286,9 @@ export default function AdvisoryPage() {
           </div>
 
           {/* Callout box — SACS-style, restyled for the light ground. */}
-          <aside className="border border-counsel-ink/15 p-7">
-            <div className="flex justify-end border-b border-counsel-ink/12 pb-4">
-              <Mark size={24} className="text-aurum/70" />
+          <aside className="border border-brand-ink/15 p-7">
+            <div className="flex justify-end border-b border-brand-ink/12 pb-4">
+              <Mark size={24} className="text-brand-primary/70" />
             </div>
             <dl className="mt-6 space-y-5">
               {[
@@ -293,10 +302,10 @@ export default function AdvisoryPage() {
                 },
               ].map((row) => (
                 <div key={row.t}>
-                  <dt className="font-mono text-xs uppercase tracking-wider text-counsel-ink/60">
+                  <dt className="font-mono text-xs uppercase tracking-wider text-brand-ink/60">
                     {row.t}
                   </dt>
-                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-brand-ink/80">
                     {row.d}
                   </dd>
                 </div>
@@ -312,14 +321,14 @@ export default function AdvisoryPage() {
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           The right altitude for the need.
         </h2>
-        <div className="mt-12 grid gap-px bg-bone/15 md:grid-cols-2">
+        <div className="mt-12 grid gap-px bg-brand-paper/15 md:grid-cols-2">
           {/* Down to CIO Advisra — productized assessment. */}
-          <div className="flex flex-col bg-bone p-7 text-counsel-ink sm:p-9">
-            <span className="eyebrow text-aurum">Down → CIO Advisra</span>
+          <div className="flex flex-col bg-brand-paper p-7 text-brand-ink sm:p-9">
+            <span className="eyebrow text-brand-secondary">Down → CIO Advisra</span>
             <h3 className="font-display mt-5 text-2xl leading-snug">
               Need the structured assessment, not the bespoke engagement?
             </h3>
-            <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+            <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-brand-ink/80">
               The bespoke accreditation audit — the firm&apos;s judgment,
               high-touch — belongs to the firm. The productized six-pillar
               maturity assessment belongs to CIO Advisra. Same vertical, two
@@ -334,12 +343,12 @@ export default function AdvisoryPage() {
           </div>
 
           {/* Up to Expert Witness — the audits generate the authority. */}
-          <div className="flex flex-col bg-bone p-7 text-counsel-ink sm:p-9">
-            <span className="eyebrow text-aurum">Up → Expert Witness</span>
+          <div className="flex flex-col bg-brand-paper p-7 text-brand-ink sm:p-9">
+            <span className="eyebrow text-brand-secondary">Up → Expert Witness</span>
             <h3 className="font-display mt-5 text-2xl leading-snug">
               When a failure becomes contested.
             </h3>
-            <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+            <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-brand-ink/80">
               The audits are where the firm&apos;s forensic judgment is built
               and proven — the same muscle that, when an implementation failure
               becomes a matter, testifies to why it failed. The audit work is

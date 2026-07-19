@@ -47,23 +47,28 @@ export default function ExpertWitnessPage() {
       <PageHero
         ground="deep"
         eyebrow="Expert Witness"
-        title="Retained when an implementation failure becomes a matter."
+        title={
+          <>
+            Retained when an implementation failure becomes a{" "}
+            <em className="not-italic text-brand-secondary">matter</em>.
+          </>
+        }
         lede="For general counsel, litigators, and audit committees: independent analysis of ERP and enterprise-implementation failure — standard of care, causation, and the technical record — that holds up under cross-examination."
       />
 
       {/* The engagement. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>The engagement</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           What the firm is retained for.
         </h2>
-        <div className="mt-12 grid gap-px bg-counsel-ink/12 sm:grid-cols-2">
+        <div className="mt-12 grid gap-px bg-brand-ink/12 sm:grid-cols-2">
           {retainedFor.map((r) => (
-            <div key={r.label} className="bg-bone p-7 sm:p-8">
-              <h3 className="font-display text-xl text-counsel-ink">
+            <div key={r.label} className="bg-brand-paper p-7 sm:p-8">
+              <h3 className="font-display text-xl text-brand-ink">
                 {r.label}
               </h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-brand-ink/80">
                 {r.body}
               </p>
             </div>
@@ -79,11 +84,11 @@ export default function ExpertWitnessPage() {
         </h2>
         <ul className="mt-10 space-y-5">
           {credentials.map((c) => (
-            <li key={c} className="flex gap-4 border-b border-bone/15 pb-5">
-              <span className="font-mono text-sm text-aurum" aria-hidden>
+            <li key={c} className="flex gap-4 border-b border-brand-paper/15 pb-5">
+              <span className="font-mono text-sm text-brand-secondary" aria-hidden>
                 §
               </span>
-              <span className="text-[1.05rem] leading-relaxed text-bone/85">
+              <span className="text-[1.05rem] leading-relaxed text-brand-paper/85">
                 {c}
               </span>
             </li>
@@ -93,7 +98,7 @@ export default function ExpertWitnessPage() {
         {/* Posture — calibrated to "building toward" per spec §5. Honest about
             where the practice is, without overclaiming a record counsel will
             check. */}
-        <p className="mt-10 text-[0.95rem] leading-relaxed text-bone/65">
+        <p className="mt-10 text-[0.95rem] leading-relaxed text-brand-paper/65">
           The firm is available for retention, credentialed by domain expertise
           and forensic audit work, with a testimony record that is growing.
           Engagements begin with a conflicts check and a confidential review of
@@ -102,12 +107,12 @@ export default function ExpertWitnessPage() {
       </Section>
 
       {/* Cross-link up from Advisory & Audits — the credibility bridge. */}
-      <Section ground="bone" size="prose">
+      <Section ground="paper" size="prose">
         <Eyebrow>The credibility bridge</Eyebrow>
         <h2 className="font-display mt-5 text-2xl leading-snug sm:text-3xl">
           The audit work and the witness work are the same muscle.
         </h2>
-        <p className="mt-5 text-lg leading-relaxed text-counsel-ink/85">
+        <p className="mt-5 text-lg leading-relaxed text-brand-ink/85">
           Forensically examining why an implementation failed is the same
           discipline as testifying about why one failed. The firm&apos;s audit
           practice is where that judgment is built and proven — and it is what
@@ -123,7 +128,7 @@ export default function ExpertWitnessPage() {
       {/* Exhibits relevant to counsel. */}
       <Section ground="deep">
         <Eyebrow>On the record</Eyebrow>
-        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
           Exhibits a vetting reader can weigh.
         </h2>
         <div className="mt-12">
@@ -133,16 +138,16 @@ export default function ExpertWitnessPage() {
 
       {/* How to engage — confidential, by direct encrypted email (not a web
           form, which would route a matter through a third-party backend). */}
-      <Section ground="bone" size="prose">
+      <Section ground="paper" size="prose">
         <Eyebrow>How to engage</Eyebrow>
         <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
           A confidential, low-friction intake.
         </h2>
-        <p className="mt-6 text-lg leading-relaxed text-counsel-ink/80">
+        <p className="mt-6 text-lg leading-relaxed text-brand-ink/80">
           Open a matter by email and the firm will run a conflicts check and
           review the posture of the case before any engagement letter.
         </p>
-        <p className="mt-4 text-[0.95rem] leading-relaxed text-graphite">
+        <p className="mt-4 text-[0.95rem] leading-relaxed text-brand-slate">
           Keep first contact to what a conflicts check needs — the parties
           involved — and hold privileged detail until a secure channel is
           established. The firm corresponds from an encrypted (Proton) account;

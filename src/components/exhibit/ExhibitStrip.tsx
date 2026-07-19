@@ -17,8 +17,8 @@ export function ExhibitStrip({
     <div
       className={
         columns === 2
-          ? "grid gap-px bg-bone/15 sm:grid-cols-2"
-          : "grid gap-px bg-bone/15 sm:grid-cols-2 lg:grid-cols-3"
+          ? "grid gap-px bg-brand-paper/15 sm:grid-cols-2"
+          : "grid gap-px bg-brand-paper/15 sm:grid-cols-2 lg:grid-cols-3"
       }
     >
       {exhibits.map((exhibit, i) => (

@@ -34,14 +34,20 @@ export default function FirmPage() {
     <>
       <PageHero
         eyebrow="The Firm — Point of View"
-        title="A firm organized around proof and a point of view, not a service menu."
+        title={
+          <>
+            A firm organized around{" "}
+            <em className="not-italic text-brand-secondary">proof</em> and a
+            point of view, not a service menu.
+          </>
+        }
         lede="J. Lynne & Co. exists for the enterprise programs that cannot afford to fail. This is what the firm believes about why they do — and the lens it brings to every engagement."
       />
 
       {/* The thesis, stated with conviction. */}
-      <Section ground="bone" size="prose">
+      <Section ground="paper" size="prose">
         <Eyebrow>The thesis</Eyebrow>
-        <div className="mt-6 space-y-6 text-lg leading-relaxed text-counsel-ink/85">
+        <div className="mt-6 space-y-6 text-lg leading-relaxed text-brand-ink/85">
           <p>
             Most enterprise transformations are sold as technology projects and
             die as governance failures. The software is rarely the problem. The
@@ -66,13 +72,13 @@ export default function FirmPage() {
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           Three convictions the firm advises from.
         </h2>
-        <div className="mt-12 grid gap-px bg-bone/15 md:grid-cols-3">
+        <div className="mt-12 grid gap-px bg-brand-paper/15 md:grid-cols-3">
           {beliefs.map((b) => (
-            <div key={b.claim} className="bg-bone p-7 sm:p-8">
-              <h3 className="font-display text-xl leading-snug text-counsel-ink">
+            <div key={b.claim} className="bg-brand-paper p-7 sm:p-8">
+              <h3 className="font-display text-xl leading-snug text-brand-ink">
                 {b.claim}
               </h3>
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-counsel-ink/80">
+              <p className="mt-4 text-[0.95rem] leading-relaxed text-brand-ink/80">
                 {b.body}
               </p>
             </div>
@@ -83,30 +89,30 @@ export default function FirmPage() {
       {/* Leadership — the founding principal, voiced as the firm. Names Jerri
           prominently; reads as the source of the firm's authority, not an
           About-Me. Built as a container that holds more than one principal. */}
-      <Section ground="bone">
+      <Section ground="paper">
         <Eyebrow>Leadership</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
           The authority is the firm&apos;s. Its source has a name.
         </h2>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-counsel-ink/80">
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-brand-ink/80">
           The point of view is not borrowed. The firm&apos;s lens originates
           with its founding principal — and the rigor behind it is what lets the
           firm hold a position under pressure: with a steering committee, with a
           board, and, when it comes to it, under cross-examination.
         </p>
 
-        <div className="mt-12 grid gap-px bg-counsel-ink/12">
+        <div className="mt-12 grid gap-px bg-brand-ink/12">
           {leadership.map((p) => (
             <article
               key={p.name}
-              className="grid gap-6 bg-bone p-7 sm:grid-cols-[auto_1fr] sm:gap-8 sm:p-9"
+              className="grid gap-6 bg-brand-paper p-7 sm:grid-cols-[auto_1fr] sm:gap-8 sm:p-9"
             >
               {/* Headshot if present in /public, else the gold monogram. */}
               <Avatar src={p.image} alt={p.name} initials={p.initials} />
               <div>
                 <h3 className="font-display text-2xl leading-tight">{p.name}</h3>
-                <p className="eyebrow mt-1.5 text-graphite">{p.role}</p>
-                <p className="mt-4 leading-relaxed text-counsel-ink/80">
+                <p className="eyebrow mt-1.5 text-brand-slate">{p.role}</p>
+                <p className="mt-4 leading-relaxed text-brand-ink/80">
                   {p.bio}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-x-7 gap-y-2">
@@ -125,7 +131,7 @@ export default function FirmPage() {
       {/* Exhibit strip feeding from the proof spine. */}
       <Section ground="deep">
         <Eyebrow>Selected exhibits</Eyebrow>
-        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-bone sm:text-4xl">
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
           The lens, evidenced.
         </h2>
         <div className="mt-12">

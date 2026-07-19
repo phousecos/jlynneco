@@ -25,7 +25,7 @@ export function ConfidentialEmailButton({
     <button
       type="button"
       onClick={open}
-      className="inline-flex items-center gap-2 rounded-full border border-counsel-ink bg-counsel-ink px-6 py-3 text-sm font-medium text-bone transition-colors hover:bg-ink-deep"
+      className="inline-flex items-center gap-2 rounded-full border border-brand-ink bg-brand-ink px-6 py-3 text-sm font-medium text-brand-paper transition-colors hover:bg-brand-ink"
     >
       {children}
     </button>

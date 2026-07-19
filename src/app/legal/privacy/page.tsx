@@ -17,8 +17,8 @@ export default function PrivacyPage() {
         title="Privacy policy"
         lede="Placeholder policy — to be finalized with counsel before launch."
       />
-      <Section ground="bone" size="prose">
-        <div className="space-y-6 text-[1.02rem] leading-relaxed text-counsel-ink/85">
+      <Section ground="paper" size="prose">
+        <div className="space-y-6 text-[1.02rem] leading-relaxed text-brand-ink/85">
           <p>
             {site.name} collects only the information you provide through the
             engage forms and direct correspondence, and uses it solely to
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
             {legal.engagementEntity}. Legal matters are handled by{" "}
             {legal.legalCounsel}.
           </p>
-          <p className="text-graphite">
+          <p className="text-brand-slate">
             This is placeholder copy. Final privacy terms will be issued by{" "}
             {legal.legalCounsel} prior to launch.
           </p>
