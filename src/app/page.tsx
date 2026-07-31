@@ -241,13 +241,6 @@ export default function Home() {
               projects, we focus on strengthening leadership&apos;s ability to
               govern those projects.
             </p>
-            <p className="mt-8 font-display text-2xl leading-snug text-brand-paper">
-              Our role is not to replace internal leadership.
-              <br />
-              <span className="text-brand-tertiary">
-                Our role is to strengthen it.
-              </span>
-            </p>
           </div>
 
           <div>
@@ -271,35 +264,58 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* How we help — paper ground, four engagement modes as a hairline grid. */}
+      {/* Posture banner — the statement pulled out of the posture section onto
+          a full-bleed teal band (teal = the "supports / strengthen" accent). */}
+      <section className="bg-brand-tertiary text-brand-paper">
+        <Container className="py-16 text-center sm:py-20">
+          <p className="font-display font-display-hero text-3xl leading-tight sm:text-4xl lg:text-5xl">
+            <span className="text-brand-paper/80">
+              Our role is not to replace internal leadership.
+            </span>
+            <br />
+            Our role is to strengthen it.
+          </p>
+        </Container>
+      </section>
+
+      {/* How we help — paper ground, four engagement modes in a two-tone grid. */}
       <Section ground="paper">
         <Eyebrow>How we help</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Four ways we strengthen executive governance.
         </h2>
 
-        <div className="mt-12 grid gap-px overflow-hidden border border-brand-ink/10 bg-brand-ink/10 sm:grid-cols-2">
-          {services.map((service) => (
-            <Link
-              key={service.n}
-              href={service.href}
-              className="group flex h-full flex-col bg-brand-paper p-8 transition-colors hover:bg-brand-mist/50"
-            >
-              <span className="font-mono text-sm text-brand-secondary">
-                {service.n}
-              </span>
-              <h3 className="font-display mt-4 text-xl leading-snug">
-                {service.title}
-              </h3>
-              <p className="mt-3 flex-1 leading-relaxed text-brand-ink/75">
-                {service.body}
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary transition-colors group-hover:text-brand-ink">
-                Learn more
-                <span aria-hidden>→</span>
-              </span>
-            </Link>
-          ))}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          {services.map((service, i) => {
+            // Boxes 1 & 4 share the royal-blue tone; 2 & 3 take a deeper blue —
+            // a diagonal two-tone across the 2x2 grid.
+            const royal = i === 0 || i === 3;
+            return (
+              <Link
+                key={service.n}
+                href={service.href}
+                className={`group flex h-full flex-col p-8 text-brand-paper transition-colors ${
+                  royal
+                    ? "bg-brand-primary hover:bg-brand-primary/90"
+                    : "bg-[#1a3488] hover:bg-[#1a3488]/90"
+                }`}
+              >
+                <span className="font-mono text-sm text-brand-secondary">
+                  {service.n}
+                </span>
+                <h3 className="font-display mt-4 text-xl leading-snug text-brand-paper">
+                  {service.title}
+                </h3>
+                <p className="mt-3 flex-1 leading-relaxed text-brand-paper/75">
+                  {service.body}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-paper transition-colors group-hover:text-brand-secondary">
+                  Learn more
+                  <span aria-hidden>→</span>
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </Section>
 
