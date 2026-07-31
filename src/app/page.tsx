@@ -5,6 +5,20 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import Image from "next/image";
 import { WordRiver } from "@/components/ui/WordRiver";
+import {
+  IconCompass,
+  IconClipboardCheck,
+  IconLifeBuoy,
+  IconCpu,
+  IconBank,
+  IconFlag,
+  IconHealthCross,
+  IconHeart,
+  IconBuilding,
+  IconRoundTable,
+  IconUsers,
+  IconTransform,
+} from "@/components/ui/icons";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
@@ -48,40 +62,44 @@ const advisoryOutcomes = [
 const services = [
   {
     n: "01",
+    Icon: IconCompass,
     title: "Executive Governance Advisory",
     body: "An ongoing executive advisory relationship providing independent governance oversight, executive coaching, risk analysis, and strategic decision support throughout major initiatives.",
     href: "/executive-governance-advisory",
   },
   {
     n: "02",
+    Icon: IconClipboardCheck,
     title: "Governance Assessments",
     body: "An objective evaluation of governance maturity, organizational readiness, executive accountability, and transformation risk before critical investments begin.",
     href: contactHref,
   },
   {
     n: "03",
+    Icon: IconLifeBuoy,
     title: "Project Recovery & Executive Stabilization",
     body: "When initiatives begin struggling, we help leadership restore governance discipline, improve executive alignment, and regain organizational confidence.",
     href: contactHref,
   },
   {
     n: "04",
+    Icon: IconCpu,
     title: "Fractional CIO Leadership",
     body: "When organizations require experienced technology leadership, we provide executive CIO guidance as part of a broader governance strategy. Technology leadership supports governance. It does not replace it.",
     href: contactHref,
   },
 ];
 
-// The organizations the firm serves.
+// The organizations the firm serves, each with an industry icon.
 const audiences = [
-  "Financial institutions and credit unions",
-  "Government agencies",
-  "Healthcare organizations",
-  "Nonprofit organizations",
-  "Mid-market businesses",
-  "Boards of Directors",
-  "Executive leadership teams",
-  "CIOs and transformation sponsors",
+  { label: "Financial institutions and credit unions", Icon: IconBank },
+  { label: "Government agencies", Icon: IconFlag },
+  { label: "Healthcare organizations", Icon: IconHealthCross },
+  { label: "Nonprofit organizations", Icon: IconHeart },
+  { label: "Mid-market businesses", Icon: IconBuilding },
+  { label: "Boards of Directors", Icon: IconRoundTable },
+  { label: "Executive leadership teams", Icon: IconUsers },
+  { label: "CIOs and transformation sponsors", Icon: IconTransform },
 ];
 
 // The competing incentives that leave leadership without an objective read.
@@ -290,6 +308,7 @@ export default function Home() {
             // Boxes 1 & 4 share the royal-blue tone; 2 & 3 take a deeper blue —
             // a diagonal two-tone across the 2x2 grid.
             const royal = i === 0 || i === 3;
+            const Icon = service.Icon;
             return (
               <Link
                 key={service.n}
@@ -300,9 +319,12 @@ export default function Home() {
                     : "bg-[#1a3488] hover:bg-[#1a3488]/90"
                 }`}
               >
-                <span className="font-mono text-sm text-brand-secondary">
-                  {service.n}
-                </span>
+                <div className="flex items-center justify-between">
+                  <Icon className="h-7 w-7 text-brand-secondary" />
+                  <span className="font-mono text-sm text-brand-paper/50">
+                    {service.n}
+                  </span>
+                </div>
                 <h3 className="font-display mt-4 text-xl leading-snug text-brand-paper">
                   {service.title}
                 </h3>
@@ -349,12 +371,15 @@ export default function Home() {
         </h2>
 
         <ul className="mt-10 grid gap-px overflow-hidden border border-brand-ink/10 bg-brand-ink/10 sm:grid-cols-2 lg:grid-cols-4">
-          {audiences.map((audience) => (
+          {audiences.map(({ label, Icon }) => (
             <li
-              key={audience}
-              className="bg-brand-paper p-5 text-[0.95rem] leading-snug text-brand-ink/85"
+              key={label}
+              className="bg-brand-paper p-5 text-brand-ink/85"
             >
-              {audience}
+              <Icon className="h-6 w-6 text-brand-primary" />
+              <span className="mt-3 block text-[0.95rem] leading-snug">
+                {label}
+              </span>
             </li>
           ))}
         </ul>
