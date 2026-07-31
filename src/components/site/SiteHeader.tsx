@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Mark } from "./Mark";
-import { primaryNav, contactHref } from "@/content/nav";
+import { primaryNav, contactHref, type NavItem } from "@/content/nav";
 import { clsx } from "@/lib/clsx";
 
 export function SiteHeader() {
@@ -13,6 +13,9 @@ export function SiteHeader() {
 
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname?.startsWith(href));
+
+  const groupActive = (item: NavItem) =>
+    item.children?.some((c) => isActive(c.href)) ?? false;
 
   return (
     <header className="sticky top-0 z-40 border-b border-brand-ink/10 bg-brand-paper/85 backdrop-blur supports-[backdrop-filter]:bg-brand-paper/70">
@@ -30,20 +33,56 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
-          {primaryNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={clsx(
-                "text-sm transition-colors hover:text-brand-primary",
-                isActive(item.href)
-                  ? "text-brand-primary"
-                  : "text-brand-slate",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {primaryNav.map((item) =>
+            item.children ? (
+              <div key={item.label} className="group relative">
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  className={clsx(
+                    "inline-flex items-center gap-1 text-sm transition-colors hover:text-brand-primary",
+                    groupActive(item) ? "text-brand-primary" : "text-brand-slate",
+                  )}
+                >
+                  {item.label}
+                  <span aria-hidden className="text-[0.65em] leading-none">
+                    &#9662;
+                  </span>
+                </button>
+                {/* Dropdown — opens on hover and on keyboard focus. The pt-3
+                    on the wrapper is a hover bridge to the panel below. */}
+                <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div className="min-w-[17rem] border border-brand-ink/10 bg-brand-paper p-2 shadow-xl shadow-brand-ink/10">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className={clsx(
+                          "block rounded px-3 py-2 text-sm transition-colors hover:bg-brand-mist/60 hover:text-brand-primary",
+                          isActive(child.href)
+                            ? "text-brand-primary"
+                            : "text-brand-ink",
+                        )}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href!}
+                className={clsx(
+                  "text-sm transition-colors hover:text-brand-primary",
+                  isActive(item.href!) ? "text-brand-primary" : "text-brand-slate",
+                )}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <Link
             href={contactHref}
             className="rounded-full border border-brand-ink px-4 py-1.5 text-sm text-brand-ink transition-colors hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper"
@@ -73,19 +112,47 @@ export function SiteHeader() {
           aria-label="Primary"
         >
           <div className="mx-auto flex max-w-6xl flex-col px-6 py-2 sm:px-8">
-            {primaryNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className={clsx(
-                  "border-b border-brand-ink/5 py-3 text-base",
-                  isActive(item.href) ? "text-brand-primary" : "text-brand-ink",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {primaryNav.map((item) =>
+              item.children ? (
+                <div
+                  key={item.label}
+                  className="border-b border-brand-ink/5 py-3"
+                >
+                  <p className="eyebrow text-brand-slate">{item.label}</p>
+                  <div className="mt-1 flex flex-col">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setOpen(false)}
+                        className={clsx(
+                          "py-2 text-base",
+                          isActive(child.href)
+                            ? "text-brand-primary"
+                            : "text-brand-ink",
+                        )}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href!}
+                  onClick={() => setOpen(false)}
+                  className={clsx(
+                    "border-b border-brand-ink/5 py-3 text-base",
+                    isActive(item.href!)
+                      ? "text-brand-primary"
+                      : "text-brand-ink",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <Link
               href={contactHref}
               onClick={() => setOpen(false)}
