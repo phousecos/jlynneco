@@ -118,4 +118,52 @@
       transition: none;
     }
   }
+
+  /* Word river — an infinite horizontal marquee. Two identical copies sit
+     side by side in the track; translating the track by -50% scrolls exactly
+     one copy, so the loop is seamless. Content moves right-to-left. */
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+  }
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee 34s linear infinite;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track {
+      animation: none;
+      transform: none;
+    }
+    /* Fall back to a normal wrapping line when motion is not wanted. */
+    .marquee {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
 }

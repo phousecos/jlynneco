@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import { HeroAmpersand } from "@/components/ui/HeroAmpersand";
+import { WordRiver } from "@/components/ui/WordRiver";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
@@ -13,8 +14,8 @@ import { contactHref } from "@/content/nav";
 // dark/light grounds. Colors and type come from the shared brand system
 // (blue leads, gold accents, teal supports) — no technical specs change here.
 
-// Where programs slip when governance is thin — presented as scannable
-// signals rather than a run-on sentence.
+// Where programs slip when governance is thin — streamed as a moving "river"
+// of words in the royal-blue band (see the WordRiver section below).
 const failureSignals = [
   "Projects drift",
   "Costs increase",
@@ -22,6 +23,13 @@ const failureSignals = [
   "Decisions are delayed",
   "Risks emerge too late",
   "Confidence erodes",
+];
+
+// A rotated copy so the second river lane doesn't march in lockstep with the
+// first — the two lanes drift past each other for a layered, river-like feel.
+const failureSignalsAlt = [
+  ...failureSignals.slice(3),
+  ...failureSignals.slice(0, 3),
 ];
 
 // What the advisory relationship strengthens.
@@ -133,55 +141,80 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Why governance matters — paper ground. */}
+      {/* Why governance matters — paper ground. Sets up the failures that the
+          royal-blue word-river section then makes visceral. */}
       <Section ground="paper">
         <Eyebrow>Why governance matters</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Transformation has never been more important — or more difficult.
         </h2>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
-          <div className="space-y-5 text-lg leading-relaxed text-brand-ink/80">
-            <p>
-              Organizations are modernizing core systems, adopting artificial
-              intelligence, strengthening cybersecurity, integrating
-              acquisitions, and reimagining how they serve customers and
-              communities. These initiatives are often among the largest
-              investments an organization will make.
-            </p>
-            <p>Yet many fall short of expectations.</p>
-          </div>
-
-          <div>
-            <p className="eyebrow text-brand-slate">Where programs slip</p>
-            <ul className="mt-4 divide-y divide-brand-ink/10 border-y border-brand-ink/10">
-              {failureSignals.map((signal) => (
-                <li
-                  key={signal}
-                  className="py-3 text-[0.98rem] text-brand-ink/85"
-                >
-                  {signal}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 border-l-2 border-brand-secondary pl-6">
-          <p className="font-display text-2xl leading-snug sm:text-3xl">
-            These are rarely technology failures.{" "}
-            <span className="text-brand-primary">
-              They are governance failures.
-            </span>
+        <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-brand-ink/80">
+          <p>
+            Organizations are modernizing core systems, adopting artificial
+            intelligence, strengthening cybersecurity, integrating acquisitions,
+            and reimagining how they serve customers and communities. These
+            initiatives are often among the largest investments an organization
+            will make.
+          </p>
+          <p>
+            Strong governance provides the structure, accountability, and
+            executive oversight needed to guide transformation from vision to
+            measurable business outcomes.
+          </p>
+          <p>
+            Yet many fall short of expectations — and they slip in ways that are
+            easy to recognize.
           </p>
         </div>
-
-        <p className="mt-10 max-w-3xl text-lg leading-relaxed text-brand-ink/80">
-          Strong governance provides the structure, accountability, and
-          executive oversight needed to guide transformation from vision to
-          measurable business outcomes.
-        </p>
       </Section>
+
+      {/* The word river — a full-bleed royal-blue band. The ways programs slip
+          stream past right-to-left in two drifting lanes, then the statement
+          lands underneath. Motion is CSS-only and pauses under
+          prefers-reduced-motion (see .marquee in globals.css). */}
+      <section className="overflow-hidden bg-brand-primary py-20 text-brand-paper sm:py-28">
+        <Container>
+          <p className="eyebrow text-center text-brand-paper/70">
+            Where programs slip
+          </p>
+        </Container>
+
+        {/* Lanes run edge-to-edge, deliberately outside the container. Toned
+            back so they read as a moving current — the crisp white verdict
+            below is the focal point. */}
+        <div className="mt-10 space-y-3 sm:mt-12 sm:space-y-4">
+          <WordRiver
+            items={failureSignals}
+            durationSeconds={32}
+            className="text-brand-paper/55"
+          />
+          <WordRiver
+            items={failureSignalsAlt}
+            durationSeconds={46}
+            className="text-brand-paper/30"
+          />
+        </div>
+
+        {/* Screen-reader equivalent of the decorative river. */}
+        <ul className="sr-only">
+          {failureSignals.map((signal) => (
+            <li key={signal}>{signal}</li>
+          ))}
+        </ul>
+
+        <Container className="mt-14 text-center sm:mt-16">
+          <span
+            aria-hidden
+            className="mx-auto block h-px w-12 bg-brand-secondary"
+          />
+          <p className="font-display font-display-hero mt-8 text-3xl leading-tight text-brand-paper sm:text-4xl lg:text-5xl">
+            These are rarely technology failures.
+            <br />
+            They are governance failures.
+          </p>
+        </Container>
+      </section>
 
       {/* The advisory posture — dark ground, two columns. */}
       <Section ground="deep">
