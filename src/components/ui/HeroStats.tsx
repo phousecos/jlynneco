@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { clsx } from "@/lib/clsx";
 
 type Stat = {
   prefix?: string;
@@ -45,8 +44,7 @@ const stats: Stat[] = [
 
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
 
-// Reads the reduced-motion preference from the media query without setting
-// state inside an effect.
+// Reads the reduced-motion preference without setting state inside an effect.
 function useReducedMotion() {
   return useSyncExternalStore(
     (onChange) => {
@@ -66,7 +64,7 @@ function CountUp({ value, run }: { value: number; run: boolean }) {
     if (!run) return;
     let raf = 0;
     let start = 0;
-    const duration = 1100;
+    const duration = 1200;
     const tick = (t: number) => {
       if (!start) start = t;
       const p = Math.min(1, (t - start) / duration);
@@ -80,13 +78,84 @@ function CountUp({ value, run }: { value: number; run: boolean }) {
   return <>{n}</>;
 }
 
+const R = 54;
+const CIRC = 2 * Math.PI * R;
+
+function RingStat({
+  stat,
+  run,
+  reduced,
+}: {
+  stat: Stat;
+  run: boolean;
+  reduced: boolean;
+}) {
+  // Percentages fill to their value; a dollar magnitude fills the ring.
+  const fill = stat.suffix === "%" ? stat.value : 100;
+  const filled = run || reduced;
+  const offset = filled ? CIRC * (1 - fill / 100) : CIRC;
+
+  return (
+    <div className="flex flex-col items-center text-center">
+      <div className="relative h-40 w-40 sm:h-44 sm:w-44">
+        <svg viewBox="0 0 120 120" aria-hidden className="h-full w-full -rotate-90">
+          <circle
+            cx="60"
+            cy="60"
+            r={R}
+            fill="none"
+            strokeWidth="7"
+            stroke="currentColor"
+            className="text-brand-paper/15"
+          />
+          <circle
+            cx="60"
+            cy="60"
+            r={R}
+            fill="none"
+            strokeWidth="7"
+            strokeLinecap="round"
+            stroke="currentColor"
+            className="text-brand-tertiary"
+            style={{
+              strokeDasharray: CIRC,
+              strokeDashoffset: offset,
+              transition: reduced
+                ? "none"
+                : "stroke-dashoffset 1.3s cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="font-display font-display-hero text-4xl leading-none text-brand-paper sm:text-5xl">
+            {stat.prefix ?? ""}
+            {reduced ? stat.value : <CountUp value={stat.value} run={run} />}
+            {stat.suffix ?? ""}
+          </span>
+        </div>
+      </div>
+      <p className="mt-5 max-w-[15rem] text-[0.95rem] leading-relaxed text-brand-paper/80">
+        {stat.label}
+      </p>
+      <a
+        href={stat.source.href}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-3 inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-wider text-brand-paper/40 transition-colors hover:text-brand-tertiary"
+      >
+        {stat.source.label}
+        <span aria-hidden>&#8599;</span>
+      </a>
+    </div>
+  );
+}
+
 export function HeroStats() {
   const ref = useRef<HTMLDivElement>(null);
   const [run, setRun] = useState(false);
-  const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
 
-  // Start the count-up when the row scrolls into view.
+  // Start the count-up and ring fill when the row scrolls into view.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -97,63 +166,20 @@ export function HeroStats() {
           obs.disconnect();
         }
       },
-      { threshold: 0.35 },
+      { threshold: 0.3 },
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  // Auto-cycle the highlighted feature.
-  useEffect(() => {
-    if (!run || reduced) return;
-    const id = setInterval(
-      () => setActive((a) => (a + 1) % stats.length),
-      2600,
-    );
-    return () => clearInterval(id);
-  }, [run, reduced]);
-
   return (
     <div
       ref={ref}
-      className="grid gap-px overflow-hidden border border-brand-paper/12 bg-brand-paper/12 sm:grid-cols-3"
+      className="grid gap-12 sm:grid-cols-3 sm:gap-8"
     >
-      {stats.map((stat, i) => {
-        const isActive = i === active && !reduced;
-        return (
-          <div key={stat.label} className="bg-brand-ink px-6 py-9">
-            <div
-              className={clsx(
-                "border-t-2 pt-5 transition-colors duration-500",
-                isActive ? "border-brand-secondary" : "border-brand-paper/15",
-              )}
-            >
-              <div
-                className={clsx(
-                  "font-display font-display-hero text-5xl leading-none transition-colors duration-500 sm:text-6xl",
-                  isActive ? "text-brand-secondary" : "text-brand-paper",
-                )}
-              >
-                {stat.prefix ?? ""}
-                {reduced ? stat.value : <CountUp value={stat.value} run={run} />}
-                {stat.suffix ?? ""}
-              </div>
-              <p className="mt-4 text-[0.95rem] leading-relaxed text-brand-paper/70">
-                {stat.label}
-              </p>
-              <a
-                href={stat.source.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-3 inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-wider text-brand-paper/40 transition-colors hover:text-brand-tertiary"
-              >
-                {stat.source.label}
-                <span aria-hidden>&#8599;</span>
-              </a>
-            </div>
-          </div>
-        );
-      })}
+      {stats.map((stat) => (
+        <RingStat key={stat.label} stat={stat} run={run} reduced={reduced} />
+      ))}
     </div>
   );
 }
