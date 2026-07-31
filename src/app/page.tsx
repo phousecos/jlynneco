@@ -6,7 +6,7 @@ import { CTALink } from "@/components/ui/CTALink";
 import { HeroAmpersand } from "@/components/ui/HeroAmpersand";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
-import { engageHref } from "@/content/nav";
+import { contactHref } from "@/content/nav";
 
 // The Executive Governance Advisory homepage. Positioned for a C-suite,
 // board, and executive-sponsor audience: restrained, editorial, alternating
@@ -48,19 +48,19 @@ const services = [
     n: "02",
     title: "Governance Assessments",
     body: "An objective evaluation of governance maturity, organizational readiness, executive accountability, and transformation risk before critical investments begin.",
-    href: engageHref,
+    href: contactHref,
   },
   {
     n: "03",
     title: "Project Recovery & Executive Stabilization",
     body: "When initiatives begin struggling, we help leadership restore governance discipline, improve executive alignment, and regain organizational confidence.",
-    href: engageHref,
+    href: contactHref,
   },
   {
     n: "04",
     title: "Fractional CIO Leadership",
     body: "When organizations require experienced technology leadership, we provide executive CIO guidance as part of a broader governance strategy. Technology leadership supports governance — it does not replace it.",
-    href: engageHref,
+    href: contactHref,
   },
 ];
 
@@ -126,7 +126,7 @@ export default function Home() {
             </CTALink>
             {/* Placeholder target — wire to the overview PDF in /public once
                 the asset exists; routes to intake in the meantime. */}
-            <CTALink href={engageHref} variant="onDark">
+            <CTALink href={contactHref} variant="onDark">
               Download the Executive Governance Overview
             </CTALink>
           </div>

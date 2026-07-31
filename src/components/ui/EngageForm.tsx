@@ -2,13 +2,13 @@
 
 import { legal } from "@/content/site";
 
-// Service options for the intake dropdown — the firm's offerings, apex first.
+// Service options for the intake dropdown — the governance advisory offerings.
 const services = [
-  "Expert witness — retain for a matter",
-  "Advisory & audits",
-  "SACS accreditation readiness",
-  "Program management",
-  "CIO Advisra — maturity assessment",
+  "Executive Governance Advisory — ongoing relationship",
+  "Governance assessment",
+  "Project recovery & executive stabilization",
+  "Fractional CIO leadership",
+  "Board / executive briefing",
   "Not sure yet — general inquiry",
 ];
 
@@ -23,7 +23,7 @@ export function EngageForm() {
 
     const addr = ["jerri", "jerribland.com"].join("@");
     const service = get("service") || "General inquiry";
-    const subject = `Discovery call request — ${service}`;
+    const subject = `Executive governance conversation — ${service}`;
     const body = [
       `Name: ${get("name")}`,
       `Organization: ${get("org")}`,
@@ -102,7 +102,7 @@ export function EngageForm() {
             id="details"
             name="details"
             rows={4}
-            placeholder="Where you are in the lifecycle, or the posture of the matter. No privileged detail at this stage."
+            placeholder="Where you are in the initiative and the governance challenges that matter most. No confidential detail needed at this stage."
             className="border border-brand-ink/20 bg-brand-paper/60 px-4 py-3 text-[0.95rem] outline-none placeholder:text-brand-slate/70 focus:border-brand-primary"
           />
         </div>
@@ -112,12 +112,12 @@ export function EngageForm() {
         type="submit"
         className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-ink px-6 py-3 text-sm font-medium text-brand-paper transition-colors hover:bg-brand-ink"
       >
-        Request a discovery call
+        Send my details
       </button>
       <p className="mt-4 text-xs leading-relaxed text-brand-slate">
         Submitting opens your email client to send the request to the firm. It
-        does not create an engagement or, for counsel, any privileged
-        relationship. Engagements are contracted through {legal.engagementEntity}.
+        does not create an engagement. Engagements are contracted through{" "}
+        {legal.engagementEntity}.
       </p>
     </form>
   );

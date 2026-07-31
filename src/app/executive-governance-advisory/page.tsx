@@ -5,7 +5,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
-import { engageHref } from "@/content/nav";
+import { contactHref } from "@/content/nav";
 
 export const metadata: Metadata = {
   title: "Executive Governance Advisory",
@@ -361,7 +361,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
             <CTALink href={site.discoveryCall} variant="onColor">
               Schedule an Executive Governance Conversation
             </CTALink>
-            <CTALink href={engageHref} variant="onDark">
+            <CTALink href={contactHref} variant="onDark">
               Send a few details
             </CTALink>
           </div>

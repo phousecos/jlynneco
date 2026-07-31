@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Mark } from "./Mark";
-import { primaryNav, engageHref } from "@/content/nav";
+import { primaryNav, contactHref } from "@/content/nav";
 import { clsx } from "@/lib/clsx";
 
 export function SiteHeader() {
@@ -45,10 +45,10 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link
-            href={engageHref}
+            href={contactHref}
             className="rounded-full border border-brand-ink px-4 py-1.5 text-sm text-brand-ink transition-colors hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper"
           >
-            Engage
+            Contact us
           </Link>
         </nav>
 
@@ -87,11 +87,11 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
-              href={engageHref}
+              href={contactHref}
               onClick={() => setOpen(false)}
               className="py-4 font-display text-lg text-brand-ink"
             >
-              Engage →
+              Contact us →
             </Link>
           </div>
         </nav>
