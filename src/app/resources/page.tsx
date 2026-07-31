@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ResourceCard } from "@/components/ui/ResourceCard";
 import { DownloadsBrowser } from "@/components/ui/DownloadsBrowser";
-import { resourceGroups } from "@/content/resources";
+import { getResourceGroups } from "@/lib/payload";
 import { clsx } from "@/lib/clsx";
 
 export const metadata: Metadata = {
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     "The firm's podcast, speaking, essays, publications, and downloads on governing transformation.",
 };
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const resourceGroups = await getResourceGroups();
   return (
     <>
       <PageHero
