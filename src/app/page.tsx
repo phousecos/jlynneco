@@ -42,7 +42,7 @@ const services = [
     n: "01",
     title: "Executive Governance Advisory",
     body: "An ongoing executive advisory relationship providing independent governance oversight, executive coaching, risk analysis, and strategic decision support throughout major initiatives.",
-    href: engageHref,
+    href: "/executive-governance-advisory",
   },
   {
     n: "02",
