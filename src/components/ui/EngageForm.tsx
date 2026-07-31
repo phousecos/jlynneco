@@ -4,12 +4,12 @@ import { legal } from "@/content/site";
 
 // Service options for the intake dropdown — the governance advisory offerings.
 const services = [
-  "Executive Governance Advisory — ongoing relationship",
+  "Executive Governance Advisory (ongoing relationship)",
   "Governance assessment",
   "Project recovery & executive stabilization",
   "Fractional CIO leadership",
   "Board / executive briefing",
-  "Not sure yet — general inquiry",
+  "Not sure yet (general inquiry)",
 ];
 
 // The "send details" path. On submit it composes an email to the firm and opens
@@ -23,7 +23,7 @@ export function EngageForm() {
 
     const addr = ["jerri", "jerribland.com"].join("@");
     const service = get("service") || "General inquiry";
-    const subject = `Executive governance conversation — ${service}`;
+    const subject = `Executive governance conversation: ${service}`;
     const body = [
       `Name: ${get("name")}`,
       `Organization: ${get("org")}`,

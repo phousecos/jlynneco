@@ -10,7 +10,7 @@ import { contactHref } from "@/content/nav";
 export const metadata: Metadata = {
   title: "Executive Governance Advisory",
   description:
-    "Independent executive governance advisory — helping leadership govern complex transformation with disciplined governance, objective oversight, and better executive decisions.",
+    "Independent executive governance advisory, helping leadership govern complex transformation with disciplined governance, objective oversight, and better executive decisions.",
 };
 
 // The moments organizations engage us — the entry points.
@@ -33,7 +33,7 @@ const moments = [
   {
     n: "04",
     title: "Board oversight",
-    body: "Boards increasingly seek objective governance insight to strengthen oversight of large strategic investments — without stepping into day-to-day project management.",
+    body: "Boards increasingly seek objective governance insight to strengthen oversight of large strategic investments, without stepping into day-to-day project management.",
   },
 ];
 
@@ -114,7 +114,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
             .
           </>
         }
-        lede="Major initiatives are among the most significant investments leadership will make. Modernizing technology, implementing enterprise software, adopting AI, strengthening cybersecurity, integrating acquisitions — each demands more than effective project management. It demands disciplined governance, informed executive decisions, and continuous accountability."
+        lede="Major initiatives are among the most significant investments leadership will make. Modernizing technology, implementing enterprise software, adopting AI, strengthening cybersecurity, integrating acquisitions. Each demands more than effective project management. It demands disciplined governance, informed executive decisions, and continuous accountability."
       >
         <p className="font-display text-2xl leading-snug text-brand-paper">
           We do not manage projects.{" "}
@@ -145,7 +145,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
               visibility into progress, challenges, and business outcomes.
             </p>
             <p>
-              Strong governance creates clarity — clear decision rights,
+              Strong governance creates clarity: clear decision rights,
               reinforced accountability, aligned stakeholders, and the ability
               to see emerging risks before they become costly failures.
             </p>
@@ -233,7 +233,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
         <div className="mt-5 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
           <div>
             <h2 className="font-display text-3xl leading-tight text-brand-paper sm:text-4xl">
-              An ongoing relationship — not a stack of consulting hours.
+              An ongoing relationship, not a stack of consulting hours.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-brand-paper/75">
               Clients are not purchasing time on a task list. They are engaging
@@ -243,7 +243,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
             <p className="mt-6 text-lg leading-relaxed text-brand-paper/75">
               The advisory fee reflects continuous access to independent
               executive judgment, governance expertise, and experienced decision
-              support — not hours logged against individual deliverables.
+              support, not hours logged against individual deliverables.
             </p>
             <p className="mt-8 font-display text-2xl leading-snug text-brand-paper">
               Organizations retain us because they value stronger leadership,
@@ -260,7 +260,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
               {advisoryIncludes.map((item) => (
                 <li key={item} className="flex gap-3 py-3.5 text-brand-paper/85">
                   <span aria-hidden className="text-brand-secondary">
-                    —
+                    •
                   </span>
                   <span>{item}</span>
                 </li>

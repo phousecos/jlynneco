@@ -10,7 +10,7 @@ import { contactHref } from "@/content/nav";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "An independent executive governance advisory practice — strengthening the leadership and governance around an organization's most important initiatives.",
+    "An independent executive governance advisory practice, strengthening the leadership and governance around an organization's most important initiatives.",
 };
 
 export default function AboutPage() {
@@ -29,7 +29,7 @@ export default function AboutPage() {
             .
           </>
         }
-        lede="We work with executive teams, boards, and transformation sponsors at the moments that decide whether a major initiative delivers lasting value — or becomes a cautionary tale."
+        lede="We work with executive teams, boards, and transformation sponsors at the moments that decide whether a major initiative delivers lasting value, or becomes a cautionary tale."
       />
 
       {/* Our approach — the positioning, paper ground. */}
@@ -38,7 +38,7 @@ export default function AboutPage() {
         <div className="mt-6 max-w-3xl space-y-6 text-lg leading-relaxed text-brand-ink/80">
           <p>
             {site.name} is an independent executive governance advisory practice.
-            We are deliberately not an implementation firm — we do not sell
+            We are deliberately not an implementation firm. We do not sell
             software, staff projects, or deliver the work. Our role is to
             strengthen the governance around it: clearer decision rights,
             sharper executive judgment, honest risk visibility, and
@@ -47,7 +47,7 @@ export default function AboutPage() {
           <p>
             That independence is the point. Free of delivery incentives and
             contractual obligations, we can tell leadership what internal teams
-            and vendors sometimes cannot — early, while issues are still
+            and vendors sometimes cannot, early, while issues are still
             inexpensive to address.
           </p>
         </div>
@@ -102,7 +102,7 @@ export default function AboutPage() {
         <div className="max-w-2xl">
           <Eyebrow>Start the conversation</Eyebrow>
           <h2 className="font-display mt-5 text-3xl leading-tight sm:text-4xl">
-            Governing a major initiative — or recovering one?
+            Governing a major initiative, or recovering one?
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-brand-ink/80">
             The best time to strengthen governance is before the pressure

@@ -67,7 +67,7 @@ const services = [
   {
     n: "04",
     title: "Fractional CIO Leadership",
-    body: "When organizations require experienced technology leadership, we provide executive CIO guidance as part of a broader governance strategy. Technology leadership supports governance — it does not replace it.",
+    body: "When organizations require experienced technology leadership, we provide executive CIO guidance as part of a broader governance strategy. Technology leadership supports governance. It does not replace it.",
     href: contactHref,
   },
 ];
@@ -146,7 +146,7 @@ export default function Home() {
       <Section ground="paper">
         <Eyebrow>Why governance matters</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          Transformation has never been more important — or more difficult.
+          Transformation has never been more important, or more difficult.
         </h2>
 
         <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-brand-ink/80">
@@ -163,7 +163,7 @@ export default function Home() {
             measurable business outcomes.
           </p>
           <p>
-            Yet many fall short of expectations — and they slip in ways that are
+            Yet many fall short of expectations, and they slip in ways that are
             easy to recognize.
           </p>
         </div>
@@ -250,7 +250,7 @@ export default function Home() {
                   className="flex gap-3 py-3.5 text-brand-paper/85"
                 >
                   <span aria-hidden className="text-brand-secondary">
-                    —
+                    •
                   </span>
                   <span>{outcome}</span>
                 </li>
