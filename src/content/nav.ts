@@ -21,6 +21,15 @@ export const primaryNav: NavItem[] = [
     ],
   },
   { label: "Expert Witness", href: "/expert-witness" },
+  {
+    label: "Resources",
+    children: [
+      { label: "Podcast", href: "/resources#podcast" },
+      { label: "Transformidable", href: "/resources#transformidable" },
+      { label: "Publications", href: "/resources#publications" },
+      { label: "Downloads", href: "/resources#downloads" },
+    ],
+  },
   { label: "About", href: "/about" },
 ];
 

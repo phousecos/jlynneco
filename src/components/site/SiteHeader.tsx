@@ -11,8 +11,10 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isActive = (href: string) =>
-    pathname === href || (href !== "/" && pathname?.startsWith(href));
+  const isActive = (href: string) => {
+    const path = href.split("#")[0]; // ignore anchors for active detection
+    return pathname === path || (path !== "/" && pathname?.startsWith(path));
+  };
 
   const groupActive = (item: NavItem) =>
     item.children?.some((c) => isActive(c.href)) ?? false;
