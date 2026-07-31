@@ -64,7 +64,7 @@ export default function ProjectRecoveryPage() {
     <>
       <PageHero
         eyebrow="Project Recovery"
-        image="/banner.webp"
+        image="/recovery-hero.jpg"
         title={
           <>
             When projects lose momentum, leadership needs more than a{" "}

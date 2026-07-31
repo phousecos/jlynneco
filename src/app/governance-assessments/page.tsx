@@ -76,6 +76,7 @@ export default function GovernanceAssessmentsPage() {
     <>
       <PageHero
         eyebrow="Governance Assessments"
+        image="/assessment-hero.jpg"
         title="Know before you go."
         lede="Before investing in a major transformation, understand whether your governance systems are prepared to support success."
       >

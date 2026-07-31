@@ -46,6 +46,7 @@ export default function TransformidableGovernanceMethodPage() {
       <PageHero
         eyebrow="Our method"
         title="The Transformidable Governance Method™"
+        logo="/transformidable-logo.png"
         lede="A structured, research-informed framework that helps leadership establish, strengthen, and sustain governance throughout organizational transformation."
       >
         <CTALink href={site.discoveryCall} variant="solid">
