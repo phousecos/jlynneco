@@ -11,7 +11,7 @@ export type NavItem = { label: string; href?: string; children?: NavChild[] };
 export const primaryNav: NavItem[] = [
   { label: "Home", href: "/" },
   {
-    label: "Executive Governance",
+    label: "Governance",
     children: [
       {
         label: "Executive Governance Advisory",

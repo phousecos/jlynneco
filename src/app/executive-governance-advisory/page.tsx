@@ -15,6 +15,7 @@ import {
   IconRoundTable,
   IconTransform,
 } from "@/components/ui/icons";
+import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
@@ -367,6 +368,12 @@ export default function ExecutiveGovernanceAdvisoryPage() {
           wherever organizations make significant strategic investments.
         </p>
       </Section>
+
+      <NextStep
+        prompt="Experiencing governance challenges?"
+        label="Explore Project Recovery & Executive Stabilization"
+        href="/project-recovery"
+      />
 
       {/* Begin the conversation — flagship blue closing. */}
       <div className="bg-brand-primary text-brand-paper">
