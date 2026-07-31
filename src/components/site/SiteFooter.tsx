@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mark } from "./Mark";
-import { primaryNav, engageHref } from "@/content/nav";
+import { primaryNav, contactHref } from "@/content/nav";
 import { site, legal } from "@/content/site";
 
 export function SiteFooter() {
@@ -20,7 +20,7 @@ export function SiteFooter() {
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-12 gap-y-3">
-            {[...primaryNav, { label: "Engage", href: engageHref }].map(
+            {[...primaryNav, { label: "Contact us", href: contactHref }].map(
               (item) => (
                 <Link
                   key={item.href}

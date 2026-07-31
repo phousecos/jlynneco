@@ -102,9 +102,9 @@ export const leadership: Principal[] = [
     role: "Founding Principal",
     initials: "JB",
     image: "/brand/jerri-bland.jpg",
-    bio: "Twenty-five years inside enterprise IT — through the implementations that held and the ones that didn't. The firm's authority rests on that record: senior enterprise leadership, a standing research program on why ERP programs fail, and a published book that puts the thesis on record.",
+    bio: "Twenty-five years inside enterprise IT, through the implementations that held and the ones that didn't. The firm's authority rests on that record: senior enterprise leadership, a standing research program on why ERP programs fail, and a published book that puts the thesis on record.",
     links: [
-      { label: "Author & speaker — JerriBland.com", href: site.personSite.href },
+      { label: "Author & speaker at JerriBland.com", href: site.personSite.href },
       { label: "The full CV counsel vets", href: "/expert-witness" },
     ],
   },
