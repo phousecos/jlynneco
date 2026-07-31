@@ -20,17 +20,21 @@ export function SiteFooter() {
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-12 gap-y-3">
-            {[...primaryNav, { label: "Contact us", href: contactHref }].map(
-              (item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-brand-paper/70 transition-colors hover:text-brand-tertiary"
-                >
-                  {item.label}
-                </Link>
+            {[
+              // Flatten the grouped nav to leaf links for the footer.
+              ...primaryNav.flatMap((item) =>
+                item.children ? item.children : [{ label: item.label, href: item.href! }],
               ),
-            )}
+              { label: "Contact us", href: contactHref },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-brand-paper/70 transition-colors hover:text-brand-tertiary"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
 

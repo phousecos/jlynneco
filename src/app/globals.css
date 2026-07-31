@@ -166,4 +166,16 @@
       mask-image: none;
     }
   }
+
+  /* Left-align a full-bleed slider track with the max-w-5xl content column
+     (so the first card sits under the section header) while it still bleeds
+     off the right edge. The values mirror Container: 64rem cap, px-6 / px-8. */
+  .slider-pad-l {
+    padding-left: max(1.5rem, calc((100vw - 64rem) / 2 + 1.5rem));
+  }
+  @media (min-width: 640px) {
+    .slider-pad-l {
+      padding-left: max(2rem, calc((100vw - 64rem) / 2 + 2rem));
+    }
+  }
 }

@@ -3,8 +3,22 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
-import { HeroAmpersand } from "@/components/ui/HeroAmpersand";
+import Image from "next/image";
 import { WordRiver } from "@/components/ui/WordRiver";
+import {
+  IconCompass,
+  IconClipboardCheck,
+  IconLifeBuoy,
+  IconCpu,
+  IconBank,
+  IconFlag,
+  IconHealthCross,
+  IconHeart,
+  IconBuilding,
+  IconRoundTable,
+  IconUsers,
+  IconTransform,
+} from "@/components/ui/icons";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
@@ -48,40 +62,44 @@ const advisoryOutcomes = [
 const services = [
   {
     n: "01",
+    Icon: IconCompass,
     title: "Executive Governance Advisory",
     body: "An ongoing executive advisory relationship providing independent governance oversight, executive coaching, risk analysis, and strategic decision support throughout major initiatives.",
     href: "/executive-governance-advisory",
   },
   {
     n: "02",
+    Icon: IconClipboardCheck,
     title: "Governance Assessments",
     body: "An objective evaluation of governance maturity, organizational readiness, executive accountability, and transformation risk before critical investments begin.",
-    href: contactHref,
+    href: "/governance-assessments",
   },
   {
     n: "03",
+    Icon: IconLifeBuoy,
     title: "Project Recovery & Executive Stabilization",
     body: "When initiatives begin struggling, we help leadership restore governance discipline, improve executive alignment, and regain organizational confidence.",
     href: contactHref,
   },
   {
     n: "04",
+    Icon: IconCpu,
     title: "Fractional CIO Leadership",
     body: "When organizations require experienced technology leadership, we provide executive CIO guidance as part of a broader governance strategy. Technology leadership supports governance. It does not replace it.",
     href: contactHref,
   },
 ];
 
-// The organizations the firm serves.
+// The organizations the firm serves, each with an industry icon.
 const audiences = [
-  "Financial institutions and credit unions",
-  "Government agencies",
-  "Healthcare organizations",
-  "Nonprofit organizations",
-  "Mid-market businesses",
-  "Boards of Directors",
-  "Executive leadership teams",
-  "CIOs and transformation sponsors",
+  { label: "Financial institutions and credit unions", Icon: IconBank },
+  { label: "Government agencies", Icon: IconFlag },
+  { label: "Healthcare organizations", Icon: IconHealthCross },
+  { label: "Nonprofit organizations", Icon: IconHeart },
+  { label: "Mid-market businesses", Icon: IconBuilding },
+  { label: "Boards of Directors", Icon: IconRoundTable },
+  { label: "Executive leadership teams", Icon: IconUsers },
+  { label: "CIOs and transformation sponsors", Icon: IconTransform },
 ];
 
 // The competing incentives that leave leadership without an objective read.
@@ -98,10 +116,21 @@ const pressures = [
 export default function Home() {
   return (
     <>
-      {/* Hero — the thesis, not a greeting. Dark ink ground; the "&" from
-          "& Co." bleeds off the right as an oversized brand device. */}
+      {/* Hero — the thesis over a darkened boardroom image. Copy sits on the
+          near-solid left of the gradient so it stays legible. */}
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
-        <HeroAmpersand />
+        <Image
+          src="/home-page-hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-center"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink/80 via-brand-ink/55 to-brand-ink/25"
+        />
         <Container className="relative py-24 sm:py-32">
           <Eyebrow>Executive Governance Advisory</Eyebrow>
 
@@ -186,12 +215,12 @@ export default function Home() {
         <div className="mt-10 space-y-3 sm:mt-12 sm:space-y-4">
           <WordRiver
             items={failureSignals}
-            durationSeconds={32}
+            durationSeconds={38}
             className="text-brand-paper/55"
           />
           <WordRiver
             items={failureSignalsAlt}
-            durationSeconds={46}
+            durationSeconds={55}
             className="text-brand-paper/30"
           />
         </div>
@@ -230,13 +259,6 @@ export default function Home() {
               projects, we focus on strengthening leadership&apos;s ability to
               govern those projects.
             </p>
-            <p className="mt-8 font-display text-2xl leading-snug text-brand-paper">
-              Our role is not to replace internal leadership.
-              <br />
-              <span className="text-brand-tertiary">
-                Our role is to strengthen it.
-              </span>
-            </p>
           </div>
 
           <div>
@@ -260,43 +282,70 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* How we help — paper ground, four engagement modes as a hairline grid. */}
+      {/* Posture banner — the statement pulled out of the posture section onto
+          a full-bleed teal band (teal = the "supports / strengthen" accent). */}
+      <section className="bg-brand-tertiary text-brand-paper">
+        <Container className="py-16 text-center sm:py-20">
+          <p className="font-display font-display-hero text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl">
+            <span className="text-brand-paper/80">
+              Our role is not to replace internal leadership.
+            </span>
+            <br />
+            Our role is to strengthen it.
+          </p>
+        </Container>
+      </section>
+
+      {/* How we help — paper ground, four engagement modes in a two-tone grid. */}
       <Section ground="paper">
         <Eyebrow>How we help</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Four ways we strengthen executive governance.
         </h2>
 
-        <div className="mt-12 grid gap-px overflow-hidden border border-brand-ink/10 bg-brand-ink/10 sm:grid-cols-2">
-          {services.map((service) => (
-            <Link
-              key={service.n}
-              href={service.href}
-              className="group flex h-full flex-col bg-brand-paper p-8 transition-colors hover:bg-brand-mist/50"
-            >
-              <span className="font-mono text-sm text-brand-secondary">
-                {service.n}
-              </span>
-              <h3 className="font-display mt-4 text-xl leading-snug">
-                {service.title}
-              </h3>
-              <p className="mt-3 flex-1 leading-relaxed text-brand-ink/75">
-                {service.body}
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary transition-colors group-hover:text-brand-ink">
-                Learn more
-                <span aria-hidden>→</span>
-              </span>
-            </Link>
-          ))}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          {services.map((service, i) => {
+            // Boxes 1 & 4 share the royal-blue tone; 2 & 3 take a deeper blue —
+            // a diagonal two-tone across the 2x2 grid.
+            const royal = i === 0 || i === 3;
+            const Icon = service.Icon;
+            return (
+              <Link
+                key={service.n}
+                href={service.href}
+                className={`group flex h-full flex-col p-8 text-brand-paper transition-colors ${
+                  royal
+                    ? "bg-brand-primary hover:bg-brand-primary/90"
+                    : "bg-[#1a3488] hover:bg-[#1a3488]/90"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <Icon className="h-7 w-7 text-brand-secondary" />
+                  <span className="font-mono text-sm text-brand-paper/50">
+                    {service.n}
+                  </span>
+                </div>
+                <h3 className="font-display mt-4 text-xl leading-snug text-brand-paper">
+                  {service.title}
+                </h3>
+                <p className="mt-3 flex-1 leading-relaxed text-brand-paper/75">
+                  {service.body}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-paper transition-colors group-hover:text-brand-secondary">
+                  Learn more
+                  <span aria-hidden>→</span>
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </Section>
 
       {/* Our philosophy — dark ground, centered pull-quote. */}
       <Section ground="deep">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <Eyebrow>Our philosophy</Eyebrow>
-          <p className="font-display mt-8 text-4xl leading-[1.1] text-brand-paper sm:text-5xl">
+          <p className="font-display mt-8 text-balance text-4xl leading-[1.1] text-brand-paper sm:text-5xl">
             Technology implements change.
             <br />
             Leadership <span className="text-brand-secondary">governs</span>{" "}
@@ -321,13 +370,14 @@ export default function Home() {
           Built for organizations undertaking significant strategic initiatives.
         </h2>
 
-        <ul className="mt-10 grid gap-px overflow-hidden border border-brand-ink/10 bg-brand-ink/10 sm:grid-cols-2 lg:grid-cols-4">
-          {audiences.map((audience) => (
+        <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+          {audiences.map(({ label, Icon }) => (
             <li
-              key={audience}
-              className="bg-brand-paper p-5 text-[0.95rem] leading-snug text-brand-ink/85"
+              key={label}
+              className="flex items-center gap-3 text-brand-ink/85"
             >
-              {audience}
+              <Icon className="h-6 w-6 shrink-0 text-brand-primary" />
+              <span className="text-[0.95rem] leading-snug">{label}</span>
             </li>
           ))}
         </ul>
@@ -379,7 +429,7 @@ export default function Home() {
 
       {/* Start the conversation — flagship blue closing. */}
       <div className="bg-brand-primary text-brand-paper">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">
             Start the conversation
