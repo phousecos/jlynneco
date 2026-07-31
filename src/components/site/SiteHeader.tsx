@@ -54,7 +54,7 @@ export function SiteHeader() {
                 {/* Dropdown — opens on hover and on keyboard focus. The pt-3
                     on the wrapper is a hover bridge to the panel below. */}
                 <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <div className="min-w-[17rem] border border-brand-ink/10 bg-brand-paper p-2 shadow-xl shadow-brand-ink/10">
+                  <div className="min-w-[20rem] whitespace-nowrap border border-brand-ink/10 bg-brand-paper p-2 shadow-xl shadow-brand-ink/10">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}

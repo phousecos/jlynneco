@@ -18,6 +18,10 @@ export const primaryNav: NavItem[] = [
         href: "/executive-governance-advisory",
       },
       { label: "Governance Assessments", href: "/governance-assessments" },
+      {
+        label: "Transformidable Governance Method™",
+        href: "/transformidable-governance-method",
+      },
     ],
   },
   { label: "Expert Witness", href: "/expert-witness" },
