@@ -370,16 +370,14 @@ export default function Home() {
           Built for organizations undertaking significant strategic initiatives.
         </h2>
 
-        <ul className="mt-10 grid gap-px overflow-hidden border border-brand-ink/10 bg-brand-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
           {audiences.map(({ label, Icon }) => (
             <li
               key={label}
-              className="bg-brand-paper p-5 text-brand-ink/85"
+              className="flex items-center gap-3 text-brand-ink/85"
             >
-              <Icon className="h-6 w-6 text-brand-primary" />
-              <span className="mt-3 block text-[0.95rem] leading-snug">
-                {label}
-              </span>
+              <Icon className="h-6 w-6 shrink-0 text-brand-primary" />
+              <span className="text-[0.95rem] leading-snug">{label}</span>
             </li>
           ))}
         </ul>
