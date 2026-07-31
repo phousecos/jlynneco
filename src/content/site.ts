@@ -4,7 +4,7 @@
 export const site = {
   name: "J. Lynne & Co.",
   shortName: "J. Lynne & Co.",
-  tagline: "The patience to see it. The drive to move it.",
+  tagline: "Helping leaders govern transformation with confidence.",
   // Long-term firm home — its own address, never a redirect into JerriBland.com.
   url: "https://jlynneandco.com",
   // Where JerriBland.com's "Work With Me" link lands.

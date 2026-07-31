@@ -19,15 +19,15 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://jlynneandco.com"),
   title: {
-    default: "J. Lynne & Co. — Apex advisory, audits, and expert witness",
-    template: "%s — J. Lynne & Co.",
+    default: "J. Lynne & Co. · Executive Governance Advisory",
+    template: "%s · J. Lynne & Co.",
   },
   description:
-    "An advisory firm for enterprise transformation and ERP programs — judgment before, during, and after. Bespoke advisory and audits, expert-witness work, and the CIO Advisra program.",
+    "Independent executive governance advisory. We help executive teams, boards, and transformation sponsors govern complex transformation with disciplined governance, objective oversight, and better executive decisions.",
   openGraph: {
     title: "J. Lynne & Co.",
     description:
-      "The patience to see it. The drive to move it. Apex advisory, audits, and expert witness for enterprise transformation.",
+      "Helping leaders govern transformation with confidence. Independent executive governance advisory for executive teams, boards, and transformation sponsors.",
     type: "website",
   },
 };
