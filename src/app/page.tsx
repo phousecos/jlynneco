@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import Image from "next/image";
 import { WordRiver } from "@/components/ui/WordRiver";
+import { HeroStats } from "@/components/ui/HeroStats";
 import {
   IconCompass,
   IconClipboardCheck,
@@ -135,26 +136,14 @@ export default function Home() {
           <Eyebrow>Executive Governance Advisory</Eyebrow>
 
           <h1 className="font-display font-display-hero mt-8 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
-            Helping leaders govern transformation with confidence.
+            Helping leaders govern transformation with{" "}
+            <span className="text-brand-secondary">confidence</span>.
           </h1>
 
-          <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-brand-paper/75">
-            <p>
-              Organizations invest millions of dollars in strategic initiatives
-              every year. Some deliver lasting value. Others become cautionary
-              tales.
-            </p>
-            <p>The difference is rarely the technology.</p>
-          </div>
-
-          <p className="mt-8 font-display text-3xl leading-tight text-brand-secondary sm:text-4xl">
-            It is governance.
-          </p>
-
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-brand-paper/75">
-            We help executive teams, boards, and organizational leaders
-            strengthen decision-making, improve accountability, manage risk, and
-            govern complex transformation with confidence.
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-brand-paper/80">
+            We help executive teams and boards sharpen their technical
+            oversight, minimize project delivery friction, and successfully
+            steer large-scale digital transformations.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
@@ -166,6 +155,17 @@ export default function Home() {
             <CTALink href={contactHref} variant="onDark">
               Download the Executive Governance Overview
             </CTALink>
+          </div>
+        </Container>
+      </section>
+
+      {/* The stakes — animated stat features (count-up on scroll-in, an
+          auto-cycling highlight). Solid ink, flowing out of the hero. */}
+      <section className="bg-brand-ink py-16 text-brand-paper sm:py-20">
+        <Container>
+          <p className="eyebrow text-brand-secondary">The stakes</p>
+          <div className="mt-8">
+            <HeroStats />
           </div>
         </Container>
       </section>
