@@ -129,7 +129,7 @@ export default function Home() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/85 to-brand-ink/45"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink/80 via-brand-ink/55 to-brand-ink/25"
         />
         <Container className="relative py-24 sm:py-32">
           <Eyebrow>Executive Governance Advisory</Eyebrow>
@@ -286,7 +286,7 @@ export default function Home() {
           a full-bleed teal band (teal = the "supports / strengthen" accent). */}
       <section className="bg-brand-tertiary text-brand-paper">
         <Container className="py-16 text-center sm:py-20">
-          <p className="font-display font-display-hero text-3xl leading-tight sm:text-4xl lg:text-5xl">
+          <p className="font-display font-display-hero text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl">
             <span className="text-brand-paper/80">
               Our role is not to replace internal leadership.
             </span>
@@ -343,9 +343,9 @@ export default function Home() {
 
       {/* Our philosophy — dark ground, centered pull-quote. */}
       <Section ground="deep">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <Eyebrow>Our philosophy</Eyebrow>
-          <p className="font-display mt-8 text-4xl leading-[1.1] text-brand-paper sm:text-5xl">
+          <p className="font-display mt-8 text-balance text-4xl leading-[1.1] text-brand-paper sm:text-5xl">
             Technology implements change.
             <br />
             Leadership <span className="text-brand-secondary">governs</span>{" "}
@@ -429,7 +429,7 @@ export default function Home() {
 
       {/* Start the conversation — flagship blue closing. */}
       <div className="bg-brand-primary text-brand-paper">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">
             Start the conversation

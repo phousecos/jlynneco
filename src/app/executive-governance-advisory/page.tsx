@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
+import { CardSlider } from "@/components/ui/CardSlider";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
@@ -105,6 +107,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
     <>
       <PageHero
         eyebrow="Executive Governance Advisory"
+        image="/banner.webp"
         title={
           <>
             Independent executive guidance for organizations navigating{" "}
@@ -190,29 +193,34 @@ export default function ExecutiveGovernanceAdvisoryPage() {
         </div>
       </Section>
 
-      {/* What we do — the service surface, paper ground. Eighth cell is a CTA
-          so the hairline grid stays complete. */}
-      <Section ground="paper">
-        <Eyebrow>What we do</Eyebrow>
-        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          Advisory tailored to your objectives, governance maturity, and
-          priorities.
-        </h2>
+      {/* What we do — the service surface as a full-width slider. The header
+          stays in the container; the track runs edge to edge. */}
+      <section className="overflow-hidden bg-brand-paper py-20 text-brand-ink sm:py-28">
+        <Container>
+          <Eyebrow>What we do</Eyebrow>
+          <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
+            Advisory tailored to your objectives, governance maturity, and
+            priorities.
+          </h2>
+        </Container>
 
-        <div className="mt-12 grid gap-px overflow-hidden border border-brand-ink/12 bg-brand-ink/12 sm:grid-cols-2">
+        <CardSlider>
           {services.map((service) => (
-            <div key={service.title} className="flex flex-col bg-brand-paper p-7">
+            <article
+              key={service.title}
+              className="flex w-[80vw] shrink-0 snap-start flex-col border border-brand-ink/12 p-7 sm:w-[340px]"
+            >
               <h3 className="font-display text-lg leading-snug">
                 {service.title}
               </h3>
               <p className="mt-3 text-[0.95rem] leading-relaxed text-brand-ink/75">
                 {service.body}
               </p>
-            </div>
+            </article>
           ))}
 
-          {/* CTA cell — fills the grid and offers a path in. */}
-          <div className="flex flex-col justify-between bg-brand-ink p-7 text-brand-paper">
+          {/* CTA card — closes the slider with a path in. */}
+          <article className="flex w-[80vw] shrink-0 snap-start flex-col justify-between bg-brand-ink p-7 text-brand-paper sm:w-[340px]">
             <p className="font-display text-lg leading-snug">
               Not sure where governance needs strengthening?
             </p>
@@ -223,9 +231,9 @@ export default function ExecutiveGovernanceAdvisoryPage() {
             >
               Start a conversation →
             </CTALink>
-          </div>
-        </div>
-      </Section>
+          </article>
+        </CardSlider>
+      </section>
 
       {/* The advisory relationship — the retainer model, dark ground. */}
       <Section ground="deep">
@@ -233,7 +241,9 @@ export default function ExecutiveGovernanceAdvisoryPage() {
         <div className="mt-5 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
           <div>
             <h2 className="font-display text-3xl leading-tight text-brand-paper sm:text-4xl">
-              An ongoing relationship, not a stack of consulting hours.
+              Organizations retain us because they value stronger leadership,
+              better decisions, and{" "}
+              <span className="text-brand-tertiary">fewer costly surprises.</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-brand-paper/75">
               Clients are not purchasing time on a task list. They are engaging
@@ -244,11 +254,6 @@ export default function ExecutiveGovernanceAdvisoryPage() {
               The advisory fee reflects continuous access to independent
               executive judgment, governance expertise, and experienced decision
               support, not hours logged against individual deliverables.
-            </p>
-            <p className="mt-8 font-display text-2xl leading-snug text-brand-paper">
-              Organizations retain us because they value stronger leadership,
-              better decisions, and{" "}
-              <span className="text-brand-tertiary">fewer costly surprises.</span>
             </p>
           </div>
 
