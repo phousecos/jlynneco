@@ -5,6 +5,16 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import { CardSlider } from "@/components/ui/CardSlider";
+import {
+  IconBank,
+  IconFlag,
+  IconHealthCross,
+  IconHeart,
+  IconBuilding,
+  IconUsers,
+  IconRoundTable,
+  IconTransform,
+} from "@/components/ui/icons";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
@@ -90,16 +100,16 @@ const contrasts = [
   { who: "Executive Governance Advisory", focus: "leadership", lead: true },
 ];
 
-// The organizations the practice serves.
+// The organizations the practice serves, each with an industry icon.
 const audiences = [
-  "Financial institutions and credit unions",
-  "Government agencies",
-  "Healthcare organizations",
-  "Nonprofit organizations",
-  "Mid-market businesses",
-  "Executive leadership teams",
-  "Boards of Directors",
-  "Transformation sponsors",
+  { label: "Financial institutions and credit unions", Icon: IconBank },
+  { label: "Government agencies", Icon: IconFlag },
+  { label: "Healthcare organizations", Icon: IconHealthCross },
+  { label: "Nonprofit organizations", Icon: IconHeart },
+  { label: "Mid-market businesses", Icon: IconBuilding },
+  { label: "Executive leadership teams", Icon: IconUsers },
+  { label: "Boards of Directors", Icon: IconRoundTable },
+  { label: "Transformation sponsors", Icon: IconTransform },
 ];
 
 export default function ExecutiveGovernanceAdvisoryPage() {
@@ -245,16 +255,6 @@ export default function ExecutiveGovernanceAdvisoryPage() {
               better decisions, and{" "}
               <span className="text-brand-tertiary">fewer costly surprises.</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-brand-paper/75">
-              Clients are not purchasing time on a task list. They are engaging
-              an experienced executive advisor who participates in the
-              governance of their organization&apos;s most important initiatives.
-            </p>
-            <p className="mt-6 text-lg leading-relaxed text-brand-paper/75">
-              The advisory fee reflects continuous access to independent
-              executive judgment, governance expertise, and experienced decision
-              support, not hours logged against individual deliverables.
-            </p>
           </div>
 
           <div>
@@ -297,10 +297,12 @@ export default function ExecutiveGovernanceAdvisoryPage() {
               >
                 {row.who}
               </span>
-              <span className="text-brand-ink/70">
-                <span className="text-brand-ink/45">focuses on </span>
-                {row.focus}
-                {row.lead ? "." : "."}
+              <span className="text-brand-ink/45">
+                focuses on{" "}
+                <span className="font-medium text-brand-tertiary">
+                  {row.focus}
+                </span>
+                .
               </span>
             </div>
           ))}
@@ -315,7 +317,8 @@ export default function ExecutiveGovernanceAdvisoryPage() {
         </p>
 
         <p className="mt-8 border-l-2 border-brand-secondary pl-6 font-display text-2xl leading-snug sm:text-3xl">
-          Our responsibility is not to manage the project.{" "}
+          Our responsibility is not to manage the project.
+          <br />
           <span className="text-brand-primary">
             It is to strengthen the leadership governing it.
           </span>
@@ -329,13 +332,14 @@ export default function ExecutiveGovernanceAdvisoryPage() {
           Organizations undertaking significant strategic initiatives.
         </h2>
 
-        <ul className="mt-10 grid gap-px overflow-hidden border border-brand-paper/12 bg-brand-paper/12 sm:grid-cols-2 lg:grid-cols-4">
-          {audiences.map((audience) => (
+        <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+          {audiences.map(({ label, Icon }) => (
             <li
-              key={audience}
-              className="bg-brand-ink p-5 text-[0.95rem] leading-snug text-brand-paper/85"
+              key={label}
+              className="flex items-center gap-3 text-brand-paper/85"
             >
-              {audience}
+              <Icon className="h-6 w-6 shrink-0 text-brand-tertiary" />
+              <span className="text-[0.95rem] leading-snug">{label}</span>
             </li>
           ))}
         </ul>
