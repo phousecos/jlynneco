@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
-import { HeroAmpersand } from "@/components/ui/HeroAmpersand";
+import Image from "next/image";
 import { WordRiver } from "@/components/ui/WordRiver";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
@@ -98,10 +98,21 @@ const pressures = [
 export default function Home() {
   return (
     <>
-      {/* Hero — the thesis, not a greeting. Dark ink ground; the "&" from
-          "& Co." bleeds off the right as an oversized brand device. */}
+      {/* Hero — the thesis over a darkened boardroom image. Copy sits on the
+          near-solid left of the gradient so it stays legible. */}
       <section className="relative isolate overflow-hidden bg-brand-ink text-brand-paper">
-        <HeroAmpersand />
+        <Image
+          src="/home-page-hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-center"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink via-brand-ink/85 to-brand-ink/45"
+        />
         <Container className="relative py-24 sm:py-32">
           <Eyebrow>Executive Governance Advisory</Eyebrow>
 
@@ -186,12 +197,12 @@ export default function Home() {
         <div className="mt-10 space-y-3 sm:mt-12 sm:space-y-4">
           <WordRiver
             items={failureSignals}
-            durationSeconds={32}
+            durationSeconds={38}
             className="text-brand-paper/55"
           />
           <WordRiver
             items={failureSignalsAlt}
-            durationSeconds={46}
+            durationSeconds={55}
             className="text-brand-paper/30"
           />
         </div>

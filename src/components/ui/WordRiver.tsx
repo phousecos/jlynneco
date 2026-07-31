@@ -17,7 +17,7 @@ export function WordRiver({
     <div className="flex shrink-0 items-center">
       {items.map((word) => (
         <span key={word} className="flex items-center">
-          <span className="whitespace-nowrap font-display text-2xl leading-none sm:text-3xl lg:text-4xl">
+          <span className="whitespace-nowrap font-display text-2xl leading-[1.2] sm:text-3xl lg:text-4xl">
             {word}
           </span>
           <span
