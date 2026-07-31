@@ -61,14 +61,14 @@ export default function AboutPage() {
       {/* Leadership — the founding principal, dark ground. */}
       <Section ground="deep">
         <Eyebrow>Leadership</Eyebrow>
-        <div className="mt-8 grid gap-8 md:grid-cols-[auto_1fr] md:gap-10">
+        <div className="mt-8 grid gap-8 md:grid-cols-[auto_1fr] md:gap-12">
           <Avatar
             src={principal.image}
             alt={principal.name}
             initials={principal.initials}
-            size={112}
+            size={240}
           />
-          <div className="max-w-2xl">
+          <div className="max-w-2xl md:self-center">
             <h2 className="font-display text-2xl leading-tight text-brand-paper">
               {principal.name}
             </h2>

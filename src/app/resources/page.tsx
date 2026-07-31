@@ -9,7 +9,7 @@ import { clsx } from "@/lib/clsx";
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "The firm's podcast, essays, publications, and downloads on governing transformation.",
+    "The firm's podcast, speaking, essays, publications, and downloads on governing transformation.",
 };
 
 const cardBase =
@@ -51,7 +51,7 @@ export default function ResourcesPage() {
       <PageHero
         eyebrow="Resources"
         title="Ideas, evidence, and tools for governing transformation."
-        lede="The firm's podcast, essays, publications, and downloads — the thinking behind the practice, gathered in one place."
+        lede="The firm's podcast, speaking, essays, publications, and downloads — the thinking behind the practice, gathered in one place."
       />
 
       {resourceGroups.map((group, i) => (

@@ -51,6 +51,35 @@ export const resourceGroups: ResourceGroup[] = [
     ],
   },
   {
+    id: "speaking",
+    label: "Speaking",
+    heading: "Keynotes, panels, and executive briefings.",
+    intro:
+      "Jerri speaks to boards, executive teams, and industry audiences on governing transformation — why major initiatives fail, and the leadership discipline that changes the outcome. Available for keynotes, panels, and private executive sessions.",
+    source: "Link each engagement to its event or a booking form.",
+    items: [
+      {
+        meta: "Keynote",
+        title: "Why transformation is a leadership problem",
+        description:
+          "A keynote on the governance discipline that separates transformations that hold from the ones that don't.",
+      },
+      {
+        meta: "Workshop",
+        title: "Governing the initiative you can't afford to lose",
+        description:
+          "An executive session on decision rights, risk visibility, and accountability across a major program.",
+      },
+      {
+        meta: "Booking",
+        title: "Invite Jerri to speak",
+        description:
+          "Share the audience, format, and date, and we'll follow up to shape the session.",
+        href: "/contact",
+      },
+    ],
+  },
+  {
     id: "transformidable",
     label: "Transformidable",
     heading: "Essays and frameworks, in depth.",
