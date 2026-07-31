@@ -91,7 +91,7 @@ export default function ExpertWitnessPage() {
         }
         lede="When an enterprise transformation or technology program fails and the matter is contested, leadership and counsel need an expert who can explain what happened, and why, clearly and credibly."
       >
-        <CTALink href={site.discoveryCall} variant="onDark">
+        <CTALink href={site.discoveryCall} variant="solid">
           Discuss a matter
         </CTALink>
       </PageHero>

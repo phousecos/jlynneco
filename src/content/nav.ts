@@ -11,13 +11,18 @@ export type NavItem = { label: string; href?: string; children?: NavChild[] };
 export const primaryNav: NavItem[] = [
   { label: "Home", href: "/" },
   {
-    label: "Executive Governance",
+    label: "Governance",
     children: [
       {
         label: "Executive Governance Advisory",
         href: "/executive-governance-advisory",
       },
       { label: "Governance Assessments", href: "/governance-assessments" },
+      { label: "Project Recovery", href: "/project-recovery" },
+      {
+        label: "Transformidable Governance Method™",
+        href: "/transformidable-governance-method",
+      },
     ],
   },
   { label: "Expert Witness", href: "/expert-witness" },

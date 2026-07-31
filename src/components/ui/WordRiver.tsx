@@ -18,7 +18,15 @@ export function WordRiver({
       {items.map((word) => (
         <span key={word} className="flex items-center">
           <span className="whitespace-nowrap font-display text-2xl leading-[1.2] sm:text-3xl lg:text-4xl">
-            {word}
+            {word.split(/(governance)/i).map((part, i) =>
+              /^governance$/i.test(part) ? (
+                <span key={i} className="text-brand-tertiary">
+                  {part}
+                </span>
+              ) : (
+                part
+              ),
+            )}
           </span>
           <span
             aria-hidden

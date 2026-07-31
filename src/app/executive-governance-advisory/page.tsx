@@ -15,6 +15,7 @@ import {
   IconRoundTable,
   IconTransform,
 } from "@/components/ui/icons";
+import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
@@ -120,11 +121,8 @@ export default function ExecutiveGovernanceAdvisoryPage() {
         image="/banner.webp"
         title={
           <>
-            Independent executive guidance for organizations navigating{" "}
-            <em className="not-italic text-brand-secondary">
-              complex transformation
-            </em>
-            .
+            When you&rsquo;re the one{" "}
+            <em className="not-italic text-brand-secondary">accountable</em>.
           </>
         }
         lede="Major initiatives are among the most significant investments leadership will make. Modernizing technology, implementing enterprise software, adopting AI, strengthening cybersecurity, integrating acquisitions. Each demands more than effective project management. It demands disciplined governance, informed executive decisions, and continuous accountability."
@@ -136,7 +134,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
           </span>
         </p>
         <div className="mt-8">
-          <CTALink href={site.discoveryCall} variant="onDark">
+          <CTALink href={site.discoveryCall} variant="solid">
             Schedule an Executive Governance Conversation
           </CTALink>
         </div>
@@ -370,6 +368,12 @@ export default function ExecutiveGovernanceAdvisoryPage() {
           wherever organizations make significant strategic investments.
         </p>
       </Section>
+
+      <NextStep
+        prompt="Experiencing governance challenges?"
+        label="Explore Project Recovery & Executive Stabilization"
+        href="/project-recovery"
+      />
 
       {/* Begin the conversation — flagship blue closing. */}
       <div className="bg-brand-primary text-brand-paper">

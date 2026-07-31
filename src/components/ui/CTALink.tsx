@@ -22,7 +22,7 @@ const styles: Record<Variant, string> = {
   // which stays legible where blue would go muddy.
   ghostOnDark:
     "text-brand-paper/80 underline-offset-4 hover:text-brand-tertiary hover:underline px-0",
-  // Action on a dark ground — fills to blue on hover.
+  // Secondary action on a dark or colored ground — outlined paper button.
   onDark:
     "border border-brand-paper/40 text-brand-paper hover:border-brand-primary hover:bg-brand-primary hover:text-brand-paper",
   // Action on a colored (blue) ground — a paper button for contrast.

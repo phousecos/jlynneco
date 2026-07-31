@@ -48,7 +48,7 @@ export default function TransformidableGovernanceMethodPage() {
         title="The Transformidable Governance Method™"
         lede="A structured, research-informed framework that helps leadership establish, strengthen, and sustain governance throughout organizational transformation."
       >
-        <CTALink href={site.discoveryCall} variant="onDark">
+        <CTALink href={site.discoveryCall} variant="solid">
           Schedule an Executive Conversation
         </CTALink>
       </PageHero>

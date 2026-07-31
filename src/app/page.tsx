@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import Image from "next/image";
 import { WordRiver } from "@/components/ui/WordRiver";
+import { HeroStats } from "@/components/ui/HeroStats";
 import {
   IconCompass,
   IconClipboardCheck,
@@ -29,21 +30,32 @@ import { contactHref } from "@/content/nav";
 // (blue leads, gold accents, teal supports) — no technical specs change here.
 
 // Where programs slip when governance is thin — streamed as a moving "river"
-// of words in the royal-blue band (see the WordRiver section below).
-const failureSignals = [
-  "Projects drift",
-  "Costs increase",
-  "Vendors become difficult to manage",
-  "Decisions are delayed",
-  "Risks emerge too late",
-  "Confidence erodes",
+// of words in the royal-blue band (see the WordRiver section below). Two
+// distinct lanes drift past each other for a layered, river-like feel.
+const riverLane1 = [
+  "Scope creep",
+  "Unclear goals",
+  "Bad planning",
+  "Ignored dependencies",
+  "Unrealistic deadlines",
+  "Lack of executive support",
+  "Poor communication",
+  "Lack of ownership",
+  "Disengaged stakeholders",
+  "Unskilled resources",
 ];
 
-// A rotated copy so the second river lane doesn't march in lockstep with the
-// first — the two lanes drift past each other for a layered, river-like feel.
-const failureSignalsAlt = [
-  ...failureSignals.slice(3),
-  ...failureSignals.slice(0, 3),
+const riverLane2 = [
+  "Inadequate risk management",
+  "Insufficient budget",
+  "Poor resource management",
+  "Insufficient testing",
+  "Wrong technology",
+  "Misaligned strategy",
+  "Market changes",
+  "Poor vendor selection",
+  "Inadequate governance",
+  "No user adoption",
 ];
 
 // What the advisory relationship strengthens.
@@ -135,26 +147,14 @@ export default function Home() {
           <Eyebrow>Executive Governance Advisory</Eyebrow>
 
           <h1 className="font-display font-display-hero mt-8 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-6xl">
-            Helping leaders govern transformation with confidence.
+            Helping leaders govern transformation with{" "}
+            <span className="text-brand-secondary">confidence</span>.
           </h1>
 
-          <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-brand-paper/75">
-            <p>
-              Organizations invest millions of dollars in strategic initiatives
-              every year. Some deliver lasting value. Others become cautionary
-              tales.
-            </p>
-            <p>The difference is rarely the technology.</p>
-          </div>
-
-          <p className="mt-8 font-display text-3xl leading-tight text-brand-secondary sm:text-4xl">
-            It is governance.
-          </p>
-
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-brand-paper/75">
-            We help executive teams, boards, and organizational leaders
-            strengthen decision-making, improve accountability, manage risk, and
-            govern complex transformation with confidence.
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-brand-paper/80">
+            We help executive teams and boards sharpen their technical
+            oversight, minimize project delivery friction, and successfully
+            steer large-scale digital transformations.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
@@ -166,6 +166,17 @@ export default function Home() {
             <CTALink href={contactHref} variant="onDark">
               Download the Executive Governance Overview
             </CTALink>
+          </div>
+        </Container>
+      </section>
+
+      {/* The stakes — animated stat features (count-up on scroll-in, an
+          auto-cycling highlight). Solid ink, flowing out of the hero. */}
+      <section className="bg-brand-ink py-16 text-brand-paper sm:py-20">
+        <Container>
+          <p className="eyebrow text-brand-secondary">The stakes</p>
+          <div className="mt-8">
+            <HeroStats />
           </div>
         </Container>
       </section>
@@ -214,12 +225,12 @@ export default function Home() {
             below is the focal point. */}
         <div className="mt-10 space-y-3 sm:mt-12 sm:space-y-4">
           <WordRiver
-            items={failureSignals}
+            items={riverLane1}
             durationSeconds={38}
             className="text-brand-paper/55"
           />
           <WordRiver
-            items={failureSignalsAlt}
+            items={riverLane2}
             durationSeconds={55}
             className="text-brand-paper/30"
           />
@@ -227,7 +238,7 @@ export default function Home() {
 
         {/* Screen-reader equivalent of the decorative river. */}
         <ul className="sr-only">
-          {failureSignals.map((signal) => (
+          {[...riverLane1, ...riverLane2].map((signal) => (
             <li key={signal}>{signal}</li>
           ))}
         </ul>
@@ -240,7 +251,8 @@ export default function Home() {
           <p className="font-display font-display-hero mt-8 text-3xl leading-tight text-brand-paper sm:text-4xl lg:text-5xl">
             These are rarely technology failures.
             <br />
-            They are governance failures.
+            They are <span className="text-brand-tertiary">governance</span>{" "}
+            failures.
           </p>
         </Container>
       </section>
@@ -254,11 +266,6 @@ export default function Home() {
               An independent executive advisor to leadership teams navigating
               significant change.
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-brand-paper/75">
-              Unlike traditional consulting firms that focus on delivering
-              projects, we focus on strengthening leadership&apos;s ability to
-              govern those projects.
-            </p>
           </div>
 
           <div>
@@ -394,11 +401,8 @@ export default function Home() {
       {/* Why independent governance matters — dark ground. */}
       <Section ground="deep">
         <Eyebrow>Why independent governance matters</Eyebrow>
-        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Large initiatives create pressure.
-        </h2>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-16">
           <ul className="divide-y divide-brand-paper/10 border-y border-brand-paper/10">
             {pressures.map((pressure) => (
               <li key={pressure.who} className="py-4 leading-relaxed">

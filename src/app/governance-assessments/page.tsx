@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import { IconCheck } from "@/components/ui/icons";
+import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 
@@ -78,7 +79,7 @@ export default function GovernanceAssessmentsPage() {
         title="Know before you go."
         lede="Before investing in a major transformation, understand whether your governance systems are prepared to support success."
       >
-        <CTALink href={site.discoveryCall} variant="onDark">
+        <CTALink href={site.discoveryCall} variant="solid">
           Schedule an Assessment Consultation
         </CTALink>
       </PageHero>
@@ -252,6 +253,12 @@ export default function GovernanceAssessmentsPage() {
           </CTALink>
         </div>
       </Section>
+
+      <NextStep
+        prompt="Already underway?"
+        label="Learn about Executive Governance Advisory"
+        href="/executive-governance-advisory"
+      />
 
       {/* Begin with confidence — flagship blue closing. */}
       <div className="bg-brand-primary text-brand-paper">
