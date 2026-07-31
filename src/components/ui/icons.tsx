@@ -153,6 +153,15 @@ export function IconUsers({ className }: IconProps) {
   );
 }
 
+// Check — deliverables / included items.
+export function IconCheck({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <path d="M20 6 9 17l-5-5" />
+    </Base>
+  );
+}
+
 // Transformation (circular arrows) — CIOs and transformation sponsors.
 export function IconTransform({ className }: IconProps) {
   return (

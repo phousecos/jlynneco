@@ -72,7 +72,7 @@ const services = [
     Icon: IconClipboardCheck,
     title: "Governance Assessments",
     body: "An objective evaluation of governance maturity, organizational readiness, executive accountability, and transformation risk before critical investments begin.",
-    href: contactHref,
+    href: "/governance-assessments",
   },
   {
     n: "03",

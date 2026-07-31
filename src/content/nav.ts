@@ -1,19 +1,19 @@
 // Primary navigation for the Executive Governance Advisory positioning.
 //
-// Governance Assessments and Governance Failure are intentionally HELD until
-// their pages ship — their routes are reserved below. Re-add them to
-// `primaryNav` (in this order) the day their content lands, and nothing else
-// needs to change: the header and footer both render from `primaryNav`.
+// Governance Failure is intentionally HELD until its page ships — its route
+// is reserved below. Re-add it to `primaryNav` (in this order) the day its
+// content lands, and nothing else needs to change: the header and footer both
+// render from `primaryNav`.
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
   { label: "Executive Governance Advisory", href: "/executive-governance-advisory" },
+  { label: "Governance Assessments", href: "/governance-assessments" },
   { label: "About", href: "/about" },
 ];
 
 // Reserved — held until content arrives:
-//   { label: "Governance Assessments", href: "/governance-assessments" },
-//   { label: "Governance Failure",     href: "/governance-failure" },
+//   { label: "Governance Failure", href: "/governance-failure" },
 
 // The primary contact CTA — rendered as the header pill and in the footer.
 export const contactHref = "/contact";
