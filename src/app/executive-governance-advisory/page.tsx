@@ -120,11 +120,8 @@ export default function ExecutiveGovernanceAdvisoryPage() {
         image="/banner.webp"
         title={
           <>
-            Independent executive guidance for organizations navigating{" "}
-            <em className="not-italic text-brand-secondary">
-              complex transformation
-            </em>
-            .
+            When you&rsquo;re the one{" "}
+            <em className="not-italic text-brand-secondary">accountable</em>.
           </>
         }
         lede="Major initiatives are among the most significant investments leadership will make. Modernizing technology, implementing enterprise software, adopting AI, strengthening cybersecurity, integrating acquisitions. Each demands more than effective project management. It demands disciplined governance, informed executive decisions, and continuous accountability."
