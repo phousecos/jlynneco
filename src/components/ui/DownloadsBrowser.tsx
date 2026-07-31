@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { Fragment } from "react";
 import {
   audienceLabels,
   audienceOrder,
@@ -12,16 +10,17 @@ import {
   cardBase,
   cardHover,
 } from "@/components/ui/ResourceCard";
-import { trackDownload } from "@/lib/track";
 import { clsx } from "@/lib/clsx";
 
-type Filter = "all" | Audience;
+// The filter chips: an implicit "All" plus one per audience.
+const filters: { id: "all" | Audience; label: string }[] = [
+  { id: "all", label: "All" },
+  ...audienceOrder.map((a) => ({ id: a, label: audienceLabels[a] })),
+];
 
-// A small sector label pinned to the foot of a download card, so the same
-// title (e.g. "Board Checklist") stays distinguishable across sectors in the
-// "All" view.
-function AudienceTag({ item }: { item: ResourceItem }) {
-  const audience = item.audience ?? "general";
+// A small sector label pinned to the foot of a card, so the same title (e.g.
+// "Board Checklist") stays distinguishable across sectors in the "All" view.
+function AudienceTag({ audience }: { audience: Audience }) {
   return (
     <p className="mt-4 border-t border-brand-ink/10 pt-3 font-mono text-[0.7rem] uppercase tracking-wider text-brand-slate">
       {audienceLabels[audience]}
@@ -29,22 +28,30 @@ function AudienceTag({ item }: { item: ResourceItem }) {
   );
 }
 
-// A single download card. When it has a file (`href`) the click is recorded via
-// trackDownload before the browser follows the link, and `download` hints the
-// browser to save rather than navigate.
+// A single download card. `data-aud` is what the CSS filter keys off of. The
+// link is a plain `<a download>`, so downloading works with no JavaScript;
+// web-analytics tools auto-track file downloads (and the sector is already in
+// the filename), so no click handler is needed.
 function DownloadCard({ item }: { item: ResourceItem }) {
+  const audience = item.audience ?? "general";
   const body = (
     <>
       <ResourceCardBody item={item} />
-      <AudienceTag item={item} />
+      <AudienceTag audience={audience} />
     </>
   );
-  if (!item.href) return <div className={cardBase}>{body}</div>;
+  if (!item.href) {
+    return (
+      <div data-aud={audience} className={cardBase}>
+        {body}
+      </div>
+    );
+  }
   return (
     <a
+      data-aud={audience}
       href={item.href}
       download
-      onClick={() => trackDownload(item.href!, item.audience ?? "general")}
       className={clsx(cardBase, cardHover)}
     >
       {body}
@@ -52,51 +59,38 @@ function DownloadCard({ item }: { item: ResourceItem }) {
   );
 }
 
-// Downloads with a sector filter. "All" shows everything; a vertical shows its
-// own files plus every "general" file (general applies to all sectors).
+// Downloads with a sector filter, driven entirely by CSS (see .dl-filter in
+// globals.css). "All" shows everything; a vertical shows its own files plus
+// every "general" file. No client JavaScript required.
 export function DownloadsBrowser({ items }: { items: ResourceItem[] }) {
-  const [filter, setFilter] = useState<Filter>("all");
-
-  const visible = items.filter((item) => {
-    if (filter === "all") return true;
-    const audience = item.audience ?? "general";
-    return audience === filter || audience === "general";
-  });
-
-  const chips: { value: Filter; label: string }[] = [
-    { value: "all", label: "All" },
-    ...audienceOrder.map((a) => ({ value: a, label: audienceLabels[a] })),
-  ];
-
   return (
-    <>
-      <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter downloads by sector">
-        {chips.map((chip) => {
-          const active = filter === chip.value;
-          return (
-            <button
-              key={chip.value}
-              type="button"
-              aria-pressed={active}
-              onClick={() => setFilter(chip.value)}
-              className={clsx(
-                "rounded-full border px-4 py-1.5 text-sm transition-colors",
-                active
-                  ? "border-brand-primary bg-brand-primary text-brand-paper"
-                  : "border-brand-ink/20 text-brand-ink hover:border-brand-primary hover:text-brand-primary",
-              )}
-            >
-              {chip.label}
-            </button>
-          );
-        })}
+    <div className="dl-filter mt-8">
+      <div
+        className="flex flex-wrap gap-2"
+        role="radiogroup"
+        aria-label="Filter downloads by sector"
+      >
+        {filters.map((f, i) => (
+          <Fragment key={f.id}>
+            <input
+              type="radio"
+              name="dl-filter"
+              id={`dl-${f.id}`}
+              defaultChecked={i === 0}
+              className="dl-filter__radio sr-only"
+            />
+            <label htmlFor={`dl-${f.id}`} className="dl-filter__chip">
+              {f.label}
+            </label>
+          </Fragment>
+        ))}
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((item) => (
+      <div className="dl-filter__grid mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item) => (
           <DownloadCard key={item.href ?? item.title} item={item} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

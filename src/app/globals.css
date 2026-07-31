@@ -178,4 +178,50 @@
       padding-left: max(2rem, calc((100vw - 64rem) / 2 + 2rem));
     }
   }
+
+  /* Downloads sector filter — pure CSS so it works with no JavaScript (in any
+     preview, and as progressive enhancement). Hidden radios drive both the
+     active chip (adjacent sibling) and which cards are visible (:has on the
+     wrapper). "general" files stay visible under every vertical filter. */
+  .dl-filter__chip {
+    cursor: pointer;
+    border-radius: 9999px;
+    border: 1px solid rgb(var(--brand-ink-rgb) / 0.2);
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+    color: rgb(var(--brand-ink-rgb));
+    transition:
+      color 0.15s,
+      background-color 0.15s,
+      border-color 0.15s;
+  }
+  .dl-filter__chip:hover {
+    border-color: rgb(var(--brand-primary-rgb));
+    color: rgb(var(--brand-primary-rgb));
+  }
+  .dl-filter__radio:checked + .dl-filter__chip {
+    background: rgb(var(--brand-primary-rgb));
+    border-color: rgb(var(--brand-primary-rgb));
+    color: rgb(var(--brand-paper-rgb));
+  }
+  .dl-filter__radio:focus-visible + .dl-filter__chip {
+    outline: 2px solid rgb(var(--brand-primary-rgb));
+    outline-offset: 2px;
+  }
+}
+
+/* Downloads filter card visibility — deliberately UNLAYERED so `display: none`
+   wins over the cards' `flex` utility (Tailwind's utilities layer would beat
+   an @layer components rule regardless of specificity). "general" files stay
+   visible under every vertical filter. */
+.dl-filter:has(#dl-general:checked)
+  .dl-filter__grid
+  > [data-aud]:not([data-aud="general"]),
+.dl-filter:has(#dl-highered-nonprofit:checked)
+  .dl-filter__grid
+  > [data-aud]:not([data-aud="highered-nonprofit"]):not([data-aud="general"]),
+.dl-filter:has(#dl-credit-unions:checked)
+  .dl-filter__grid
+  > [data-aud]:not([data-aud="credit-unions"]):not([data-aud="general"]) {
+  display: none;
 }
