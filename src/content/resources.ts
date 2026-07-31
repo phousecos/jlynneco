@@ -140,55 +140,109 @@ export const resourceGroups: ResourceGroup[] = [
     heading: "Executive-ready tools.",
     intro:
       "Briefs, frameworks, and overviews you can share with your leadership team. Filter by sector for guidance tuned to your organization.",
-    source: "Drop the files in /public/downloads and set each item's href.",
-    // PLACEHOLDERS — replace titles/descriptions and point href at the real
-    // PDF in /public/downloads. `audience: "general"` shows under every chip;
-    // vertical items show under "All", their own chip, and nowhere else.
+    source: "Files live in /public/downloads (converted from the CMS source docs).",
+    // Each download is tagged with its audience. "general" files surface under
+    // every chip; vertical files appear under "All" and their own chip. The
+    // Private-Sector editions are treated as the general/default versions.
     items: [
       {
-        meta: "PDF",
+        meta: "Overview",
         title: "Executive Governance Overview",
-        description: "A short brief you can share with your leadership team.",
-        href: "/downloads/executive-governance-overview.pdf",
+        description:
+          "How governance works around a major initiative, at a glance.",
+        href: "/downloads/Executive-Governance-Overview-Private-Sector.pdf",
         audience: "general",
       },
       {
-        meta: "PDF",
-        title: "Governance Assessment Overview",
-        description: "What a Governance Assessment evaluates and delivers.",
-        href: "/downloads/governance-assessment-overview.pdf",
+        meta: "Checklist",
+        title: "Board Checklist",
+        description:
+          "Board-level questions for overseeing a major technology program.",
+        href: "/downloads/Board-Checklist-Private-Sector.pdf",
         audience: "general",
       },
       {
-        meta: "PDF",
-        title: "Governing Transformation in Higher Education & Nonprofits",
+        meta: "Checklist",
+        title: "Governance Readiness Checklist",
+        description: "Assess governance readiness before you commit.",
+        href: "/downloads/Governance-Readiness-Checklist-Private-Sector.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Checklist",
+        title: "AI Governance Checklist",
         description:
-          "Board and executive oversight for mission-driven institutions modernizing core systems.",
-        href: "/downloads/higher-ed-nonprofit-governance-brief.pdf",
+          "A checklist for governing AI adoption with the right oversight.",
+        href: "/downloads/AI-Governance-Checklist.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Guide",
+        title: "Steering Committee Guide",
+        description:
+          "How to run a steering committee that actually governs the work.",
+        href: "/downloads/Steering-Committee-Guide.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Checklist",
+        title: "Transformation Readiness Checklist",
+        description:
+          "Gauge whether your organization is ready to take on a major initiative.",
+        href: "/downloads/Transformation-Readiness-Checklist.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Guide",
+        title: "Vendor Governance Guide",
+        description: "Keeping implementation partners accountable to leadership.",
+        href: "/downloads/Vendor-Governance-Guide.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Overview",
+        title: "Executive Governance Overview",
+        description: "Governing transformation in mission-driven institutions.",
+        href: "/downloads/Executive-Governance-Overview-Higher-Ed-and-Nonprofit.pdf",
         audience: "highered-nonprofit",
       },
       {
-        meta: "PDF",
-        title: "Board Oversight of Major Technology Investments",
+        meta: "Checklist",
+        title: "Board Checklist",
         description:
-          "A framework for trustees and directors stewarding large institutional initiatives.",
-        href: "/downloads/board-oversight-technology-investments.pdf",
+          "Board and trustee oversight questions for higher-ed and nonprofit programs.",
+        href: "/downloads/Board-Checklist-Higher-Ed-and-Nonprofit.pdf",
         audience: "highered-nonprofit",
       },
       {
-        meta: "PDF",
-        title: "Core Conversion Governance for Credit Unions",
+        meta: "Checklist",
+        title: "Governance Readiness Checklist",
         description:
-          "Governing a core banking conversion from decision through cutover.",
-        href: "/downloads/credit-union-core-conversion-governance.pdf",
+          "Readiness questions tuned to higher-ed and nonprofit governance.",
+        href: "/downloads/Governance-Readiness-Checklist-Higher-Ed-and-Nonprofit.pdf",
+        audience: "highered-nonprofit",
+      },
+      {
+        meta: "Overview",
+        title: "Executive Governance Overview",
+        description:
+          "Governing a core or technology program at a credit union.",
+        href: "/downloads/Executive-Governance-Overview-Credit-Unions.pdf",
         audience: "credit-unions",
       },
       {
-        meta: "PDF",
-        title: "Vendor Oversight for Credit Union Technology Programs",
+        meta: "Checklist",
+        title: "Board Checklist",
         description:
-          "Keeping implementation partners accountable to the board and members.",
-        href: "/downloads/credit-union-vendor-oversight.pdf",
+          "Board and supervisory-committee oversight for credit union programs.",
+        href: "/downloads/Board-Checklist-Credit-Unions.pdf",
+        audience: "credit-unions",
+      },
+      {
+        meta: "Checklist",
+        title: "Governance Readiness Checklist",
+        description: "Readiness questions tuned to credit union governance.",
+        href: "/downloads/Governance-Readiness-Checklist-Credit-Unions.pdf",
         audience: "credit-unions",
       },
     ],

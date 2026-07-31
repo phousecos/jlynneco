@@ -17,11 +17,29 @@ import { clsx } from "@/lib/clsx";
 
 type Filter = "all" | Audience;
 
+// A small sector label pinned to the foot of a download card, so the same
+// title (e.g. "Board Checklist") stays distinguishable across sectors in the
+// "All" view.
+function AudienceTag({ item }: { item: ResourceItem }) {
+  const audience = item.audience ?? "general";
+  return (
+    <p className="mt-4 border-t border-brand-ink/10 pt-3 font-mono text-[0.7rem] uppercase tracking-wider text-brand-slate">
+      {audienceLabels[audience]}
+    </p>
+  );
+}
+
 // A single download card. When it has a file (`href`) the click is recorded via
 // trackDownload before the browser follows the link, and `download` hints the
 // browser to save rather than navigate.
 function DownloadCard({ item }: { item: ResourceItem }) {
-  if (!item.href) return <div className={cardBase}>{<ResourceCardBody item={item} />}</div>;
+  const body = (
+    <>
+      <ResourceCardBody item={item} />
+      <AudienceTag item={item} />
+    </>
+  );
+  if (!item.href) return <div className={cardBase}>{body}</div>;
   return (
     <a
       href={item.href}
@@ -29,7 +47,7 @@ function DownloadCard({ item }: { item: ResourceItem }) {
       onClick={() => trackDownload(item.href!, item.audience ?? "general")}
       className={clsx(cardBase, cardHover)}
     >
-      <ResourceCardBody item={item} />
+      {body}
     </a>
   );
 }
@@ -76,7 +94,7 @@ export function DownloadsBrowser({ items }: { items: ResourceItem[] }) {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((item) => (
-          <DownloadCard key={item.title} item={item} />
+          <DownloadCard key={item.href ?? item.title} item={item} />
         ))}
       </div>
     </>
