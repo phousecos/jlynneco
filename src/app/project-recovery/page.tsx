@@ -72,18 +72,9 @@ export default function ProjectRecoveryPage() {
         }
         lede="Every major initiative encounters challenges. The difference between organizations that recover and those that fail is not the severity of the problem—it is how leadership responds."
       >
-        <p className="font-display text-2xl leading-snug text-brand-paper">
-          Independent executive guidance to restore governance, rebuild
-          confidence,{" "}
-          <span className="text-brand-tertiary">
-            and move forward with clarity.
-          </span>
-        </p>
-        <div className="mt-8">
-          <CTALink href={site.discoveryCall} variant="onDark">
-            Schedule a Transformation Recovery Conversation
-          </CTALink>
-        </div>
+        <CTALink href={site.discoveryCall} variant="solid">
+          Schedule a Transformation Recovery Conversation
+        </CTALink>
       </PageHero>
 
       {/* Recognize the warning signs — dark ground. */}

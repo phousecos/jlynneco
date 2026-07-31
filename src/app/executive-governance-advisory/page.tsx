@@ -133,7 +133,7 @@ export default function ExecutiveGovernanceAdvisoryPage() {
           </span>
         </p>
         <div className="mt-8">
-          <CTALink href={site.discoveryCall} variant="onDark">
+          <CTALink href={site.discoveryCall} variant="solid">
             Schedule an Executive Governance Conversation
           </CTALink>
         </div>

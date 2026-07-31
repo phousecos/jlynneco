@@ -78,7 +78,7 @@ export default function GovernanceAssessmentsPage() {
         title="Know before you go."
         lede="Before investing in a major transformation, understand whether your governance systems are prepared to support success."
       >
-        <CTALink href={site.discoveryCall} variant="onDark">
+        <CTALink href={site.discoveryCall} variant="solid">
           Schedule an Assessment Consultation
         </CTALink>
       </PageHero>
