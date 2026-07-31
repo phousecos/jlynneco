@@ -11,11 +11,29 @@
 // The items below are PLACEHOLDERS to show the structure. Knowledge Base is
 // intentionally omitted for now.
 
+// Download audiences. "general" resources surface for every vertical; the
+// others are vertical-specific and appear under both "All" and their own chip.
+export type Audience = "general" | "highered-nonprofit" | "credit-unions";
+
+export const audienceLabels: Record<Audience, string> = {
+  general: "General",
+  "highered-nonprofit": "Higher Education & Nonprofit",
+  "credit-unions": "Credit Unions",
+};
+
+// Chip order for the Downloads filter (an implicit "All" is prepended by the UI).
+export const audienceOrder: Audience[] = [
+  "general",
+  "highered-nonprofit",
+  "credit-unions",
+];
+
 export type ResourceItem = {
   title: string;
   description: string;
   meta?: string; // e.g. "Episode", "Essay", "Book", "PDF"
   href?: string; // canonical source; when set, the card links out
+  audience?: Audience; // downloads only — which vertical the file serves
 };
 
 export type ResourceGroup = {
@@ -121,18 +139,57 @@ export const resourceGroups: ResourceGroup[] = [
     label: "Downloads",
     heading: "Executive-ready tools.",
     intro:
-      "Briefs, frameworks, and overviews you can share with your leadership team.",
-    source: "Host the files in /public or a bucket.",
+      "Briefs, frameworks, and overviews you can share with your leadership team. Filter by sector for guidance tuned to your organization.",
+    source: "Drop the files in /public/downloads and set each item's href.",
+    // PLACEHOLDERS — replace titles/descriptions and point href at the real
+    // PDF in /public/downloads. `audience: "general"` shows under every chip;
+    // vertical items show under "All", their own chip, and nowhere else.
     items: [
       {
         meta: "PDF",
         title: "Executive Governance Overview",
         description: "A short brief you can share with your leadership team.",
+        href: "/downloads/executive-governance-overview.pdf",
+        audience: "general",
       },
       {
         meta: "PDF",
-        title: "Governance Assessment overview",
+        title: "Governance Assessment Overview",
         description: "What a Governance Assessment evaluates and delivers.",
+        href: "/downloads/governance-assessment-overview.pdf",
+        audience: "general",
+      },
+      {
+        meta: "PDF",
+        title: "Governing Transformation in Higher Education & Nonprofits",
+        description:
+          "Board and executive oversight for mission-driven institutions modernizing core systems.",
+        href: "/downloads/higher-ed-nonprofit-governance-brief.pdf",
+        audience: "highered-nonprofit",
+      },
+      {
+        meta: "PDF",
+        title: "Board Oversight of Major Technology Investments",
+        description:
+          "A framework for trustees and directors stewarding large institutional initiatives.",
+        href: "/downloads/board-oversight-technology-investments.pdf",
+        audience: "highered-nonprofit",
+      },
+      {
+        meta: "PDF",
+        title: "Core Conversion Governance for Credit Unions",
+        description:
+          "Governing a core banking conversion from decision through cutover.",
+        href: "/downloads/credit-union-core-conversion-governance.pdf",
+        audience: "credit-unions",
+      },
+      {
+        meta: "PDF",
+        title: "Vendor Oversight for Credit Union Technology Programs",
+        description:
+          "Keeping implementation partners accountable to the board and members.",
+        href: "/downloads/credit-union-vendor-oversight.pdf",
+        audience: "credit-unions",
       },
     ],
   },
