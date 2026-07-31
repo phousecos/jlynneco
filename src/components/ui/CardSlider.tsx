@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { Container } from "./Container";
 
 // A full-width horizontal card slider. The track scroll-snaps and hides its
 // scrollbar; prev/next buttons nudge it by ~80% of the visible width. Cards are
@@ -20,11 +21,11 @@ export function CardSlider({ children }: { children: React.ReactNode }) {
     <div className="mt-12">
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 sm:px-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="slider-pad-l flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 pr-6 sm:pr-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {children}
       </div>
-      <div className="mt-6 flex justify-end gap-2 px-6 sm:px-8">
+      <Container className="mt-6 flex justify-end gap-2">
         <button
           type="button"
           onClick={() => nudge(-1)}
@@ -41,7 +42,7 @@ export function CardSlider({ children }: { children: React.ReactNode }) {
         >
           <span aria-hidden>&rarr;</span>
         </button>
-      </div>
+      </Container>
     </div>
   );
 }
