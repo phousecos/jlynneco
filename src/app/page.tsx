@@ -161,9 +161,11 @@ export default function Home() {
             <CTALink href={site.discoveryCall} variant="solid">
               Schedule an Executive Conversation
             </CTALink>
-            {/* Placeholder target — wire to the overview PDF in /public once
-                the asset exists; routes to intake in the meantime. */}
-            <CTALink href={contactHref} variant="onDark">
+            <CTALink
+              href="/downloads/Executive-Governance-Overview-Private-Sector.pdf"
+              variant="onDark"
+              download
+            >
               Download the Executive Governance Overview
             </CTALink>
           </div>

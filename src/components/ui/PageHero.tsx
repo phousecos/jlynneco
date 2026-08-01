@@ -6,13 +6,15 @@ import { clsx } from "@/lib/clsx";
 
 // Interior-page header on the dark authority ground. Cooler, formal register.
 // Carries the oversized ampersand device by default; pass `image` to place a
-// darkened photo behind the copy instead.
+// darkened photo behind the copy, or `logo` to bleed a transparent brand mark
+// off the right margin in place of the ampersand.
 export function PageHero({
   eyebrow,
   title,
   lede,
   ground = "ink",
   image,
+  logo,
   children,
 }: {
   eyebrow: string;
@@ -20,6 +22,7 @@ export function PageHero({
   lede?: React.ReactNode;
   ground?: "ink" | "deep";
   image?: string;
+  logo?: string;
   children?: React.ReactNode;
 }) {
   return (
@@ -44,6 +47,16 @@ export function PageHero({
             className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-ink/90 via-brand-ink/70 to-brand-ink/45"
           />
         </>
+      ) : logo ? (
+        <Image
+          src={logo}
+          alt=""
+          aria-hidden
+          width={560}
+          height={560}
+          priority
+          className="pointer-events-none absolute -right-20 top-1/2 hidden h-auto w-[34rem] -translate-y-1/2 select-none opacity-90 lg:block"
+        />
       ) : (
         <HeroAmpersand />
       )}

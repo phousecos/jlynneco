@@ -37,11 +37,13 @@ export function CTALink({
   children,
   variant = "solid",
   className,
+  download = false,
 }: {
   href: string;
   children: React.ReactNode;
   variant?: Variant;
   className?: string;
+  download?: boolean;
 }) {
   const isExternal = /^https?:\/\//.test(href);
   const base =
@@ -50,6 +52,16 @@ export function CTALink({
       : "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors";
 
   const cls = clsx(base, styles[variant], className);
+
+  // A file download (e.g. a PDF in /public) — a plain anchor with the download
+  // hint, never a client-side <Link> navigation.
+  if (download) {
+    return (
+      <a href={href} className={cls} download>
+        {children}
+      </a>
+    );
+  }
 
   if (isExternal) {
     return (

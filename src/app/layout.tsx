@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import { display, body } from "./fonts";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
@@ -17,7 +18,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jlynneandco.com"),
+  metadataBase: new URL("https://jlynne.co"),
   title: {
     default: "J. Lynne & Co. · Executive Governance Advisory",
     template: "%s · J. Lynne & Co.",
@@ -54,6 +55,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );

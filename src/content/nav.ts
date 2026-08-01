@@ -30,6 +30,7 @@ export const primaryNav: NavItem[] = [
     label: "Resources",
     children: [
       { label: "Podcast", href: "/resources#podcast" },
+      { label: "Speaking", href: "/resources#speaking" },
       { label: "Transformidable", href: "/resources#transformidable" },
       { label: "Publications", href: "/resources#publications" },
       { label: "Downloads", href: "/resources#downloads" },

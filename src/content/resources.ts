@@ -11,11 +11,29 @@
 // The items below are PLACEHOLDERS to show the structure. Knowledge Base is
 // intentionally omitted for now.
 
+// Download audiences. "general" resources surface for every vertical; the
+// others are vertical-specific and appear under both "All" and their own chip.
+export type Audience = "general" | "highered-nonprofit" | "credit-unions";
+
+export const audienceLabels: Record<Audience, string> = {
+  general: "General",
+  "highered-nonprofit": "Higher Education & Nonprofit",
+  "credit-unions": "Credit Unions",
+};
+
+// Chip order for the Downloads filter (an implicit "All" is prepended by the UI).
+export const audienceOrder: Audience[] = [
+  "general",
+  "highered-nonprofit",
+  "credit-unions",
+];
+
 export type ResourceItem = {
   title: string;
   description: string;
   meta?: string; // e.g. "Episode", "Essay", "Book", "PDF"
   href?: string; // canonical source; when set, the card links out
+  audience?: Audience; // downloads only — which vertical the file serves
 };
 
 export type ResourceGroup = {
@@ -47,6 +65,35 @@ export const resourceGroups: ResourceGroup[] = [
         title: "Reading a program honestly, before the post-mortem",
         description:
           "The early signals that a major initiative is drifting, and what executives can do about them.",
+      },
+    ],
+  },
+  {
+    id: "speaking",
+    label: "Speaking",
+    heading: "Keynotes, panels, and executive briefings.",
+    intro:
+      "Jerri speaks to boards, executive teams, and industry audiences on governing transformation — why major initiatives fail, and the leadership discipline that changes the outcome. Available for keynotes, panels, and private executive sessions.",
+    source: "Link each engagement to its event or a booking form.",
+    items: [
+      {
+        meta: "Keynote",
+        title: "Why transformation is a leadership problem",
+        description:
+          "A keynote on the governance discipline that separates transformations that hold from the ones that don't.",
+      },
+      {
+        meta: "Workshop",
+        title: "Governing the initiative you can't afford to lose",
+        description:
+          "An executive session on decision rights, risk visibility, and accountability across a major program.",
+      },
+      {
+        meta: "Booking",
+        title: "Invite Jerri to speak",
+        description:
+          "Share the audience, format, and date, and we'll follow up to shape the session.",
+        href: "/contact",
       },
     ],
   },
@@ -92,18 +139,111 @@ export const resourceGroups: ResourceGroup[] = [
     label: "Downloads",
     heading: "Executive-ready tools.",
     intro:
-      "Briefs, frameworks, and overviews you can share with your leadership team.",
-    source: "Host the files in /public or a bucket.",
+      "Briefs, frameworks, and overviews you can share with your leadership team. Filter by sector for guidance tuned to your organization.",
+    source: "Files live in /public/downloads (converted from the CMS source docs).",
+    // Each download is tagged with its audience. "general" files surface under
+    // every chip; vertical files appear under "All" and their own chip. The
+    // Private-Sector editions are treated as the general/default versions.
     items: [
       {
-        meta: "PDF",
+        meta: "Overview",
         title: "Executive Governance Overview",
-        description: "A short brief you can share with your leadership team.",
+        description:
+          "How governance works around a major initiative, at a glance.",
+        href: "/downloads/Executive-Governance-Overview-Private-Sector.pdf",
+        audience: "general",
       },
       {
-        meta: "PDF",
-        title: "Governance Assessment overview",
-        description: "What a Governance Assessment evaluates and delivers.",
+        meta: "Checklist",
+        title: "Board Checklist",
+        description:
+          "Board-level questions for overseeing a major technology program.",
+        href: "/downloads/Board-Checklist-Private-Sector.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Checklist",
+        title: "Governance Readiness Checklist",
+        description: "Assess governance readiness before you commit.",
+        href: "/downloads/Governance-Readiness-Checklist-Private-Sector.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Checklist",
+        title: "AI Governance Checklist",
+        description:
+          "A checklist for governing AI adoption with the right oversight.",
+        href: "/downloads/AI-Governance-Checklist.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Guide",
+        title: "Steering Committee Guide",
+        description:
+          "How to run a steering committee that actually governs the work.",
+        href: "/downloads/Steering-Committee-Guide.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Checklist",
+        title: "Transformation Readiness Checklist",
+        description:
+          "Gauge whether your organization is ready to take on a major initiative.",
+        href: "/downloads/Transformation-Readiness-Checklist.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Guide",
+        title: "Vendor Governance Guide",
+        description: "Keeping implementation partners accountable to leadership.",
+        href: "/downloads/Vendor-Governance-Guide.pdf",
+        audience: "general",
+      },
+      {
+        meta: "Overview",
+        title: "Executive Governance Overview",
+        description: "Governing transformation in mission-driven institutions.",
+        href: "/downloads/Executive-Governance-Overview-Higher-Ed-and-Nonprofit.pdf",
+        audience: "highered-nonprofit",
+      },
+      {
+        meta: "Checklist",
+        title: "Board Checklist",
+        description:
+          "Board and trustee oversight questions for higher-ed and nonprofit programs.",
+        href: "/downloads/Board-Checklist-Higher-Ed-and-Nonprofit.pdf",
+        audience: "highered-nonprofit",
+      },
+      {
+        meta: "Checklist",
+        title: "Governance Readiness Checklist",
+        description:
+          "Readiness questions tuned to higher-ed and nonprofit governance.",
+        href: "/downloads/Governance-Readiness-Checklist-Higher-Ed-and-Nonprofit.pdf",
+        audience: "highered-nonprofit",
+      },
+      {
+        meta: "Overview",
+        title: "Executive Governance Overview",
+        description:
+          "Governing a core or technology program at a credit union.",
+        href: "/downloads/Executive-Governance-Overview-Credit-Unions.pdf",
+        audience: "credit-unions",
+      },
+      {
+        meta: "Checklist",
+        title: "Board Checklist",
+        description:
+          "Board and supervisory-committee oversight for credit union programs.",
+        href: "/downloads/Board-Checklist-Credit-Unions.pdf",
+        audience: "credit-unions",
+      },
+      {
+        meta: "Checklist",
+        title: "Governance Readiness Checklist",
+        description: "Readiness questions tuned to credit union governance.",
+        href: "/downloads/Governance-Readiness-Checklist-Credit-Unions.pdf",
+        audience: "credit-unions",
       },
     ],
   },
