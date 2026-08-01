@@ -18,7 +18,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jlynneandco.com"),
+  metadataBase: new URL("https://jlynne.co"),
   title: {
     default: "J. Lynne & Co. · Executive Governance Advisory",
     template: "%s · J. Lynne & Co.",

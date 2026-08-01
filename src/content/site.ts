@@ -6,7 +6,7 @@ export const site = {
   shortName: "J. Lynne & Co.",
   tagline: "The patience to see it. The drive to move it.",
   // Long-term firm home — its own address, never a redirect into JerriBland.com.
-  url: "https://jlynneandco.com",
+  url: "https://jlynne.co",
   // Where JerriBland.com's "Work With Me" link lands.
   personSite: {
     label: "JerriBland.com",
