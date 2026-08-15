@@ -10,6 +10,7 @@ import { HeroStats } from "@/components/ui/HeroStats";
 import {
   IconCompass,
   IconClipboardCheck,
+  IconSpark,
   IconPulse,
   IconEye,
   IconLifeBuoy,
@@ -93,34 +94,41 @@ const services = [
   },
   {
     n: "03",
+    Icon: IconSpark,
+    title: "AI Governance Policy & Decision Workshop",
+    body: "Independent guidance on how the organization will govern AI decisions—permitted uses, risk acceptance, oversight, and escalation—not merely write an AI policy.",
+    href: "/ai-governance",
+  },
+  {
+    n: "04",
     Icon: IconPulse,
     title: "Transformation Governance Health Review",
     body: "Independent confidence that the governance surrounding a live transformation can recognize, escalate, and respond to conditions that could affect it.",
     href: "/transformation-governance-health-review",
   },
   {
-    n: "04",
+    n: "05",
     Icon: IconEye,
     title: "Governance Watch",
     body: "Ongoing independent visibility into governance conditions around a high-consequence transformation, deployment, or technology environment.",
     href: "/governance-watch",
   },
   {
-    n: "05",
+    n: "06",
     Icon: IconLifeBuoy,
     title: "Technology Transformation Recovery",
     body: "When a transformation moves beyond acceptable performance or risk thresholds, we help leadership evaluate viable paths forward and govern the recovery.",
     href: "/technology-transformation-recovery",
   },
   {
-    n: "06",
+    n: "07",
     Icon: IconTimeline,
     title: "Governance Reconstruction & Lessons Learned",
     body: "An independent reconstruction of what was known, what was decided, and what the organization should learn after a significant event.",
     href: "/governance-reconstruction",
   },
   {
-    n: "07",
+    n: "08",
     Icon: IconCpu,
     title: "Fractional CIO Leadership",
     body: "When organizations require experienced technology leadership, we provide executive CIO guidance as part of a broader governance strategy. Technology leadership supports governance. It does not replace it.",
@@ -337,7 +345,7 @@ export default function Home() {
         <Container>
           <Eyebrow>How we help</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-            Seven ways we strengthen executive governance, across the life of
+            Eight ways we strengthen executive governance, across the life of
             an initiative.
           </h2>
         </Container>

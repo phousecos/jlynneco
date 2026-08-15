@@ -49,8 +49,15 @@ export default function GovernanceReconstructionPage() {
     <>
       <PageHero
         eyebrow="Governance Reconstruction & Lessons-Learned Review"
-        image="/research-hero.jpg"
-        title="Understand what happened—and what it means going forward."
+        title={
+          <>
+            Understand{" "}
+            <em className="not-italic text-brand-secondary">
+              what happened
+            </em>
+            —and what it means going forward.
+          </>
+        }
         lede="A significant transformation, incident, recovery, termination, vendor change, overrun, or other consequential event has already occurred. Before the organization moves on, leadership deserves a clear, evidence-based account of what happened and why."
       >
         <CTALink href={site.discoveryCall} variant="solid">

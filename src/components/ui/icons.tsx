@@ -186,6 +186,16 @@ export function IconPulse({ className }: IconProps) {
   );
 }
 
+// Four-point spark — AI Governance Policy & Decision Workshop.
+export function IconSpark({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <path d="M12 3v5M12 16v5M3 12h5M16 12h5" />
+      <path d="M12 8a4 4 0 0 0 4 4 4 4 0 0 0-4 4 4 4 0 0 0-4-4 4 4 0 0 0 4-4Z" />
+    </Base>
+  );
+}
+
 // Open eye — Governance Watch.
 export function IconEye({ className }: IconProps) {
   return (

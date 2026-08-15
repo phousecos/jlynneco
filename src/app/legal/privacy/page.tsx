@@ -14,7 +14,11 @@ export default function PrivacyPage() {
       <PageHero
         ground="deep"
         eyebrow="Legal · Privacy"
-        title="Privacy policy"
+        title={
+          <>
+            <em className="not-italic text-brand-secondary">Privacy</em> policy
+          </>
+        }
         lede="Placeholder policy — to be finalized with counsel before launch."
       />
       <Section ground="paper" size="prose">

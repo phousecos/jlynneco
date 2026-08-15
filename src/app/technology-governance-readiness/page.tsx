@@ -75,8 +75,13 @@ export default function TechnologyGovernanceReadinessPage() {
     <>
       <PageHero
         eyebrow="Technology Governance Readiness"
-        image="/assessment-hero.jpg"
-        title="Know before you go."
+        title={
+          <>
+            Know{" "}
+            <em className="not-italic text-brand-secondary">before</em> you
+            go.
+          </>
+        }
         lede="Before a consequential technology decision, investment, or deployment, understand whether the organization's governance is prepared to support it."
       >
         <CTALink href={site.discoveryCall} variant="solid">

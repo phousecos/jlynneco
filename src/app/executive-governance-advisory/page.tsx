@@ -118,7 +118,6 @@ export default function ExecutiveGovernanceAdvisoryPage() {
     <>
       <PageHero
         eyebrow="Executive Governance Advisory"
-        image="/banner.webp"
         title={
           <>
             When you&rsquo;re the one{" "}

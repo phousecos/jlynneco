@@ -50,7 +50,14 @@ export default function TransformationGovernanceHealthReviewPage() {
     <>
       <PageHero
         eyebrow="Transformation Governance Health Review"
-        title="Independent confidence in the governance around a live transformation."
+        title={
+          <>
+            <em className="not-italic text-brand-secondary">
+              Independent confidence
+            </em>{" "}
+            in the governance around a live transformation.
+          </>
+        }
         lede="A major ERP, cloud, AI, or technology transformation is underway. Before leadership relies on it, the governance surrounding it deserves an independent look."
       >
         <CTALink href={site.discoveryCall} variant="solid">

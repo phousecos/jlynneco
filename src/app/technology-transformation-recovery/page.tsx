@@ -60,7 +60,6 @@ export default function TechnologyTransformationRecoveryPage() {
     <>
       <PageHero
         eyebrow="Technology Transformation Recovery"
-        image="/recovery-hero.jpg"
         title={
           <>
             Project Recovery for{" "}

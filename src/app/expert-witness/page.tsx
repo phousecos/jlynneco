@@ -83,7 +83,6 @@ export default function ExpertWitnessPage() {
     <>
       <PageHero
         eyebrow="Expert Witness"
-        image="/witness-hero.jpg"
         title={
           <>
             Independent expert analysis when transformation becomes a{" "}

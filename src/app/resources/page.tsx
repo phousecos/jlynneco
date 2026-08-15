@@ -21,7 +21,15 @@ export default async function ResourcesPage() {
       <DownloadTracker />
       <PageHero
         eyebrow="Resources"
-        title="Ideas, evidence, and tools for governing transformation."
+        title={
+          <>
+            Ideas, evidence, and tools for{" "}
+            <em className="not-italic text-brand-secondary">
+              governing transformation
+            </em>
+            .
+          </>
+        }
         lede="The firm's podcast, speaking, essays, publications, and downloads — the thinking behind the practice, gathered in one place."
       />
 

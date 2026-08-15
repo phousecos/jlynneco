@@ -24,6 +24,10 @@ export const primaryNav: NavItem[] = [
         href: "/technology-governance-readiness",
       },
       {
+        label: "AI Governance Policy & Decision Workshop",
+        href: "/ai-governance",
+      },
+      {
         label: "Transformation Governance Health Review",
         href: "/transformation-governance-health-review",
       },
