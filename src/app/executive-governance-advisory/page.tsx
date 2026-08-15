@@ -40,8 +40,8 @@ const moments = [
   },
   {
     n: "03",
-    title: "Project recovery",
-    body: "Warning signs are emerging and executive confidence is declining. Leadership needs independent guidance to restore accountability, stabilize governance, and realign the initiative with strategy.",
+    title: "Technology transformation recovery",
+    body: "The transformation has moved beyond acceptable performance or risk thresholds. Leadership needs an independent, evidence-based read on the path forward and the governance to execute it.",
   },
   {
     n: "04",
@@ -371,8 +371,8 @@ export default function ExecutiveGovernanceAdvisoryPage() {
 
       <NextStep
         prompt="Experiencing governance challenges?"
-        label="Explore Project Recovery & Executive Stabilization"
-        href="/project-recovery"
+        label="Explore Technology Transformation Recovery"
+        href="/technology-transformation-recovery"
       />
 
       {/* Begin the conversation — flagship blue closing. */}

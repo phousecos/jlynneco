@@ -9,12 +9,12 @@ import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Governance Assessments",
+  title: "Technology Governance Readiness",
   description:
-    "An independent evaluation of governance readiness before critical decisions are made. Know whether your governance systems are prepared to support a major transformation.",
+    "An independent evaluation of governance readiness before a consequential technology decision, investment, or deployment. Know whether the organization can answer the questions it will one day be asked.",
 };
 
-// The questions leadership answers through an assessment.
+// The questions leadership answers through a readiness engagement.
 const questions = [
   "Are executive roles and decision rights clearly defined?",
   "Is leadership aligned around strategic objectives?",
@@ -23,7 +23,7 @@ const questions = [
   "Where are the organization's greatest governance risks?",
 ];
 
-// The five stages of the method, in their assessment form (one line each).
+// The five stages of the method, in their readiness form (one line each).
 const methodStages = [
   { n: "1", title: "Assess", body: "Establish a governance baseline." },
   {
@@ -48,65 +48,64 @@ const methodStages = [
   },
 ];
 
-// The leadership disciplines the assessment examines.
+// The leadership disciplines the engagement examines.
 const evaluateAreas = [
-  "Executive Leadership",
-  "Governance Structure",
-  "Strategic Alignment",
-  "Organizational Readiness",
-  "Risk Governance",
-  "Vendor Governance",
-  "Executive Visibility",
-  "Governance Sustainability",
+  "Authority & Decision Rights",
+  "Executive Oversight",
+  "Risk & Escalation",
+  "Information & Assurance",
+  "Third-Party & Vendor Governance",
+  "Lifecycle Governance",
+  "Stakeholder Alignment",
+  "Intervention Mechanisms",
 ];
 
-// What every assessment delivers.
+// What every readiness engagement delivers.
 const deliverables = [
-  "Executive Summary",
-  "Transformidable Governance Index™",
-  "Governance Maturity Dashboard",
-  "Executive Risk Heat Map",
-  "Prioritized Recommendations",
-  "90-Day Governance Roadmap",
+  "Technology Governance Readiness Brief",
+  "Governance strengths and evidence gaps",
+  "Unanswered governance questions",
+  "Priority decisions for leadership",
+  "Recommended actions",
   "Executive Debrief Session",
 ];
 
-export default function GovernanceAssessmentsPage() {
+export default function TechnologyGovernanceReadinessPage() {
   return (
     <>
       <PageHero
-        eyebrow="Governance Assessments"
+        eyebrow="Technology Governance Readiness"
         image="/assessment-hero.jpg"
         title="Know before you go."
-        lede="Before investing in a major transformation, understand whether your governance systems are prepared to support success."
+        lede="Before a consequential technology decision, investment, or deployment, understand whether the organization's governance is prepared to support it."
       >
         <CTALink href={site.discoveryCall} variant="solid">
-          Schedule an Assessment Consultation
+          Schedule a Readiness Conversation
         </CTALink>
       </PageHero>
 
-      {/* The case for assessing governance — paper. */}
+      {/* The case for readiness — paper. */}
       <Section ground="paper">
         <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-brand-ink/80">
           <p>
-            Every significant initiative carries risk. Most organizations assess
-            financial controls, cybersecurity, compliance, and operational
-            readiness, but very few assess the governance systems responsible
-            for guiding the investment.
+            Every significant initiative carries risk. Most organizations
+            assess financial controls, cybersecurity, compliance, and
+            operational readiness, but very few assess the governance systems
+            responsible for guiding the investment.
           </p>
           <p className="font-display text-2xl leading-snug text-brand-ink sm:text-3xl">
-            A Governance Assessment gives executive leadership an{" "}
+            If this decision were independently scrutinized in the future,{" "}
             <span className="text-brand-primary">
-              independent evaluation of governance readiness
-            </span>{" "}
-            before critical decisions are made.
+              what questions would be asked—and can the organization answer
+              them today?
+            </span>
           </p>
         </div>
       </Section>
 
-      {/* Why begin with an assessment — dark ground. */}
+      {/* Why begin with readiness — dark ground. */}
       <Section ground="deep">
-        <Eyebrow>Why begin with an assessment</Eyebrow>
+        <Eyebrow>Why begin with readiness</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
           Transformation success begins long before implementation.
         </h2>
@@ -114,7 +113,7 @@ export default function GovernanceAssessmentsPage() {
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <p className="eyebrow text-brand-paper/55">
-              An assessment helps leadership answer
+              A readiness engagement helps leadership answer
             </p>
             <ul className="mt-5 divide-y divide-brand-paper/10 border-y border-brand-paper/10">
               {questions.map((question) => (
@@ -145,7 +144,7 @@ export default function GovernanceAssessmentsPage() {
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>The Transformidable Governance Method™</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-            Every assessment follows our five-stage framework.
+            Every engagement follows our five-stage framework.
           </h2>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
@@ -170,7 +169,7 @@ export default function GovernanceAssessmentsPage() {
       <Section ground="paper">
         <Eyebrow>What we evaluate</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          The leadership disciplines that influence transformation success.
+          The governance disciplines that influence transformation success.
         </h2>
 
         <ul className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -190,7 +189,7 @@ export default function GovernanceAssessmentsPage() {
       <Section ground="deep">
         <Eyebrow>What you&apos;ll receive</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Every Governance Assessment includes:
+          Every Technology Governance Readiness engagement includes:
         </h2>
 
         <ul className="mt-10 grid gap-x-10 gap-y-4 sm:grid-cols-2">
@@ -232,20 +231,22 @@ export default function GovernanceAssessmentsPage() {
         </div>
       </Section>
 
-      {/* After the assessment — dark ground, routes up to advisory. */}
+      {/* After the readiness engagement — dark ground, routes forward. */}
       <Section ground="deep">
-        <Eyebrow>After the assessment</Eyebrow>
+        <Eyebrow>Where leadership goes next</Eyebrow>
         <div className="mt-5 max-w-3xl space-y-5 text-lg leading-relaxed text-brand-paper/80">
           <p>
-            Every organization is different. Some require only a few governance
-            improvements before moving forward. Others benefit from periodic
-            governance reviews.
+            Some organizations require only a few governance improvements
+            before moving forward. Others carry that governance baseline into
+            the transformation itself, checking it periodically through a
+            Transformation Governance Health Review or an ongoing Governance
+            Watch relationship.
           </p>
           <p>
             Organizations undertaking complex or high-risk initiatives often
             choose an ongoing Executive Governance Advisory relationship to
-            strengthen leadership throughout the transformation. The assessment
-            helps determine the appropriate path.
+            strengthen leadership throughout the transformation. A readiness
+            engagement helps determine the appropriate path.
           </p>
         </div>
         <div className="mt-8">
@@ -257,8 +258,8 @@ export default function GovernanceAssessmentsPage() {
 
       <NextStep
         prompt="Already underway?"
-        label="Learn about Executive Governance Advisory"
-        href="/executive-governance-advisory"
+        label="Learn about the Transformation Governance Health Review"
+        href="/transformation-governance-health-review"
       />
 
       {/* Begin with confidence — flagship blue closing. */}
@@ -267,15 +268,16 @@ export default function GovernanceAssessmentsPage() {
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Begin with confidence</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Major transformations deserve more than assumptions.
+            Major decisions deserve more than assumptions.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
-            A Governance Assessment gives leadership the information needed to
-            make better decisions before the stakes become higher.
+            A Technology Governance Readiness engagement gives leadership the
+            information needed to make better decisions before the stakes
+            become higher.
           </p>
           <div className="mt-9 flex justify-center">
             <CTALink href={site.discoveryCall} variant="onColor">
-              Schedule an Executive Governance Assessment
+              Schedule a Readiness Conversation
             </CTALink>
           </div>
         </div>

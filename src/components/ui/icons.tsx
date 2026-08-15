@@ -173,3 +173,38 @@ export function IconTransform({ className }: IconProps) {
     </Base>
   );
 }
+
+/* ---- Governance lifecycle ---- */
+
+// Pulse line — Transformation Governance Health Review.
+export function IconPulse({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M7 12h2.5l1.5-4 2.5 8 1.5-4H17" />
+    </Base>
+  );
+}
+
+// Open eye — Governance Watch.
+export function IconEye({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" />
+      <circle cx="12" cy="12" r="3" />
+    </Base>
+  );
+}
+
+// Timeline with markers — Governance Reconstruction & Lessons-Learned Review.
+export function IconTimeline({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <path d="M4 12h16" />
+      <circle cx="6" cy="12" r="1.6" />
+      <circle cx="12" cy="12" r="1.6" />
+      <circle cx="18" cy="12" r="1.6" />
+      <path d="M6 12V6M18 12v6" />
+    </Base>
+  );
+}

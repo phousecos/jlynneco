@@ -9,9 +9,9 @@ import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Project Recovery",
+  title: "Technology Transformation Recovery",
   description:
-    "Independent executive guidance to help organizations restore governance, strengthen decision-making, rebuild confidence, and move a struggling initiative forward with clarity.",
+    "Independent, governance-led intervention for consequential technology transformations that have moved beyond acceptable performance or risk thresholds.",
 };
 
 // The early governance signals of an initiative that is drifting.
@@ -25,27 +25,23 @@ const warningSigns = [
   "Teams lose confidence in the direction of the initiative.",
 ];
 
-// What recovery engagements commonly include.
-const priorities = [
+// The four phases of a recovery engagement.
+const phases = [
   {
-    title: "Rapid Governance Assessment",
-    body: "Identify governance breakdowns, decision bottlenecks, and organizational risks.",
+    title: "Establish the Evidence",
+    body: "What is actually happening versus what has been reported. Current cost, schedule, scope, risk, vendor, technical, and organizational conditions.",
   },
   {
-    title: "Executive Alignment",
-    body: "Re-establish shared priorities, decision rights, and leadership accountability.",
+    title: "Diagnose Governance & Decision Conditions",
+    body: "Where authority, accountability, assurance, information, escalation, vendor governance, change control, and intervention mechanisms are helping or constraining recovery.",
   },
   {
-    title: "Governance Stabilization",
-    body: "Strengthen executive oversight, steering committee effectiveness, and governance discipline.",
+    title: "Present Decision Alternatives",
+    body: "Recover as planned, rebaseline, rescope, restructure, replace a vendor, change governance, pause, or terminate. Recovery is not a predetermined conclusion.",
   },
   {
-    title: "Vendor Governance",
-    body: "Clarify expectations, accountability, communication, and executive oversight of implementation partners.",
-  },
-  {
-    title: "Recovery Roadmap",
-    body: "Develop a prioritized plan that restores confidence while positioning the initiative for long-term success.",
+    title: "Govern the Recovery",
+    body: "Decision rights, intervention authority, reporting, assurance, milestones, and the escalation thresholds leadership will use to determine whether recovery remains viable.",
   },
 ];
 
@@ -59,24 +55,47 @@ const outcomes = [
   "Renewed organizational confidence",
 ];
 
-export default function ProjectRecoveryPage() {
+export default function TechnologyTransformationRecoveryPage() {
   return (
     <>
       <PageHero
-        eyebrow="Project Recovery"
+        eyebrow="Technology Transformation Recovery"
         image="/recovery-hero.jpg"
         title={
           <>
-            When projects lose momentum, leadership needs more than a{" "}
-            <em className="not-italic text-brand-secondary">recovery plan</em>.
+            Project Recovery for{" "}
+            <em className="not-italic text-brand-secondary">
+              complex technology transformations
+            </em>
+            .
           </>
         }
-        lede="Every major initiative encounters challenges. The difference between organizations that recover and those that fail is not the severity of the problem—it is how leadership responds."
+        lede="When a technology transformation moves beyond acceptable performance or risk thresholds, recovery requires more than a revised project plan."
       >
         <CTALink href={site.discoveryCall} variant="solid">
           Schedule a Transformation Recovery Conversation
         </CTALink>
       </PageHero>
+
+      {/* The reframed question — paper. */}
+      <Section ground="paper">
+        <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-brand-ink/80">
+          <p>
+            J. Lynne &amp; Co. helps executive leadership establish the true
+            condition of the initiative, identify the governance and decision
+            factors affecting its trajectory, evaluate viable paths forward,
+            and establish the governance required to execute the chosen
+            recovery strategy.
+          </p>
+          <p className="font-display text-2xl leading-snug text-brand-ink sm:text-3xl">
+            The objective is not to preserve a project at all costs.{" "}
+            <span className="text-brand-primary">
+              It is to help leadership make an evidence-based decision about
+              what should happen next—and govern that decision effectively.
+            </span>
+          </p>
+        </div>
+      </Section>
 
       {/* Recognize the warning signs — dark ground. */}
       <Section ground="deep">
@@ -108,19 +127,21 @@ export default function ProjectRecoveryPage() {
         </div>
       </Section>
 
-      {/* Our approach — mist band. */}
+      {/* Our approach — mist band, reframes the first question asked. */}
       <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>Our approach</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-            Recovery begins with understanding—not assumptions.
+            The first question isn&rsquo;t &ldquo;how do we get back on
+            schedule.&rdquo;
           </h2>
           <div className="mt-8 max-w-3xl space-y-6 text-lg leading-relaxed text-brand-ink/80">
             <p>
-              Using the Transformidable Governance Method™, we work with
-              executive leadership to identify the governance conditions
-              contributing to the current situation and establish a practical
-              path forward.
+              It is: should this project be recovered, and if so, what
+              governance, decisions, controls, and interventions are required
+              to establish a viable path forward? Sometimes the right decision
+              is not to recover the existing project—the business case and
+              changed circumstances need to be reconsidered.
             </p>
             <p className="font-display text-2xl leading-snug text-brand-ink">
               Our focus is not assigning blame. Our focus is restoring
@@ -130,28 +151,34 @@ export default function ProjectRecoveryPage() {
         </div>
       </section>
 
-      {/* Recovery priorities — paper grid. */}
+      {/* The four phases — paper grid. */}
       <Section ground="paper">
-        <Eyebrow>Recovery priorities</Eyebrow>
+        <Eyebrow>How a recovery engagement runs</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          Every engagement is unique, but our work commonly includes:
+          Four phases, from evidence to governed recovery.
         </h2>
 
         <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
-          {priorities.map((priority, i) => (
-            <div key={priority.title} className="border-t-2 border-brand-primary/30 pt-4">
+          {phases.map((phase, i) => (
+            <div key={phase.title} className="border-t-2 border-brand-primary/30 pt-4">
               <span className="font-mono text-sm text-brand-primary">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-display mt-2 text-xl leading-snug">
-                {priority.title}
+                {phase.title}
               </h3>
               <p className="mt-2 text-[0.95rem] leading-relaxed text-brand-ink/75">
-                {priority.body}
+                {phase.body}
               </p>
             </div>
           ))}
         </div>
+
+        <p className="mt-12 max-w-3xl text-lg leading-relaxed text-brand-ink/80">
+          We can support implementation without becoming the project manager.
+          Our role is to establish the governance and decisions that make
+          recovery viable—not to take over delivery.
+        </p>
       </Section>
 
       {/* What success looks like — dark ground. */}
@@ -181,8 +208,8 @@ export default function ProjectRecoveryPage() {
 
       <NextStep
         prompt="Preparing for your next transformation?"
-        label="Start with a Governance Assessment"
-        href="/governance-assessments"
+        label="Start with Technology Governance Readiness"
+        href="/technology-governance-readiness"
       />
 
       {/* Begin the recovery — flagship blue closing. */}

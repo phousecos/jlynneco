@@ -118,8 +118,8 @@ export default function TransformidableGovernanceMethodPage() {
             <CTALink href={site.discoveryCall} variant="onColor">
               Schedule an Executive Conversation
             </CTALink>
-            <CTALink href="/governance-assessments" variant="onDark">
-              Start with an assessment
+            <CTALink href="/technology-governance-readiness" variant="onDark">
+              Start with a readiness engagement
             </CTALink>
           </div>
         </div>

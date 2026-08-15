@@ -17,8 +17,25 @@ export const primaryNav: NavItem[] = [
         label: "Executive Governance Advisory",
         href: "/executive-governance-advisory",
       },
-      { label: "Governance Assessments", href: "/governance-assessments" },
-      { label: "Project Recovery", href: "/project-recovery" },
+      // Ordered by the governance lifecycle: before, during, ongoing,
+      // material distress, after the event.
+      {
+        label: "Technology Governance Readiness",
+        href: "/technology-governance-readiness",
+      },
+      {
+        label: "Transformation Governance Health Review",
+        href: "/transformation-governance-health-review",
+      },
+      { label: "Governance Watch", href: "/governance-watch" },
+      {
+        label: "Technology Transformation Recovery",
+        href: "/technology-transformation-recovery",
+      },
+      {
+        label: "Governance Reconstruction & Lessons Learned",
+        href: "/governance-reconstruction",
+      },
       {
         label: "Transformidable Governance Method™",
         href: "/transformidable-governance-method",
