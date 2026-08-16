@@ -3,13 +3,18 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
+import { CardSlider } from "@/components/ui/CardSlider";
 import Image from "next/image";
 import { WordRiver } from "@/components/ui/WordRiver";
 import { HeroStats } from "@/components/ui/HeroStats";
 import {
   IconCompass,
   IconClipboardCheck,
+  IconSpark,
+  IconPulse,
+  IconEye,
   IconLifeBuoy,
+  IconTimeline,
   IconCpu,
   IconBank,
   IconFlag,
@@ -69,8 +74,9 @@ const advisoryOutcomes = [
   "Build organizational confidence throughout major initiatives",
 ];
 
-// The four engagement modes. `href` funnels to the conversation path for now;
-// point each at a dedicated service page once those pages exist.
+// Engagement modes across the governance lifecycle — before, during,
+// ongoing, material distress, after the event — plus the standing advisory
+// relationship and fractional technology leadership.
 const services = [
   {
     n: "01",
@@ -82,19 +88,47 @@ const services = [
   {
     n: "02",
     Icon: IconClipboardCheck,
-    title: "Governance Assessments",
-    body: "An objective evaluation of governance maturity, organizational readiness, executive accountability, and transformation risk before critical investments begin.",
-    href: "/governance-assessments",
+    title: "Technology Governance Readiness",
+    body: "An objective evaluation of governance readiness before a consequential technology decision, investment, or deployment begins.",
+    href: "/technology-governance-readiness",
   },
   {
     n: "03",
-    Icon: IconLifeBuoy,
-    title: "Project Recovery & Executive Stabilization",
-    body: "When initiatives begin struggling, we help leadership restore governance discipline, improve executive alignment, and regain organizational confidence.",
-    href: contactHref,
+    Icon: IconSpark,
+    title: "AI Governance Policy & Decision Workshop",
+    body: "Independent guidance on how the organization will govern AI decisions—permitted uses, risk acceptance, oversight, and escalation—not merely write an AI policy.",
+    href: "/ai-governance",
   },
   {
     n: "04",
+    Icon: IconPulse,
+    title: "Transformation Governance Health Review",
+    body: "Independent confidence that the governance surrounding a live transformation can recognize, escalate, and respond to conditions that could affect it.",
+    href: "/transformation-governance-health-review",
+  },
+  {
+    n: "05",
+    Icon: IconEye,
+    title: "Governance Watch",
+    body: "Ongoing independent visibility into governance conditions around a high-consequence transformation, deployment, or technology environment.",
+    href: "/governance-watch",
+  },
+  {
+    n: "06",
+    Icon: IconLifeBuoy,
+    title: "Technology Transformation Recovery",
+    body: "When a transformation moves beyond acceptable performance or risk thresholds, we help leadership evaluate viable paths forward and govern the recovery.",
+    href: "/technology-transformation-recovery",
+  },
+  {
+    n: "07",
+    Icon: IconTimeline,
+    title: "Governance Reconstruction & Lessons Learned",
+    body: "An independent reconstruction of what was known, what was decided, and what the organization should learn after a significant event.",
+    href: "/governance-reconstruction",
+  },
+  {
+    n: "08",
     Icon: IconCpu,
     title: "Fractional CIO Leadership",
     body: "When organizations require experienced technology leadership, we provide executive CIO guidance as part of a broader governance strategy. Technology leadership supports governance. It does not replace it.",
@@ -305,24 +339,27 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* How we help — paper ground, four engagement modes in a two-tone grid. */}
-      <Section ground="paper">
-        <Eyebrow>How we help</Eyebrow>
-        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          Four ways we strengthen executive governance.
-        </h2>
+      {/* How we help — paper ground, engagement modes as a full-width slider
+          (header stays in the container; the track runs edge to edge). */}
+      <section className="overflow-hidden bg-brand-paper py-20 text-brand-ink sm:py-28">
+        <Container>
+          <Eyebrow>How we help</Eyebrow>
+          <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
+            Eight ways we strengthen executive governance, across the life of
+            an initiative.
+          </h2>
+        </Container>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <CardSlider>
           {services.map((service, i) => {
-            // Boxes 1 & 4 share the royal-blue tone; 2 & 3 take a deeper blue —
-            // a diagonal two-tone across the 2x2 grid.
-            const royal = i === 0 || i === 3;
+            // Alternating royal / deeper blue as the track scrolls.
+            const royal = i % 2 === 0;
             const Icon = service.Icon;
             return (
               <Link
                 key={service.n}
                 href={service.href}
-                className={`group flex h-full flex-col p-8 text-brand-paper transition-colors ${
+                className={`group flex w-[80vw] shrink-0 snap-start flex-col p-7 text-brand-paper transition-colors sm:w-[320px] ${
                   royal
                     ? "bg-brand-primary hover:bg-brand-primary/90"
                     : "bg-[#1a3488] hover:bg-[#1a3488]/90"
@@ -334,10 +371,10 @@ export default function Home() {
                     {service.n}
                   </span>
                 </div>
-                <h3 className="font-display mt-4 text-xl leading-snug text-brand-paper">
+                <h3 className="font-display mt-4 text-lg leading-snug text-brand-paper">
                   {service.title}
                 </h3>
-                <p className="mt-3 flex-1 leading-relaxed text-brand-paper/75">
+                <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-brand-paper/75">
                   {service.body}
                 </p>
                 <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-paper transition-colors group-hover:text-brand-secondary">
@@ -347,8 +384,8 @@ export default function Home() {
               </Link>
             );
           })}
-        </div>
-      </Section>
+        </CardSlider>
+      </section>
 
       {/* Our philosophy — dark ground, centered pull-quote. */}
       <Section ground="deep">

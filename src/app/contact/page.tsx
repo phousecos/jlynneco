@@ -17,7 +17,12 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Start an executive governance conversation."
+        title={
+          <>
+            Start an executive governance{" "}
+            <em className="not-italic text-brand-secondary">conversation</em>.
+          </>
+        }
         lede="Whether you are preparing for a major initiative, navigating an active transformation, or restoring confidence in a struggling program, it begins with a conversation about your objectives and the risks that matter most to your leadership team."
       />
 

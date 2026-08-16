@@ -14,7 +14,11 @@ export default function TermsPage() {
       <PageHero
         ground="deep"
         eyebrow="Legal · Terms"
-        title="Terms of use"
+        title={
+          <>
+            <em className="not-italic text-brand-secondary">Terms</em> of use
+          </>
+        }
         lede="Placeholder terms — to be finalized with counsel before launch."
       />
       <Section ground="paper" size="prose">

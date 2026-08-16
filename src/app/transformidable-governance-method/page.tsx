@@ -45,8 +45,12 @@ export default function TransformidableGovernanceMethodPage() {
     <>
       <PageHero
         eyebrow="Our method"
-        title="The Transformidable Governance Method™"
-        logo="/transformidable-logo.png"
+        title={
+          <>
+            The Transformidable Governance{" "}
+            <em className="not-italic text-brand-secondary">Method</em>™
+          </>
+        }
         lede="A structured, research-informed framework that helps leadership establish, strengthen, and sustain governance throughout organizational transformation."
       >
         <CTALink href={site.discoveryCall} variant="solid">
@@ -118,8 +122,8 @@ export default function TransformidableGovernanceMethodPage() {
             <CTALink href={site.discoveryCall} variant="onColor">
               Schedule an Executive Conversation
             </CTALink>
-            <CTALink href="/governance-assessments" variant="onDark">
-              Start with an assessment
+            <CTALink href="/technology-governance-readiness" variant="onDark">
+              Start with a readiness engagement
             </CTALink>
           </div>
         </div>
