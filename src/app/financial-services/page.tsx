@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
@@ -11,6 +12,10 @@ import {
   IconMerge,
   IconShield,
   IconTransform,
+  IconLifeBuoy,
+  IconCompass,
+  IconEye,
+  IconClipboardCheck,
 } from "@/components/ui/icons";
 import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
@@ -19,20 +24,40 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Financial Services",
   description:
-    "Independent governance advisory for banks and credit unions governing core conversions, mergers, and acquisitions — from due diligence through stabilization.",
+    "Independent governance advisory for banks and credit unions: institutional transformation, regulatory and operational change, and transformation assurance and recovery.",
 };
 
-// What financial institution leadership must be able to demonstrate.
-const whyItMatters = [
-  "Satisfy examiner expectations for oversight of the conversion or merger",
-  "Uphold the board's and supervisory committee's fiduciary duty",
-  "Protect member and customer trust through the transition",
-  "Maintain safety and soundness while the institution changes underneath it",
-  "Hold the core provider and integration vendors accountable to contract and timeline",
-  "Preserve institutional knowledge as two organizations become one",
+// The three buckets of work where financial institution leadership needs
+// independent governance. Ordered from largest-scope change to the
+// assurance/recovery layer that spans all of them.
+const buckets = [
+  {
+    Icon: IconTransform,
+    title: "Institutional Transformation",
+    body: "The initiatives that fundamentally change how the institution operates and serves its members or customers.",
+    items: ["Core conversions", "M&A integration", "Digital banking transformation"],
+  },
+  {
+    Icon: IconShield,
+    title: "Regulatory & Operational Change",
+    body: "The initiatives regulators, examiners, and operational risk drive—and that boards must be able to account for.",
+    items: ["Regulatory remediation", "Payments modernization", "Infrastructure & cloud transformation"],
+  },
+  {
+    Icon: IconLifeBuoy,
+    title: "Transformation Assurance & Recovery",
+    body: "Independent governance oversight across the life of any initiative above—before, during, and if needed, after it goes off course.",
+    items: [
+      "Independent governance assessment",
+      "Implementation oversight",
+      "Readiness assurance",
+      "Project recovery",
+    ],
+  },
 ];
 
-// The core conversion lifecycle — before, during, and after cutover.
+// The core conversion lifecycle — before, during, and after cutover. A
+// closer look at the flagship item inside Institutional Transformation.
 const conversionPhases = [
   {
     n: "1",
@@ -61,17 +86,53 @@ const conversionPhases = [
   },
 ];
 
-// What an M&A governance engagement covers, due diligence through Day One
-// and beyond.
-const maAreas = [
-  "Due Diligence & Deal Governance",
-  "Integration Planning & Sequencing",
-  "Systems, Charter & Core Consolidation",
-  "Vendor & Contract Rationalization",
-  "Cultural & Workforce Integration",
-  "Day One Readiness",
-  "Board & Regulatory Reporting",
-  "Post-Merger Stabilization",
+// What a single merger can trigger simultaneously — the case for treating
+// M&A as a super-category rather than one workstream among many.
+const maWorkstreams = [
+  "Core consolidation",
+  "Data migration",
+  "Digital banking conversion",
+  "Payments migration",
+  "Cybersecurity integration",
+  "Vendor rationalization",
+  "Operating-model redesign",
+  "Regulatory commitments",
+  "Customer communications",
+  "Workforce change",
+];
+
+// The governance continuum — the four ways leadership engages independent
+// governance across the life of an initiative, each linked to the service
+// that delivers it.
+const continuum = [
+  {
+    n: "1",
+    Icon: IconCompass,
+    title: "Governance Design",
+    body: "Establish the governance model and decision rights before the initiative begins.",
+    href: "/executive-governance-advisory",
+  },
+  {
+    n: "2",
+    Icon: IconEye,
+    title: "Governance Oversight",
+    body: "Ongoing independent visibility into governance conditions while the initiative is underway.",
+    href: "/governance-watch",
+  },
+  {
+    n: "3",
+    Icon: IconClipboardCheck,
+    title: "Readiness Assurance",
+    body: "Objective confirmation that governance can support the decision or milestone ahead.",
+    href: "/technology-governance-readiness",
+  },
+  {
+    n: "4",
+    Icon: IconLifeBuoy,
+    title: "Recovery",
+    body: "When the initiative moves beyond acceptable risk, governing the path back.",
+    href: "/technology-transformation-recovery",
+  },
 ];
 
 // The institutions and leadership bodies this work serves.
@@ -102,7 +163,7 @@ const audiences = [
 // What every Financial Services Governance engagement delivers.
 const deliverables = [
   "Financial Services Governance Readiness Brief",
-  "A core conversion or M&A governance framework built for the institution",
+  "A governance framework built for the initiative—conversion, merger, remediation, or transformation",
   "Executive and board-level reporting cadence",
   "Examiner-ready governance documentation",
   "Core provider and vendor oversight structure",
@@ -121,7 +182,7 @@ export default function FinancialServicesPage() {
             bank or credit union.
           </>
         }
-        lede="Core conversions and mergers and acquisitions are among the most consequential decisions a financial institution will make. We give boards and executive leadership independent governance oversight across every phase—from due diligence through stabilization."
+        lede="Core conversions, mergers, regulatory remediation, and digital transformation are among the most consequential decisions a financial institution will make. We give boards and executive leadership independent governance oversight across all of it—design, oversight, readiness, and recovery."
       >
         <CTALink href={site.discoveryCall} variant="solid">
           Schedule a Financial Services Governance Conversation
@@ -132,10 +193,11 @@ export default function FinancialServicesPage() {
       <Section ground="paper">
         <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-brand-ink/80">
           <p>
-            A core conversion touches every account, every transaction, and
-            every member or customer relationship the institution holds. A
-            merger or acquisition touches all of that, plus two workforces,
-            two vendor ecosystems, and two cultures becoming one.
+            A core conversion touches every account, transaction, and
+            relationship the institution holds. A merger touches all of that,
+            plus two workforces, two vendor ecosystems, and two cultures
+            becoming one. A regulatory remediation program touches the
+            institution&apos;s standing with its primary regulator.
           </p>
           <p className="font-display text-2xl leading-snug text-brand-ink sm:text-3xl">
             If examiners, the board, or members asked how this decision was
@@ -161,7 +223,14 @@ export default function FinancialServicesPage() {
               An engagement helps leadership
             </p>
             <ul className="mt-5 divide-y divide-brand-paper/10 border-y border-brand-paper/10">
-              {whyItMatters.map((item) => (
+              {[
+                "Satisfy examiner expectations for oversight of the conversion or merger",
+                "Uphold the board's and supervisory committee's fiduciary duty",
+                "Protect member and customer trust through the transition",
+                "Maintain safety and soundness while the institution changes underneath it",
+                "Hold the core provider and integration vendors accountable to contract and timeline",
+                "Preserve institutional knowledge as two organizations become one",
+              ].map((item) => (
                 <li key={item} className="flex gap-3 py-3.5 text-brand-paper/85">
                   <span aria-hidden className="text-brand-secondary">
                     •
@@ -182,10 +251,45 @@ export default function FinancialServicesPage() {
         </div>
       </Section>
 
-      {/* Core conversion lifecycle — mist band, five phases. */}
+      {/* The three buckets — paper, the core of the page's architecture. */}
+      <Section ground="paper">
+        <Eyebrow>Where governance is at stake</Eyebrow>
+        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
+          Three kinds of change, one governance question underneath all of
+          them.
+        </h2>
+
+        <div className="mt-12 grid gap-px overflow-hidden border border-brand-ink/12 bg-brand-ink/12 lg:grid-cols-3">
+          {buckets.map(({ Icon, title, body, items }) => (
+            <div key={title} className="flex flex-col bg-brand-paper p-8">
+              <Icon className="h-8 w-8 text-brand-primary" />
+              <h3 className="font-display mt-5 text-xl leading-snug">
+                {title}
+              </h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-brand-ink/75">
+                {body}
+              </p>
+              <ul className="mt-6 space-y-2 border-t border-brand-ink/10 pt-5">
+                {items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-[0.9rem] leading-snug text-brand-ink/80"
+                  >
+                    <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-secondary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Core conversion lifecycle — mist band, a closer look at the
+          flagship item in Institutional Transformation. */}
       <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
-          <Eyebrow>Governing the core conversion</Eyebrow>
+          <Eyebrow>A closer look: the core conversion</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
             Independent governance across every phase of the conversion.
           </h2>
@@ -211,77 +315,115 @@ export default function FinancialServicesPage() {
         </div>
       </section>
 
-      {/* M&A governance — paper grid. */}
+      {/* M&A as super-category — paper. */}
       <Section ground="paper">
-        <Eyebrow>Governing mergers &amp; acquisitions</Eyebrow>
+        <Eyebrow>A closer look: mergers &amp; acquisitions</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          From due diligence to Day One, and everything after.
+          A single merger can trigger every bucket above at once.
         </h2>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-ink/80">
-          Whether it&apos;s a merger of equals, an acquisition, a branch
-          acquisition, or a charter conversion, the board and executive team
-          need independent visibility into how the deal is being governed—not
-          just how it&apos;s being closed.
+          A merger or acquisition can simultaneously trigger core
+          consolidation, data migration, digital banking conversion, payments
+          migration, cybersecurity integration, vendor rationalization,
+          operating-model redesign, regulatory commitments, customer
+          communications, and workforce change.
+        </p>
+        <p className="mt-4 max-w-3xl font-display text-xl leading-snug text-brand-ink sm:text-2xl">
+          Few institutions govern that as one program.{" "}
+          <span className="text-brand-primary">
+            Most govern it as ten uncoordinated ones.
+          </span>
         </p>
 
-        <ul className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
-          {maAreas.map((area) => (
-            <li key={area} className="flex items-center gap-3 text-brand-ink/85">
+        <ul className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-5">
+          {maWorkstreams.map((item) => (
+            <li key={item} className="flex items-center gap-3 text-brand-ink/85">
               <span
                 aria-hidden
                 className="h-4 w-4 shrink-0 rounded-[3px] border border-brand-primary/60"
               />
-              <span className="text-[0.95rem] leading-snug">{area}</span>
+              <span className="text-[0.95rem] leading-snug">{item}</span>
             </li>
           ))}
         </ul>
       </Section>
 
-      {/* The philosophy statement — flagship blue banner, mirrors the firm's
-          homepage thesis in financial-services terms. */}
-      <section className="bg-brand-primary text-brand-paper">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center sm:px-8 sm:py-20">
-          <p className="font-display font-display-hero text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl">
-            <span className="text-brand-paper/80">
-              The core doesn&apos;t fail the institution.
-            </span>
-            <br />
-            Ungoverned decisions do.
-          </p>
-        </div>
-      </section>
-
-      {/* Who we serve — dark ground. */}
+      {/* The differentiator — dark ground, the firm's positioning question. */}
       <Section ground="deep">
+        <Eyebrow>The governance continuum</Eyebrow>
+        <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
+          Plenty of firms can provide implementation resources. We answer a
+          different question.
+        </h2>
+        <p className="mt-6 max-w-3xl border-l-2 border-brand-secondary pl-6 font-display text-2xl leading-snug text-brand-paper sm:text-3xl">
+          Who is independently assessing whether the institution&apos;s
+          governance is capable of carrying the transformation?
+        </p>
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-paper/80">
+          That question applies whether the precipitating event is a
+          nine-figure core conversion, a bank merger, a regulatory
+          remediation program, or a digital transformation.
+        </p>
+
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {continuum.map((stage) => (
+            <Link
+              key={stage.n}
+              href={stage.href}
+              className="group flex flex-col border-t-2 border-brand-paper/25 pt-4 transition-colors hover:border-brand-secondary"
+            >
+              <div className="flex items-center justify-between">
+                <stage.Icon className="h-6 w-6 text-brand-secondary" />
+                <span className="font-mono text-xs text-brand-paper/40">
+                  {stage.n}
+                </span>
+              </div>
+              <h3 className="font-display mt-4 text-lg leading-snug text-brand-paper">
+                {stage.title}
+              </h3>
+              <p className="mt-2 flex-1 text-[0.9rem] leading-relaxed text-brand-paper/70">
+                {stage.body}
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-paper/85 transition-colors group-hover:text-brand-secondary">
+                Learn more
+                <span aria-hidden>→</span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      {/* Who we serve — paper. */}
+      <Section ground="paper">
         <Eyebrow>Who we serve</Eyebrow>
-        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight text-brand-paper sm:text-4xl">
+        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Built for the institutions entrusted with members&apos; and
           customers&apos; financial futures.
         </h2>
 
         <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
           {audiences.map(({ label, Icon }) => (
-            <li key={label} className="flex items-start gap-3 text-brand-paper/85">
-              <Icon className="h-6 w-6 shrink-0 text-brand-secondary" />
+            <li key={label} className="flex items-start gap-3 text-brand-ink/85">
+              <Icon className="h-6 w-6 shrink-0 text-brand-primary" />
               <span className="text-[0.95rem] leading-snug">{label}</span>
             </li>
           ))}
         </ul>
       </Section>
 
-      {/* What you'll receive — paper grid. */}
-      <Section ground="paper">
+      {/* What you'll receive — dark ground. */}
+      <Section ground="deep">
         <Eyebrow>What you&apos;ll receive</Eyebrow>
-        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
+        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight text-brand-paper sm:text-4xl">
           Every Financial Services Governance engagement includes:
         </h2>
         <ul className="mt-10 grid gap-x-10 gap-y-4 sm:grid-cols-2">
           {deliverables.map((item) => (
             <li
               key={item}
-              className="flex items-center gap-3 border-b border-brand-ink/10 pb-4 text-brand-ink/85"
+              className="flex items-center gap-3 border-b border-brand-paper/10 pb-4 text-brand-paper/90"
             >
-              <IconCheck className="h-5 w-5 shrink-0 text-brand-primary" />
+              <IconCheck className="h-5 w-5 shrink-0 text-brand-tertiary" />
               <span>{item}</span>
             </li>
           ))}
@@ -289,9 +431,9 @@ export default function FinancialServicesPage() {
       </Section>
 
       <NextStep
-        prompt="Preparing for a decision, not yet mid-conversion?"
-        label="Learn about Technology Governance Readiness"
-        href="/technology-governance-readiness"
+        prompt="Signs of trouble already showing?"
+        label="Learn about Technology Transformation Recovery"
+        href="/technology-transformation-recovery"
       />
 
       {/* Closing — flagship blue. */}
@@ -300,8 +442,8 @@ export default function FinancialServicesPage() {
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Begin with confidence</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            The institution&apos;s next core conversion or merger deserves more
-            than hope.
+            The institution&apos;s next transformation deserves more than
+            hope.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Bring in independent governance oversight before the stakes are
