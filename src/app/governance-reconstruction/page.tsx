@@ -19,7 +19,7 @@ const questions = [
   "What was known, and when?",
   "What decisions were made, and by whom?",
   "Who had authority over the outcome?",
-  "What was escalated—and what wasn't?",
+  "What was escalated, and what wasn't?",
   "What interventions occurred, and when?",
   "What should the organization learn?",
 ];
@@ -36,7 +36,7 @@ const scope = [
   },
   {
     title: "Governance Decision Reconstruction",
-    body: "How authority, escalation, and intervention mechanisms functioned—or didn't—at each point along the timeline.",
+    body: "How authority, escalation, and intervention mechanisms functioned, or didn't, at each point along the timeline.",
   },
   {
     title: "Lessons & Recommendations",
@@ -55,7 +55,7 @@ export default function GovernanceReconstructionPage() {
             <em className="not-italic text-brand-secondary">
               what happened
             </em>
-            —and what it means going forward.
+            , and what it means going forward.
           </>
         }
         lede="A significant transformation, incident, recovery, termination, vendor change, overrun, or other consequential event has already occurred. Before the organization moves on, leadership deserves a clear, evidence-based account of what happened and why."
@@ -88,7 +88,7 @@ export default function GovernanceReconstructionPage() {
       <Section ground="deep">
         <Eyebrow>What a reconstruction answers</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          A clear, evidence-based account—not blame.
+          A clear, evidence-based account, not blame.
         </h2>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <ul className="divide-y divide-brand-paper/10 border-y border-brand-paper/10">

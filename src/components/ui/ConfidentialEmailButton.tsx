@@ -6,7 +6,7 @@
 // dedicated, rotatable Proton alias kept off the firm's working inbox.)
 export function ConfidentialEmailButton({
   children,
-  subject = "Confidential matter — conflicts check",
+  subject = "Confidential matter: conflicts check",
   body = "Before sharing any privileged detail: please include only what's needed to run a conflicts check (the parties involved). The firm will follow up to establish a secure channel.",
 }: {
   children: React.ReactNode;

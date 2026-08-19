@@ -73,7 +73,7 @@ export const resourceGroups: ResourceGroup[] = [
     label: "Speaking",
     heading: "Keynotes, panels, and executive briefings.",
     intro:
-      "Jerri speaks to boards, executive teams, and industry audiences on governing transformation — why major initiatives fail, and the leadership discipline that changes the outcome. Available for keynotes, panels, and private executive sessions.",
+      "Jerri speaks to boards, executive teams, and industry audiences on governing transformation: why major initiatives fail, and the leadership discipline that changes the outcome. Available for keynotes, panels, and private executive sessions.",
     source: "Link each engagement to its event or a booking form.",
     items: [
       {

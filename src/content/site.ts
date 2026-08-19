@@ -55,7 +55,7 @@ export const ladder: LadderRung[] = [
     title: "Advisory & Audits",
     href: "/advisory",
     blurb:
-      "Judgment across the full lifecycle — before, during, and after. Pre-implementation strategy, audits including SACS readiness, and remediation.",
+      "Judgment across the full lifecycle: before, during, and after. Pre-implementation strategy, audits including SACS readiness, and remediation.",
     altitude: "apex",
   },
   {
@@ -78,7 +78,7 @@ export const programRung: LadderRung = {
   title: "Program Management",
   href: "/program",
   blurb:
-    "Accountable, principal-led ownership of delivery when a live implementation can't afford to fail — governance, sequencing, risk, and the hard calls. Made buyable by the PMO Command retainer.",
+    "Accountable, principal-led ownership of delivery when a live implementation can't afford to fail: governance, sequencing, risk, and the hard calls. Made buyable by the PMO Command retainer.",
   altitude: "floor",
 };
 

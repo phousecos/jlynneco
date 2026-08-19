@@ -11,7 +11,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "AI Governance Policy & Decision Workshop",
   description:
-    "Independent guidance on how an organization will govern AI decisions—permitted uses, authorization, risk acceptance, oversight, and escalation—not merely write an AI policy.",
+    "Independent guidance on how an organization will govern AI decisions: permitted uses, authorization, risk acceptance, oversight, and escalation, not merely write an AI policy.",
 };
 
 // What the workshop scopes and builds.
@@ -48,7 +48,7 @@ export default function AIGovernancePage() {
             <em className="not-italic text-brand-secondary">who decides</em>.
           </>
         }
-        lede="AI adoption, enterprise AI policy, generative-AI use, AI vendor decisions, privacy concerns, or a board asking how AI is governed—the workshop establishes the decision-making system, not just the document."
+        lede="AI adoption, enterprise AI policy, generative-AI use, AI vendor decisions, privacy concerns, or a board asking how AI is governed: the workshop establishes the decision-making system, not just the document."
       >
         <CTALink href={site.discoveryCall} variant="solid">
           Schedule an AI Governance Conversation
@@ -66,7 +66,7 @@ export default function AIGovernancePage() {
           <p className="font-display text-2xl leading-snug text-brand-ink sm:text-3xl">
             How will the organization{" "}
             <span className="text-brand-primary">
-              govern AI decisions—not merely write an AI policy?
+              govern AI decisions, not merely write an AI policy?
             </span>
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function AIGovernancePage() {
         <p className="mt-8 max-w-3xl text-lg leading-relaxed text-brand-paper/80">
           AI adoption, enterprise AI policy, generative-AI use, AI vendor
           decisions, privacy and data concerns, or a board asking for AI
-          governance—each of these is a decision-rights problem before it is
+          governance, each of these is a decision-rights problem before it is
           a documentation problem.
         </p>
       </Section>

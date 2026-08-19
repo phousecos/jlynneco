@@ -40,13 +40,13 @@ const buckets = [
   {
     Icon: IconShield,
     title: "Regulatory & Operational Change",
-    body: "The initiatives regulators, examiners, and operational risk drive—and that boards must be able to account for.",
+    body: "The initiatives regulators, examiners, and operational risk drive, and that boards must be able to account for.",
     items: ["Regulatory remediation", "Payments modernization", "Infrastructure & cloud transformation"],
   },
   {
     Icon: IconLifeBuoy,
     title: "Transformation Assurance & Recovery",
-    body: "Independent governance oversight across the life of any initiative above—before, during, and if needed, after it goes off course.",
+    body: "Independent governance oversight across the life of any initiative above: before, during, and if needed, after it goes off course.",
     items: [
       "Independent governance assessment",
       "Implementation oversight",
@@ -163,7 +163,7 @@ const audiences = [
 // What every Financial Services Governance engagement delivers.
 const deliverables = [
   "Financial Services Governance Readiness Brief",
-  "A governance framework built for the initiative—conversion, merger, remediation, or transformation",
+  "A governance framework built for the initiative: conversion, merger, remediation, or transformation",
   "Executive and board-level reporting cadence",
   "Examiner-ready governance documentation",
   "Core provider and vendor oversight structure",
@@ -182,7 +182,7 @@ export default function FinancialServicesPage() {
             bank or credit union.
           </>
         }
-        lede="Core conversions, mergers, regulatory remediation, and digital transformation are among the most consequential decisions a financial institution will make. We give boards and executive leadership independent governance oversight across all of it—design, oversight, readiness, and recovery."
+        lede="Core conversions, mergers, regulatory remediation, and digital transformation are among the most consequential decisions a financial institution will make. We give boards and executive leadership independent governance oversight across all of it: design, oversight, readiness, and recovery."
       >
         <CTALink href={site.discoveryCall} variant="solid">
           Schedule a Financial Services Governance Conversation
@@ -447,7 +447,7 @@ export default function FinancialServicesPage() {
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Bring in independent governance oversight before the stakes are
-            highest—so the board, the examiners, and the members can trust how
+            highest, so the board, the examiners, and the members can trust how
             the decision was made.
           </p>
           <div className="mt-9 flex justify-center">

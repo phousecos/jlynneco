@@ -96,7 +96,7 @@ const services = [
     n: "03",
     Icon: IconSpark,
     title: "AI Governance Policy & Decision Workshop",
-    body: "Independent guidance on how the organization will govern AI decisions—permitted uses, risk acceptance, oversight, and escalation—not merely write an AI policy.",
+    body: "Independent guidance on how the organization will govern AI decisions: permitted uses, risk acceptance, oversight, and escalation, not merely write an AI policy.",
     href: "/ai-governance",
   },
   {

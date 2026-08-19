@@ -80,6 +80,16 @@
     letter-spacing: -0.025em;
   }
 
+  /* No hanging single words. Headings balance across their lines; body copy
+     avoids leaving an orphan word alone on the last line. Browsers without
+     support just wrap normally. */
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+
   /* Visible keyboard focus — the blue lead accent, part of the quality floor. */
   :focus-visible {
     outline: 2px solid rgb(var(--brand-primary-rgb));

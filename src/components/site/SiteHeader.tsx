@@ -25,7 +25,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex items-center gap-3"
-          aria-label="J. Lynne & Co. — home"
+          aria-label="J. Lynne & Co., home"
           onClick={() => setOpen(false)}
         >
           <Mark size={68} className="text-brand-primary" />
