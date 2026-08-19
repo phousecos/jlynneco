@@ -51,6 +51,7 @@ export const primaryNav: NavItem[] = [
     label: "Industries",
     children: [
       { label: "Financial Services", href: "/financial-services" },
+      { label: "Healthcare", href: "/healthcare" },
       { label: "Higher Education", href: "/higher-education" },
     ],
   },
