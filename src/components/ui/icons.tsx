@@ -174,6 +174,28 @@ export function IconTransform({ className }: IconProps) {
   );
 }
 
+// Graduation cap — campuses & colleges.
+export function IconGraduationCap({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <path d="M2.5 9.5 12 5l9.5 4.5L12 14 2.5 9.5Z" />
+      <path d="M6.5 11.5v4.5c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-4.5" />
+      <path d="M21.5 9.5v5.5" />
+    </Base>
+  );
+}
+
+// Flask — research organizations.
+export function IconFlask({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <path d="M10 3h4" />
+      <path d="M10.5 3v6.2L5.8 18a2 2 0 0 0 1.8 2.9h8.8a2 2 0 0 0 1.8-2.9l-4.7-8.8V3" />
+      <path d="M7.8 15h8.4" />
+    </Base>
+  );
+}
+
 /* ---- Governance lifecycle ---- */
 
 // Pulse line — Transformation Governance Health Review.
