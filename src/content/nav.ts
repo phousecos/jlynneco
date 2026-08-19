@@ -49,9 +49,9 @@ export const primaryNav: NavItem[] = [
   { label: "Expert Witness", href: "/expert-witness" },
   {
     label: "Industries",
-    children: [{ label: "Higher Education", href: "/higher-education" }],
     children: [
       { label: "Financial Services", href: "/financial-services" },
+      { label: "Higher Education", href: "/higher-education" },
     ],
   },
   {
