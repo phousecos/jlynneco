@@ -46,7 +46,16 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
-  { label: "Expert Witness", href: "/expert-witness" },
+  {
+    label: "Specialized Advisory",
+    children: [
+      {
+        label: "Expert Witness & Litigation Support",
+        href: "/expert-witness",
+      },
+      { label: "Private Equity", href: "/private-equity" },
+    ],
+  },
   {
     label: "Industries",
     children: [

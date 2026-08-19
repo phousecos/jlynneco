@@ -7,7 +7,7 @@ import { Mark } from "@/components/site/Mark";
 import { site, leadership, credentials } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Expert Witness",
+  title: "Expert Witness & Litigation Support",
   description:
     "Independent expert analysis of enterprise transformation and technology program failures: case review, expert reports, depositions, and trial testimony for counsel.",
 };
@@ -82,7 +82,7 @@ export default function ExpertWitnessPage() {
   return (
     <>
       <PageHero
-        eyebrow="Expert Witness"
+        eyebrow="Expert Witness & Litigation Support"
         title={
           <>
             Independent expert analysis when transformation becomes a{" "}
