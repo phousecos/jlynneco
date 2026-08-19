@@ -48,6 +48,12 @@ export const primaryNav: NavItem[] = [
   },
   { label: "Expert Witness", href: "/expert-witness" },
   {
+    label: "Industries",
+    children: [
+      { label: "Financial Services", href: "/financial-services" },
+    ],
+  },
+  {
     label: "Resources",
     children: [
       { label: "Podcast", href: "/resources#podcast" },

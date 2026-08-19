@@ -218,3 +218,25 @@ export function IconTimeline({ className }: IconProps) {
     </Base>
   );
 }
+
+/* ---- Financial services ---- */
+
+// Overlapping circles — mergers, acquisitions, and charter conversions.
+export function IconMerge({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <circle cx="9" cy="12" r="6" />
+      <circle cx="15" cy="12" r="6" />
+    </Base>
+  );
+}
+
+// Shield with a check — regulatory and examiner readiness.
+export function IconShield({ className }: IconProps) {
+  return (
+    <Base className={className}>
+      <path d="M12 3.5 5.5 6.2v5.3c0 4.8 3.1 8 6.5 9.5 3.4-1.5 6.5-4.7 6.5-9.5V6.2Z" />
+      <path d="M9 12.2l2 2 4-4" />
+    </Base>
+  );
+}
