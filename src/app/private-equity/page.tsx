@@ -83,8 +83,8 @@ export default function PrivateEquityPage() {
       <Section ground="paper">
         <Eyebrow>The problem</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-          It isn&rsquo;t primarily &ldquo;technology consulting.&rdquo;
-          It&rsquo;s transformation risk to the investment thesis.
+          It isn&rsquo;t &ldquo;technology consulting.&rdquo; It&rsquo;s
+          transformation risk to the investment thesis.
         </h2>
         <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-brand-ink/80">
           <p>
@@ -96,7 +96,7 @@ export default function PrivateEquityPage() {
           </p>
           <p>
             That risk surfaces at predictable points across the deal
-            lifecycle — and each one calls for independent governance.
+            lifecycle, and each one calls for independent governance.
           </p>
         </div>
       </Section>
