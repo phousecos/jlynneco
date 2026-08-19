@@ -187,12 +187,6 @@ export default function HigherEducationPage() {
             </div>
           ))}
         </div>
-
-        <p className="mt-10 max-w-3xl text-lg leading-relaxed text-brand-paper/75">
-          That keeps the work honest about what it is: J. Lynne governs
-          transformation. We are not trying to become another higher-ed
-          systems integrator.
-        </p>
       </Section>
 
       {/* Flagship offerings — paper ground. */}
