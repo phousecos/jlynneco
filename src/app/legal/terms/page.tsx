@@ -19,7 +19,7 @@ export default function TermsPage() {
             <em className="not-italic text-brand-secondary">Terms</em> of use
           </>
         }
-        lede="Placeholder terms — to be finalized with counsel before launch."
+        lede="Placeholder terms, to be finalized with counsel before launch."
       />
       <Section ground="paper" size="prose">
         <div className="space-y-6 text-[1.02rem] leading-relaxed text-brand-ink/85">

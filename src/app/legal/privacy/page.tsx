@@ -19,7 +19,7 @@ export default function PrivacyPage() {
             <em className="not-italic text-brand-secondary">Privacy</em> policy
           </>
         }
-        lede="Placeholder policy — to be finalized with counsel before launch."
+        lede="Placeholder policy, to be finalized with counsel before launch."
       />
       <Section ground="paper" size="prose">
         <div className="space-y-6 text-[1.02rem] leading-relaxed text-brand-ink/85">

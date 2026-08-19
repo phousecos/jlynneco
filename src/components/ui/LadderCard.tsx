@@ -3,8 +3,8 @@ import { clsx } from "@/lib/clsx";
 import type { LadderRung } from "@/content/site";
 
 const altitudeNote: Record<LadderRung["altitude"], string> = {
-  apex: "Apex — sold on judgment",
-  product: "Productized — packaged",
+  apex: "Apex, sold on judgment",
+  product: "Productized, packaged",
   floor: "Senior delivery",
 };
 

@@ -21,7 +21,7 @@ const warningSigns = [
   "Steering committees become status meetings.",
   "Vendors start controlling the narrative.",
   "Budgets continue to grow while progress slows.",
-  "Risks surface late—or not at all.",
+  "Risks surface late, or not at all.",
   "Teams lose confidence in the direction of the initiative.",
 ];
 
@@ -90,7 +90,7 @@ export default function TechnologyTransformationRecoveryPage() {
             The objective is not to preserve a project at all costs.{" "}
             <span className="text-brand-primary">
               It is to help leadership make an evidence-based decision about
-              what should happen next—and govern that decision effectively.
+              what should happen next, and govern that decision effectively.
             </span>
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function TechnologyTransformationRecoveryPage() {
               It is: should this project be recovered, and if so, what
               governance, decisions, controls, and interventions are required
               to establish a viable path forward? Sometimes the right decision
-              is not to recover the existing project—the business case and
+              is not to recover the existing project: the business case and
               changed circumstances need to be reconsidered.
             </p>
             <p className="font-display text-2xl leading-snug text-brand-ink">
@@ -176,7 +176,7 @@ export default function TechnologyTransformationRecoveryPage() {
         <p className="mt-12 max-w-3xl text-lg leading-relaxed text-brand-ink/80">
           We can support implementation without becoming the project manager.
           Our role is to establish the governance and decisions that make
-          recovery viable—not to take over delivery.
+          recovery viable, not to take over delivery.
         </p>
       </Section>
 

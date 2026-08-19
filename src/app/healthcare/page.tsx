@@ -46,7 +46,7 @@ const areas = [
   {
     Icon: IconMerge,
     title: "M&A & Health System Integration",
-    body: "The technology and operating consequences of consolidation—independent of the transaction itself.",
+    body: "The technology and operating consequences of consolidation, independent of the transaction itself.",
     items: [
       "EHR consolidation & migration",
       "Identity, data & revenue-cycle integration",
@@ -66,7 +66,7 @@ const areas = [
   {
     Icon: IconLifeBuoy,
     title: "Transformation Assurance & Recovery",
-    body: "Independent governance oversight across the life of any initiative above—before, during, and if needed, after it goes off course.",
+    body: "Independent governance oversight across the life of any initiative above: before, during, and if needed, after it goes off course.",
     items: [
       "Independent governance assessment",
       "Implementation oversight",
@@ -150,7 +150,7 @@ const audiences = [
 // What every Healthcare Governance engagement delivers.
 const deliverables = [
   "Healthcare Governance Readiness Brief",
-  "A governance framework built for the initiative—EHR, ERP, integration, or digital health",
+  "A governance framework built for the initiative: EHR, ERP, integration, or digital health",
   "Executive and board-level reporting cadence",
   "Regulatory- and accreditation-ready governance documentation",
   "EHR, ERP, and integration-vendor oversight structure",
@@ -170,7 +170,7 @@ export default function HealthcarePage() {
             </em>
           </>
         }
-        lede="Clinical and enterprise systems transformation, health system integration, and digital health initiatives are among the most consequential decisions a health system will make. We give boards and executive leadership independent governance oversight across all of it—design, oversight, readiness, and recovery."
+        lede="Clinical and enterprise systems transformation, health system integration, and digital health initiatives are among the most consequential decisions a health system will make. We give boards and executive leadership independent governance oversight across all of it: design, oversight, readiness, and recovery."
       >
         <CTALink href={site.discoveryCall} variant="solid">
           Schedule a Healthcare Governance Conversation
@@ -282,7 +282,7 @@ export default function HealthcarePage() {
             EHR transformations are the flagship event, but the governance
             challenge isn&apos;t EHR-specific. It runs across EHR, ERP,
             revenue-cycle platforms, workforce systems, supply chain, and
-            other enterprise-wide programs—wherever clinical operations, IT,
+            other enterprise-wide programs, wherever clinical operations, IT,
             finance, compliance, and patient experience have to make
             decisions together.
           </p>
@@ -324,7 +324,7 @@ export default function HealthcarePage() {
           Hospitals acquiring physician practices, health systems combining,
           hospitals joining larger systems, private-equity-backed platform
           consolidation, and organizations divesting facilities or service
-          lines all create technology-governance complexity—EHR migration,
+          lines all create technology-governance complexity: EHR migration,
           identity and access, revenue-cycle consolidation, data integration,
           cybersecurity, ERP, infrastructure, and application
           rationalization.
@@ -477,7 +477,7 @@ export default function HealthcarePage() {
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Bring in independent governance oversight before the stakes are
-            highest—so the board, regulators, and patients can trust how the
+            highest, so the board, regulators, and patients can trust how the
             decision was made.
           </p>
           <div className="mt-9 flex justify-center">

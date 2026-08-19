@@ -25,7 +25,7 @@ import { contactHref } from "@/content/nav";
 export const metadata: Metadata = {
   title: "Higher Education",
   description:
-    "Independent governance for higher education transformation — ERP and administrative modernization, systemwide and shared services programs, and transformation readiness, assurance, and recovery.",
+    "Independent governance for higher education transformation: ERP and administrative modernization, systemwide and shared services programs, and transformation readiness, assurance, and recovery.",
 };
 
 // Nine situations, collapsed into three governance families.
@@ -140,8 +140,8 @@ export default function HigherEducationPage() {
               Universities can have unusually distributed authority. Central
               administration, individual campuses, colleges, faculty
               governance, research organizations, health systems,
-              foundations, and system offices may all possess legitimate—but
-              overlapping—decision rights.
+              foundations, and system offices may all possess legitimate but
+              overlapping decision rights.
             </p>
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-brand-ink/80">

@@ -101,7 +101,7 @@ export default function TechnologyGovernanceReadinessPage() {
           <p className="font-display text-2xl leading-snug text-brand-ink sm:text-3xl">
             If this decision were independently scrutinized in the future,{" "}
             <span className="text-brand-primary">
-              what questions would be asked—and can the organization answer
+              what questions would be asked, and can the organization answer
               them today?
             </span>
           </p>

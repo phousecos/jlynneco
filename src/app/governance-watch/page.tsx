@@ -80,7 +80,7 @@ export default function GovernanceWatchPage() {
         <p className="mt-8 max-w-3xl text-lg leading-relaxed text-brand-paper/80">
           Leadership wants ongoing independent visibility into governance
           conditions around a high-consequence transformation, deployment, or
-          technology environment—without adding another layer of project
+          technology environment, without adding another layer of project
           management or delivery oversight.
         </p>
       </Section>

@@ -30,7 +30,7 @@ export default async function ResourcesPage() {
             .
           </>
         }
-        lede="The firm's podcast, speaking, essays, publications, and downloads — the thinking behind the practice, gathered in one place."
+        lede="The firm's podcast, speaking, essays, publications, and downloads: the thinking behind the practice, gathered in one place."
       />
 
       {resourceGroups.map((group, i) => (
