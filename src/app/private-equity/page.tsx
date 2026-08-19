@@ -65,9 +65,9 @@ export default function PrivateEquityPage() {
         eyebrow="Private Equity"
         title={
           <>
-            Where J. Lynne fits in{" "}
+            Governing the technology risk inside the{" "}
             <em className="not-italic text-brand-secondary">
-              private equity
+              investment thesis
             </em>
             .
           </>
@@ -94,7 +94,10 @@ export default function PrivateEquityPage() {
             technology-enabled transformation sits underneath those
             assumptions.
           </p>
-          <p>That creates several natural J. Lynne engagements.</p>
+          <p>
+            That risk surfaces at predictable points across the deal
+            lifecycle — and each one calls for independent governance.
+          </p>
         </div>
       </Section>
 
@@ -110,10 +113,10 @@ export default function PrivateEquityPage() {
             <thead>
               <tr className="border-b border-brand-paper/15">
                 <th className="eyebrow px-6 py-4 text-brand-paper/60">
-                  PE situation
+                  Situation
                 </th>
                 <th className="eyebrow px-6 py-4 text-brand-paper/60">
-                  J. Lynne governance opportunity
+                  How J. Lynne engages
                 </th>
               </tr>
             </thead>
@@ -146,21 +149,23 @@ export default function PrivateEquityPage() {
         <div className="mt-8 grid gap-10 md:grid-cols-2 md:gap-16">
           <div className="space-y-5 text-lg leading-relaxed text-brand-ink/80">
             <p>
-              Instead of J. Lynne being hired to manage an ERP implementation
-              at Portfolio Company A, imagine the PE sponsor retaining J.
-              Lynne to provide independent governance visibility across major
-              technology transformations in its portfolio.
+              Rather than governing a single implementation at one portfolio
+              company, J. Lynne can provide independent governance visibility
+              across every major technology transformation underway in a
+              portfolio.
             </p>
             <p>
-              The sponsor might have five companies undergoing ERP
+              A sponsor may have five portfolio companies running ERP
               implementations, integrations, cloud migrations, AI
-              initiatives, or operating-model transformations.
+              initiatives, or operating-model transformations at the same
+              time. J. Lynne applies one governance framework across all of
+              them.
             </p>
           </div>
 
           <div>
             <p className="font-display text-lg leading-snug text-brand-ink">
-              J. Lynne provides a consistent governance framework for asking:
+              That framework exists to keep asking:
             </p>
             <ul className="mt-6 space-y-4">
               {framingQuestions.map((question) => (
