@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ResourceCard } from "@/components/ui/ResourceCard";
 import { DownloadsBrowser } from "@/components/ui/DownloadsBrowser";
-import { DownloadTracker } from "@/components/ui/DownloadTracker";
 import { getResourceGroups } from "@/lib/payload";
 import { clsx } from "@/lib/clsx";
 
@@ -18,7 +17,6 @@ export default async function ResourcesPage() {
   const resourceGroups = await getResourceGroups();
   return (
     <>
-      <DownloadTracker />
       <PageHero
         eyebrow="Resources"
         title={

@@ -1,23 +1,11 @@
 import type { NextConfig } from "next";
 
+// Static export served by Cloudflare Workers static assets (see wrangler.jsonc).
+// Redirects live in public/_redirects, since a static export can't run Next's
+// redirects(); images ship as-is because there's no optimization server.
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      // Governance service pages renamed to match the governance-lifecycle
-      // positioning (see src/content/nav.ts). Permanent: old paths aren't
-      // linked anywhere internally, only possibly bookmarked/indexed.
-      {
-        source: "/governance-assessments",
-        destination: "/technology-governance-readiness",
-        permanent: true,
-      },
-      {
-        source: "/project-recovery",
-        destination: "/technology-transformation-recovery",
-        permanent: true,
-      },
-    ];
-  },
+  output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

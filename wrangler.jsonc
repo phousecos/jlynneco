@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jlynneco",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-01",
+  // The site itself is the static export in ./out (built by `npm run build`).
+  // Asset requests are served directly and never invoke the Worker script.
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  // Daily rebuild so new Transformidable CMS items reach the Resources page.
+  // 10:00 UTC = early morning US Eastern.
+  "triggers": {
+    "crons": ["0 10 * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
