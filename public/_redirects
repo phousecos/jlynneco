@@ -1,0 +1,5 @@
+# Governance service pages renamed to match the governance-lifecycle
+# positioning (see src/content/nav.ts). Permanent: old paths aren't linked
+# anywhere internally, only possibly bookmarked/indexed.
+/governance-assessments /technology-governance-readiness 301
+/project-recovery /technology-transformation-recovery 301

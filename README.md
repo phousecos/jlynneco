@@ -4,7 +4,17 @@ The front door for the firm: apex advisory, audits, and expert-witness work.
 Built to sell on **authority, not services** — organized around proof and a
 point of view (`person → firm → product`).
 
-Next.js (App Router, TypeScript) + Tailwind v4. Deploy target: Vercel.
+Next.js (App Router, TypeScript) + Tailwind v4, built as a static export
+(`out/`) and hosted on Cloudflare Workers static assets (`wrangler.jsonc`).
+
+## Deploy
+
+Cloudflare Workers Builds deploys on every push to the production branch
+(build: `npm run build`, deploy: `npx wrangler deploy`). A daily cron in
+`worker/index.js` POSTs to a Workers Builds deploy hook (secret
+`DEPLOY_HOOK_URL`) so the Resources page picks up new Transformidable CMS
+items. Redirects live in `public/_redirects`. Analytics: Cloudflare Web
+Analytics, enabled from the dashboard (no code).
 
 ## Develop
 

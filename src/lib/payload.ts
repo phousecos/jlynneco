@@ -1,12 +1,14 @@
 // Payload CMS sync for the Resources page.
 //
 // The podcast, publications, and essays cards are an INDEX of content whose
-// canonical home is the Transformidable Payload CMS. At render time we fetch
+// canonical home is the Transformidable Payload CMS. At build time we fetch
 // the latest items from Payload's REST API and map them to `ResourceItem`s.
 // Everything is defensive: if the CMS is unreachable, returns an error, or a
 // field is named differently than we expect, the affected group silently falls
 // back to the static placeholder items in `content/resources.ts`. Nothing on
-// the page can break because the CMS is down or mid-migration.
+// the page can break because the CMS is down or mid-migration. The site is a
+// static export, so new CMS items appear on the next build — a daily scheduled
+// rebuild (see worker/index.js) keeps the index current.
 //
 // Config (both optional — sensible defaults baked in):
 //   PAYLOAD_API_URL         base URL of the CMS (default cms.transformidable.media)
@@ -29,9 +31,6 @@ const PAYLOAD_URL = (
 const SITE_URL = (
   process.env.TRANSFORMIDABLE_SITE_URL ?? "https://transformidable.media"
 ).replace(/\/+$/, "");
-
-// Re-sync from the CMS at most once an hour; keeps the page fast and static-ish.
-const REVALIDATE_SECONDS = 3600;
 
 type Doc = Record<string, unknown>;
 
@@ -61,7 +60,7 @@ async function fetchDocs(
     const url =
       `${PAYLOAD_URL}/api/${collection}` +
       `?limit=${limit}&depth=1&sort=${encodeURIComponent(sort)}`;
-    const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } });
+    const res = await fetch(url);
     if (!res.ok) return [];
     const data: unknown = await res.json();
     const docs = (data as { docs?: unknown })?.docs;
