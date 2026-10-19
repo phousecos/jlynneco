@@ -15,6 +15,9 @@
   "triggers": {
     "crons": ["0 10 * * *"]
   },
+  // Required for preview builds of non-production branches (`wrangler preview`).
+  // Previews don't run cron triggers, so the daily rebuild is production-only.
+  "previews": {},
   "observability": {
     "enabled": true
   }
