@@ -11,7 +11,8 @@
 // rebuild (see worker/index.js) keeps the index current.
 //
 // Config (both optional — sensible defaults baked in):
-//   PAYLOAD_API_URL         base URL of the CMS (default cms.transformidablethinking.com)
+//   PAYLOAD_API_URL         base URL of the CMS API (default transformidablethinking.com,
+//                           which serves the Payload API alongside the public site)
 //   TRANSFORMIDABLE_SITE_URL public site the cards link out to (default transformidablethinking.com)
 //
 // Reads are public (Payload access: read: true on these collections), so no
@@ -29,7 +30,7 @@ import {
 } from "@/content/resources";
 
 const PAYLOAD_URL = (
-  process.env.PAYLOAD_API_URL ?? "https://cms.transformidablethinking.com"
+  process.env.PAYLOAD_API_URL ?? "https://transformidablethinking.com"
 ).replace(/\/+$/, "");
 
 const SITE_URL = (
