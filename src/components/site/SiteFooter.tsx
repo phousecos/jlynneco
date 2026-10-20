@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mark } from "./Mark";
+import { NavLink } from "./NavLink";
 import { primaryNav, contactHref } from "@/content/nav";
 import { site, legal } from "@/content/site";
 
@@ -27,13 +28,13 @@ export function SiteFooter() {
               ),
               { label: "Contact us", href: contactHref },
             ].map((item) => (
-              <Link
+              <NavLink
                 key={item.href}
                 href={item.href}
                 className="text-sm text-brand-paper/70 transition-colors hover:text-brand-tertiary"
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         </div>

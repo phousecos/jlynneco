@@ -189,7 +189,7 @@
     }
   }
 
-  /* Downloads sector filter — pure CSS so it works with no JavaScript (in any
+  /* Downloads service-area and sector filters — pure CSS so it works with no JavaScript (in any
      preview, and as progressive enhancement). Hidden radios drive both the
      active chip (adjacent sibling) and which cards are visible (:has on the
      wrapper). "general" files stay visible under every vertical filter. */
@@ -233,5 +233,33 @@
 .dl-filter:has(#dl-credit-unions:checked)
   .dl-filter__grid
   > [data-aud]:not([data-aud="credit-unions"]):not([data-aud="general"]) {
+  display: none;
+}
+
+/* Service-area filter, applied on top of the sector filter above. A card's
+   data-svc lists its areas space-separated; a card with none (the static
+   fallback files) stays visible under every area. Keep these ids in step with
+   serviceAreaGroups in src/content/resources.ts. */
+.dl-filter:has(#dl-svc-ai:checked)
+  .dl-filter__grid
+  > [data-svc]:not([data-svc~="ai"]):not([data-svc=""]),
+.dl-filter:has(#dl-svc-erp-core:checked)
+  .dl-filter__grid
+  > [data-svc]:not([data-svc~="erp-core"]):not([data-svc=""]),
+.dl-filter:has(#dl-svc-general-technology:checked)
+  .dl-filter__grid
+  > [data-svc]:not([data-svc~="general-technology"]):not([data-svc=""]),
+.dl-filter:has(#dl-svc-mergers-acquisitions:checked)
+  .dl-filter__grid
+  > [data-svc]:not([data-svc~="mergers-acquisitions"]):not([data-svc=""]),
+.dl-filter:has(#dl-svc-fractional-cio:checked)
+  .dl-filter__grid
+  > [data-svc]:not([data-svc~="fractional-cio"]):not([data-svc=""]),
+.dl-filter:has(#dl-svc-leadership-transitions:checked)
+  .dl-filter__grid
+  > [data-svc]:not([data-svc~="leadership-transitions"]):not([data-svc=""]),
+.dl-filter:has(#dl-svc-transformations:checked)
+  .dl-filter__grid
+  > [data-svc]:not([data-svc~="transformations"]):not([data-svc=""]) {
   display: none;
 }
