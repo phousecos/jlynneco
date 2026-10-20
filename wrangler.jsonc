@@ -17,5 +17,9 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  // Pull-request builds run `wrangler preview`, which needs this block.
+  // Left empty on purpose: previews don't get the cron above, so a preview
+  // never fires the production rebuild hook.
+  "previews": {}
 }
