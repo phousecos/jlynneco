@@ -137,9 +137,9 @@ function absoluteUrl(url: string): string {
 }
 
 function mapDocument(doc: Doc): ResourceItem | null {
+  // Documents is an upload collection, so the file's URL is on the doc itself.
   const title = pickString(doc, ["title"]);
-  const file = doc.file as Doc | undefined;
-  const fileUrl = file && typeof file === "object" ? pickString(file, ["url"]) : undefined;
+  const fileUrl = pickString(doc, ["url"]);
   if (!title || !fileUrl) return null;
 
   const type = pickString(doc, ["documentType"]);
