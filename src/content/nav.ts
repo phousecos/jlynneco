@@ -1,10 +1,10 @@
 // Primary navigation for the Executive Governance Advisory positioning.
 //
-// Only items with real destinations are shown. Resources (Knowledge Base,
-// Podcast, Transformidable, Publications, Downloads) and Insights are held
-// until their pages ship; add them here the day their content lands. The
-// header and footer both render from `primaryNav`. A NavItem with `children`
-// renders as a dropdown; one with `href` as a plain link.
+// Only items with real destinations are shown. Knowledge Base and Insights
+// are held until their pages ship; add them here the day their content lands.
+// The header and footer both render from `primaryNav`. A NavItem with
+// `children` renders as a dropdown; one with `href` as a plain link. An href
+// to another site (http/https) opens in a new tab — see `isExternal`.
 export type NavChild = { label: string; href: string };
 export type NavItem = { label: string; href?: string; children?: NavChild[] };
 
@@ -67,15 +67,22 @@ export const primaryNav: NavItem[] = [
   {
     label: "Resources",
     children: [
-      { label: "Podcast", href: "/resources#podcast" },
+      {
+        label: "The Governance Files",
+        href: "https://transformidablethinking.com/podcast",
+      },
       { label: "Speaking", href: "/resources#speaking" },
-      { label: "Transformidable", href: "/resources#transformidable" },
+      { label: "Transformidable", href: "https://transformidablethinking.com" },
+      { label: "Webinars", href: "https://briefings.jlynne.co" },
       { label: "Publications", href: "/resources#publications" },
       { label: "Downloads", href: "/resources#downloads" },
     ],
   },
   { label: "About", href: "/about" },
 ];
+
+// Links to other sites open in a new tab and render as a plain <a>.
+export const isExternal = (href: string) => /^https?:\/\//.test(href);
 
 // The primary contact CTA — rendered as the header pill and in the footer.
 export const contactHref = "/contact";

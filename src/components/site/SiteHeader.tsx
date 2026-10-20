@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Mark } from "./Mark";
+import { NavLink } from "./NavLink";
 import { primaryNav, contactHref, type NavItem } from "@/content/nav";
 import { clsx } from "@/lib/clsx";
 
@@ -56,7 +57,7 @@ export function SiteHeader() {
                 <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <div className="min-w-[20rem] whitespace-nowrap border border-brand-ink/10 bg-brand-paper p-2 shadow-xl shadow-brand-ink/10">
                     {item.children.map((child) => (
-                      <Link
+                      <NavLink
                         key={child.href}
                         href={child.href}
                         className={clsx(
@@ -67,7 +68,7 @@ export function SiteHeader() {
                         )}
                       >
                         {child.label}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 </div>
@@ -123,7 +124,7 @@ export function SiteHeader() {
                   <p className="eyebrow text-brand-slate">{item.label}</p>
                   <div className="mt-1 flex flex-col">
                     {item.children.map((child) => (
-                      <Link
+                      <NavLink
                         key={child.href}
                         href={child.href}
                         onClick={() => setOpen(false)}
@@ -135,7 +136,7 @@ export function SiteHeader() {
                         )}
                       >
                         {child.label}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 </div>

@@ -28,12 +28,53 @@ export const audienceOrder: Audience[] = [
   "credit-unions",
 ];
 
+// Download service areas, grouped under the two headings the filter shows.
+// The ids match the Documents collection's `serviceAreas` values in the
+// Transformidable CMS; a download with no service area (the static fallback
+// files) appears under every service-area filter.
+export type ServiceArea =
+  | "ai"
+  | "erp-core"
+  | "general-technology"
+  | "mergers-acquisitions"
+  | "fractional-cio"
+  | "leadership-transitions"
+  | "transformations";
+
+export const serviceAreaGroups: {
+  heading: string;
+  areas: { id: ServiceArea; label: string }[];
+}[] = [
+  {
+    heading: "Governance",
+    areas: [
+      { id: "ai", label: "AI / Artificial Intelligence" },
+      { id: "erp-core", label: "ERP / Core" },
+      { id: "general-technology", label: "General Technology" },
+      { id: "mergers-acquisitions", label: "Mergers & Acquisitions" },
+    ],
+  },
+  {
+    heading: "Leadership",
+    areas: [
+      { id: "fractional-cio", label: "Fractional CIO" },
+      { id: "leadership-transitions", label: "Leadership Transitions" },
+      { id: "transformations", label: "Transformations" },
+    ],
+  },
+];
+
+export const serviceAreaLabels = Object.fromEntries(
+  serviceAreaGroups.flatMap((g) => g.areas.map((a) => [a.id, a.label])),
+) as Record<ServiceArea, string>;
+
 export type ResourceItem = {
   title: string;
   description: string;
   meta?: string; // e.g. "Episode", "Essay", "Book", "PDF"
   href?: string; // canonical source; when set, the card links out
   audience?: Audience; // downloads only — which vertical the file serves
+  serviceAreas?: ServiceArea[]; // downloads only — which service areas it supports
 };
 
 export type ResourceGroup = {
@@ -139,8 +180,9 @@ export const resourceGroups: ResourceGroup[] = [
     label: "Downloads",
     heading: "Executive-ready tools.",
     intro:
-      "Briefs, frameworks, and overviews you can share with your leadership team. Filter by sector for guidance tuned to your organization.",
-    source: "Files live in /public/downloads (converted from the CMS source docs).",
+      "Briefs, frameworks, and overviews you can share with your leadership team. Filter by service area and sector for guidance tuned to your organization.",
+    source:
+      "Pulled from the Transformidable CMS Documents collection (brand: J. Lynne). The files in /public/downloads are the fallback when the CMS has none.",
     // Each download is tagged with its audience. "general" files surface under
     // every chip; vertical files appear under "All" and their own chip. The
     // Private-Sector editions are treated as the general/default versions.

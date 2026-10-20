@@ -1,7 +1,7 @@
 // Payload CMS sync for the Resources page.
 //
-// The podcast, publications, and essays cards are an INDEX of content whose
-// canonical home is the Transformidable Payload CMS. At build time we fetch
+// The podcast, publications, essays, and downloads cards are an INDEX of
+// content whose canonical home is the Transformidable Payload CMS. At build time we fetch
 // the latest items from Payload's REST API and map them to `ResourceItem`s.
 // Everything is defensive: if the CMS is unreachable, returns an error, or a
 // field is named differently than we expect, the affected group silently falls
@@ -11,25 +11,29 @@
 // rebuild (see worker/index.js) keeps the index current.
 //
 // Config (both optional — sensible defaults baked in):
-//   PAYLOAD_API_URL         base URL of the CMS (default cms.transformidable.media)
-//   TRANSFORMIDABLE_SITE_URL public site the cards link out to (default transformidable.media)
+//   PAYLOAD_API_URL         base URL of the CMS (default cms.transformidablethinking.com)
+//   TRANSFORMIDABLE_SITE_URL public site the cards link out to (default transformidablethinking.com)
 //
 // Reads are public (Payload access: read: true on these collections), so no
 // API key is required. If that changes, add a read-only key and send it as an
 // Authorization header in `fetchDocs`.
 
 import {
+  audienceOrder,
   resourceGroups as staticGroups,
+  serviceAreaLabels,
+  type Audience,
   type ResourceGroup,
   type ResourceItem,
+  type ServiceArea,
 } from "@/content/resources";
 
 const PAYLOAD_URL = (
-  process.env.PAYLOAD_API_URL ?? "https://cms.transformidable.media"
+  process.env.PAYLOAD_API_URL ?? "https://cms.transformidablethinking.com"
 ).replace(/\/+$/, "");
 
 const SITE_URL = (
-  process.env.TRANSFORMIDABLE_SITE_URL ?? "https://transformidable.media"
+  process.env.TRANSFORMIDABLE_SITE_URL ?? "https://transformidablethinking.com"
 ).replace(/\/+$/, "");
 
 type Doc = Record<string, unknown>;
@@ -54,12 +58,12 @@ function pickHref(doc: Doc, path: string): string | undefined {
 
 async function fetchDocs(
   collection: string,
-  { limit = 6, sort = "-createdAt" } = {},
+  { limit = 6, sort = "-createdAt", where = "" } = {},
 ): Promise<Doc[]> {
   try {
     const url =
       `${PAYLOAD_URL}/api/${collection}` +
-      `?limit=${limit}&depth=1&sort=${encodeURIComponent(sort)}`;
+      `?limit=${limit}&depth=1&sort=${encodeURIComponent(sort)}${where}`;
     const res = await fetch(url);
     if (!res.ok) return [];
     const data: unknown = await res.json();
@@ -114,14 +118,75 @@ function mapPodcast(doc: Doc): ResourceItem | null {
   };
 }
 
+// Document type values from the CMS, shown as the card's small label.
+const documentTypeLabels: Record<string, string> = {
+  overview: "Overview",
+  checklist: "Checklist",
+  guide: "Guide",
+  brief: "Brief",
+  framework: "Framework",
+  template: "Template",
+  worksheet: "Worksheet",
+  report: "Report",
+};
+
+// Payload returns the upload's URL as served by the CMS, which is relative
+// (/api/media/file/...) when the CMS has no serverURL configured.
+function absoluteUrl(url: string): string {
+  return /^https?:\/\//.test(url) ? url : `${PAYLOAD_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+}
+
+function mapDocument(doc: Doc): ResourceItem | null {
+  const title = pickString(doc, ["title"]);
+  const file = doc.file as Doc | undefined;
+  const fileUrl = file && typeof file === "object" ? pickString(file, ["url"]) : undefined;
+  if (!title || !fileUrl) return null;
+
+  const type = pickString(doc, ["documentType"]);
+  const sector = pickString(doc, ["sector"]);
+  const areas = Array.isArray(doc.serviceAreas) ? doc.serviceAreas : [];
+  return {
+    meta: (type && documentTypeLabels[type]) ?? "Download",
+    title,
+    description: pickString(doc, ["description"]) ?? "Download the document.",
+    href: absoluteUrl(fileUrl),
+    audience: audienceOrder.includes(sector as Audience)
+      ? (sector as Audience)
+      : "general",
+    // Drop values this site doesn't know yet, so a new CMS option can't
+    // produce a card with a blank tag.
+    serviceAreas: areas.filter(
+      (a): a is ServiceArea => typeof a === "string" && a in serviceAreaLabels,
+    ),
+  };
+}
+
 // Which resource groups are CMS-backed, and how to fetch + map each.
 const cmsSources: Record<
   string,
-  { collection: string; map: (doc: Doc) => ResourceItem | null }
+  {
+    collection: string;
+    map: (doc: Doc) => ResourceItem | null;
+    query?: Parameters<typeof fetchDocs>[1];
+  }
 > = {
   podcast: { collection: "podcast-episodes", map: mapPodcast },
   transformidable: { collection: "articles", map: mapArticle },
   publications: { collection: "books", map: mapBook },
+  // Only published documents branded J. Lynne. The CMS already hides drafts
+  // from anonymous reads; the status filter keeps that true if this build
+  // ever authenticates.
+  downloads: {
+    collection: "documents",
+    map: mapDocument,
+    query: {
+      limit: 200,
+      sort: "sortOrder,title",
+      where:
+        `&${encodeURIComponent("where[brand][in]")}=jlynne` +
+        `&${encodeURIComponent("where[status][equals]")}=published`,
+    },
+  },
 };
 
 // The Resources groups with CMS-backed sections hydrated from Payload. Any
@@ -129,7 +194,7 @@ const cmsSources: Record<
 export async function getResourceGroups(): Promise<ResourceGroup[]> {
   const entries = Object.entries(cmsSources);
   const fetched = await Promise.all(
-    entries.map(([, { collection }]) => fetchDocs(collection)),
+    entries.map(([, { collection, query }]) => fetchDocs(collection, query)),
   );
 
   const byGroup = new Map<string, ResourceItem[]>();
