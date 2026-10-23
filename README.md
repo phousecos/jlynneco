@@ -12,9 +12,27 @@ Next.js (App Router, TypeScript) + Tailwind v4, built as a static export
 Cloudflare Workers Builds deploys on every push to the production branch
 (build: `npm run build`, deploy: `npx wrangler deploy`). A daily cron in
 `worker/index.js` POSTs to a Workers Builds deploy hook (secret
-`DEPLOY_HOOK_URL`) so the Resources page picks up new Transformidable CMS
-items. Redirects live in `public/_redirects`. Analytics: Cloudflare Web
-Analytics, enabled from the dashboard (no code).
+`DEPLOY_HOOK_URL`) so the Resources page picks up new library and
+Transformidable CMS items. Redirects live in `public/_redirects`. Analytics:
+Cloudflare Web Analytics, enabled from the dashboard (no code).
+
+## Downloads (the J. Lynne library)
+
+Downloads come from the J. Lynne library at jlynne.io (Payload, repo
+`jlynne-cms`), which has no public API. Create a **Reader** user there with an
+API key for this site, then set the key as `LIBRARY_API_KEY` in two places:
+
+- **Build variable** (Workers Builds): Resources lists the library's Final,
+  J. Lynne assets marked *Website download*, filtered by topic (track),
+  industry (sector edition), and type. Without the key the build keeps the
+  static files in `public/downloads`.
+- **Worker secret**: `jlynne.co/downloads/{slug}` looks the slug up and serves
+  the current published file. Retired assets redirect to their replacement,
+  or to `/downloads/updated` when there is none; drafts are a 404;
+  Transformidable items and hosted video redirect to their URL. Any Final
+  asset resolves, website download or not, so emailed and printed links work.
+
+These are the only links prospects should ever see; never link to jlynne.io.
 
 ## Develop
 

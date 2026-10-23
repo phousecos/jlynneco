@@ -11,70 +11,78 @@
 // The items below are PLACEHOLDERS to show the structure. Knowledge Base is
 // intentionally omitted for now.
 
-// Download audiences. "general" resources surface for every vertical; the
-// others are vertical-specific and appear under both "All" and their own chip.
-export type Audience = "general" | "highered-nonprofit" | "credit-unions";
+// Download filters. The values are the J. Lynne library's codes (jlynne.io), so
+// library items need no translation; the labels are what visitors see.
 
-export const audienceLabels: Record<Audience, string> = {
-  general: "General",
-  "highered-nonprofit": "Higher Education & Nonprofit",
-  "credit-unions": "Credit Unions",
+// Topic: the playbook tracks. A download with no topic (a cross-track piece)
+// shows under every topic.
+export type Topic = "T1" | "T2" | "T3" | "T4" | "T5" | "T6" | "T7" | "T8";
+
+export const topicLabels: Record<Topic, string> = {
+  T1: "ERP transformation",
+  T2: "Technology controls",
+  T3: "Leadership transition",
+  T4: "M&A and separation",
+  T5: "Distress and recovery",
+  T6: "Vendor portfolio",
+  T7: "Fractional CIO",
+  T8: "AI governance",
 };
 
-// Chip order for the Downloads filter (an implicit "All" is prepended by the UI).
-export const audienceOrder: Audience[] = [
-  "general",
-  "highered-nonprofit",
-  "credit-unions",
-];
+// Industry: the library's sector editions. "all" editions show under every
+// industry.
+export type Industry =
+  | "private-sector"
+  | "credit-union"
+  | "higher-ed-nonprofit"
+  | "government";
 
-// Download service areas, grouped under the two headings the filter shows.
-// The ids match the Documents collection's `serviceAreas` values in the
-// Transformidable CMS; a download with no service area (the static fallback
-// files) appears under every service-area filter.
-export type ServiceArea =
-  | "ai"
-  | "erp-core"
-  | "general-technology"
-  | "mergers-acquisitions"
-  | "fractional-cio"
-  | "leadership-transitions"
-  | "transformations";
+export const industryLabels: Record<Industry, string> = {
+  "private-sector": "Private Sector",
+  "credit-union": "Credit Unions",
+  "higher-ed-nonprofit": "Higher Education & Nonprofit",
+  government: "Government",
+};
 
-export const serviceAreaGroups: {
-  heading: string;
-  areas: { id: ServiceArea; label: string }[];
-}[] = [
-  {
-    heading: "Governance",
-    areas: [
-      { id: "ai", label: "AI / Artificial Intelligence" },
-      { id: "erp-core", label: "ERP / Core" },
-      { id: "general-technology", label: "General Technology" },
-      { id: "mergers-acquisitions", label: "Mergers & Acquisitions" },
-    ],
-  },
-  {
-    heading: "Leadership",
-    areas: [
-      { id: "fractional-cio", label: "Fractional CIO" },
-      { id: "leadership-transitions", label: "Leadership Transitions" },
-      { id: "transformations", label: "Transformations" },
-    ],
-  },
-];
+// Type of file: the library's asset types.
+export type FileType =
+  | "governance-brief"
+  | "board-brief"
+  | "checklist"
+  | "guide"
+  | "workbook"
+  | "webinar-recording"
+  | "briefing-cut"
+  | "short-video"
+  | "post"
+  | "research-note"
+  | "cover-note-template"
+  | "deck";
 
-export const serviceAreaLabels = Object.fromEntries(
-  serviceAreaGroups.flatMap((g) => g.areas.map((a) => [a.id, a.label])),
-) as Record<ServiceArea, string>;
+export const fileTypeLabels: Record<FileType, string> = {
+  "governance-brief": "Governance Brief",
+  "board-brief": "Board Brief",
+  checklist: "Checklist",
+  guide: "Guide",
+  workbook: "Workbook",
+  "webinar-recording": "Webinar Recording",
+  "briefing-cut": "Briefing",
+  "short-video": "Video",
+  post: "Post",
+  "research-note": "Research Note",
+  "cover-note-template": "Template",
+  deck: "Deck",
+};
 
 export type ResourceItem = {
   title: string;
   description: string;
   meta?: string; // e.g. "Episode", "Essay", "Book", "PDF"
   href?: string; // canonical source; when set, the card links out
-  audience?: Audience; // downloads only — which vertical the file serves
-  serviceAreas?: ServiceArea[]; // downloads only — which service areas it supports
+  // Downloads only: the filters it appears under.
+  topics?: Topic[]; // empty or absent: every topic
+  industry?: Industry | "all";
+  fileType?: FileType;
 };
 
 export type ResourceGroup = {
@@ -180,12 +188,11 @@ export const resourceGroups: ResourceGroup[] = [
     label: "Downloads",
     heading: "Executive-ready tools.",
     intro:
-      "Briefs, frameworks, and overviews you can share with your leadership team. Filter by service area and sector for guidance tuned to your organization.",
+      "Briefs, checklists, and guides you can share with your leadership team. Filter by topic, industry, and type for guidance tuned to your organization.",
     source:
-      "Pulled from the Transformidable CMS Documents collection (brand: J. Lynne). The files in /public/downloads are the fallback when the CMS has none.",
-    // Each download is tagged with its audience. "general" files surface under
-    // every chip; vertical files appear under "All" and their own chip. The
-    // Private-Sector editions are treated as the general/default versions.
+      "Pulled from the J. Lynne library (jlynne.io): Final assets marked for website download. The files in /public/downloads are the fallback when the library is unreachable.",
+    // Each fallback file is tagged like a library item. Files written for
+    // every sector are the "all" edition; vertical editions carry their industry.
     items: [
       {
         meta: "Overview",
@@ -193,7 +200,8 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "How governance works around a major initiative, at a glance.",
         href: "/downloads/Executive-Governance-Overview-Private-Sector.pdf",
-        audience: "general",
+        industry: "private-sector",
+        fileType: "guide",
       },
       {
         meta: "Checklist",
@@ -201,14 +209,16 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "Board-level questions for overseeing a major technology program.",
         href: "/downloads/Board-Checklist-Private-Sector.pdf",
-        audience: "general",
+        industry: "private-sector",
+        fileType: "checklist",
       },
       {
         meta: "Checklist",
         title: "Governance Readiness Checklist",
         description: "Assess governance readiness before you commit.",
         href: "/downloads/Governance-Readiness-Checklist-Private-Sector.pdf",
-        audience: "general",
+        industry: "private-sector",
+        fileType: "checklist",
       },
       {
         meta: "Checklist",
@@ -216,7 +226,9 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "A checklist for governing AI adoption with the right oversight.",
         href: "/downloads/AI-Governance-Checklist.pdf",
-        audience: "general",
+        topics: ["T8"],
+        industry: "all",
+        fileType: "checklist",
       },
       {
         meta: "Guide",
@@ -224,7 +236,8 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "How to run a steering committee that actually governs the work.",
         href: "/downloads/Steering-Committee-Guide.pdf",
-        audience: "general",
+        industry: "all",
+        fileType: "guide",
       },
       {
         meta: "Checklist",
@@ -232,21 +245,25 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "Gauge whether your organization is ready to take on a major initiative.",
         href: "/downloads/Transformation-Readiness-Checklist.pdf",
-        audience: "general",
+        industry: "all",
+        fileType: "checklist",
       },
       {
         meta: "Guide",
         title: "Vendor Governance Guide",
         description: "Keeping implementation partners accountable to leadership.",
         href: "/downloads/Vendor-Governance-Guide.pdf",
-        audience: "general",
+        topics: ["T6"],
+        industry: "all",
+        fileType: "guide",
       },
       {
         meta: "Overview",
         title: "Executive Governance Overview",
         description: "Governing transformation in mission-driven institutions.",
         href: "/downloads/Executive-Governance-Overview-Higher-Ed-and-Nonprofit.pdf",
-        audience: "highered-nonprofit",
+        industry: "higher-ed-nonprofit",
+        fileType: "guide",
       },
       {
         meta: "Checklist",
@@ -254,7 +271,8 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "Board and trustee oversight questions for higher-ed and nonprofit programs.",
         href: "/downloads/Board-Checklist-Higher-Ed-and-Nonprofit.pdf",
-        audience: "highered-nonprofit",
+        industry: "higher-ed-nonprofit",
+        fileType: "checklist",
       },
       {
         meta: "Checklist",
@@ -262,7 +280,8 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "Readiness questions tuned to higher-ed and nonprofit governance.",
         href: "/downloads/Governance-Readiness-Checklist-Higher-Ed-and-Nonprofit.pdf",
-        audience: "highered-nonprofit",
+        industry: "higher-ed-nonprofit",
+        fileType: "checklist",
       },
       {
         meta: "Overview",
@@ -270,7 +289,8 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "Governing a core or technology program at a credit union.",
         href: "/downloads/Executive-Governance-Overview-Credit-Unions.pdf",
-        audience: "credit-unions",
+        industry: "credit-union",
+        fileType: "guide",
       },
       {
         meta: "Checklist",
@@ -278,14 +298,16 @@ export const resourceGroups: ResourceGroup[] = [
         description:
           "Board and supervisory-committee oversight for credit union programs.",
         href: "/downloads/Board-Checklist-Credit-Unions.pdf",
-        audience: "credit-unions",
+        industry: "credit-union",
+        fileType: "checklist",
       },
       {
         meta: "Checklist",
         title: "Governance Readiness Checklist",
         description: "Readiness questions tuned to credit union governance.",
         href: "/downloads/Governance-Readiness-Checklist-Credit-Unions.pdf",
-        audience: "credit-unions",
+        industry: "credit-union",
+        fileType: "checklist",
       },
     ],
   },

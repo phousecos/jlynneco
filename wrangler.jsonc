@@ -15,6 +15,11 @@
   "triggers": {
     "crons": ["0 10 * * *"]
   },
+  // The J. Lynne library, for /downloads/{slug} (worker/index.js). Its Reader
+  // API key is the LIBRARY_API_KEY secret (and a build variable, for Resources).
+  "vars": {
+    "LIBRARY_URL": "https://jlynne.io"
+  },
   "observability": {
     "enabled": true
   },

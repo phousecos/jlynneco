@@ -1,7 +1,8 @@
 // Payload CMS sync for the Resources page.
 //
-// The podcast, publications, essays, and downloads cards are an INDEX of
-// content whose canonical home is the Transformidable Payload CMS. At build time we fetch
+// The podcast, publications, and essays cards are an INDEX of content whose
+// canonical home is the Transformidable Payload CMS. Downloads come from the
+// J. Lynne library (jlynne.io), the second Payload installation. At build time we fetch
 // the latest items from Payload's REST API and map them to `ResourceItem`s.
 // Everything is defensive: if the CMS is unreachable, returns an error, or a
 // field is named differently than we expect, the affected group silently falls
@@ -10,23 +11,27 @@
 // static export, so new CMS items appear on the next build — a daily scheduled
 // rebuild (see worker/index.js) keeps the index current.
 //
-// Config (both optional — sensible defaults baked in):
+// Config (all optional — sensible defaults baked in):
 //   PAYLOAD_API_URL         base URL of the CMS API (default transformidablethinking.com,
 //                           which serves the Payload API alongside the public site)
 //   TRANSFORMIDABLE_SITE_URL public site the cards link out to (default transformidablethinking.com)
+//   LIBRARY_URL             the J. Lynne library (default https://jlynne.io)
+//   LIBRARY_API_KEY         a Reader API key for the library. Without it (e.g.
+//                           preview builds) Downloads keep the static fallback.
 //
-// Reads are public (Payload access: read: true on these collections), so no
-// API key is required. If that changes, add a read-only key and send it as an
-// Authorization header in `fetchDocs`.
+// Transformidable reads are public (Payload access: read: true on these
+// collections). The library has no public API, so it needs the key.
 
 import {
-  audienceOrder,
+  fileTypeLabels,
+  industryLabels,
   resourceGroups as staticGroups,
-  serviceAreaLabels,
-  type Audience,
+  topicLabels,
+  type FileType,
+  type Industry,
   type ResourceGroup,
   type ResourceItem,
-  type ServiceArea,
+  type Topic,
 } from "@/content/resources";
 
 const PAYLOAD_URL = (
@@ -36,6 +41,8 @@ const PAYLOAD_URL = (
 const SITE_URL = (
   process.env.TRANSFORMIDABLE_SITE_URL ?? "https://transformidablethinking.com"
 ).replace(/\/+$/, "");
+
+const LIBRARY_URL = (process.env.LIBRARY_URL ?? "https://jlynne.io").replace(/\/+$/, "");
 
 type Doc = Record<string, unknown>;
 
@@ -119,47 +126,53 @@ function mapPodcast(doc: Doc): ResourceItem | null {
   };
 }
 
-// Document type values from the CMS, shown as the card's small label.
-const documentTypeLabels: Record<string, string> = {
-  overview: "Overview",
-  checklist: "Checklist",
-  guide: "Guide",
-  brief: "Brief",
-  framework: "Framework",
-  template: "Template",
-  worksheet: "Worksheet",
-  report: "Report",
-};
-
-// Payload returns the upload's URL as served by the CMS, which is relative
-// (/api/media/file/...) when the CMS has no serverURL configured.
-function absoluteUrl(url: string): string {
-  return /^https?:\/\//.test(url) ? url : `${PAYLOAD_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+// A library asset becomes a card linking to jlynne.co/downloads/{slug}, which
+// the Worker resolves to the current file (worker/index.js). Codes this site
+// doesn't know yet are dropped, so a new library option can't produce a card
+// with a blank tag.
+function mapLibraryAsset(doc: Doc): ResourceItem | null {
+  const title = pickString(doc, ["title"]);
+  const slug = pickString(doc, ["slug"]);
+  if (!title || !slug) return null;
+  const type = pickString(doc, ["assetType"]);
+  const fileType = type && type in fileTypeLabels ? (type as FileType) : undefined;
+  const edition = pickString(doc, ["sectorEdition"]);
+  const tracks = Array.isArray(doc.track) ? doc.track : [];
+  return {
+    meta: fileType ? fileTypeLabels[fileType] : "Download",
+    title,
+    description: pickString(doc, ["summary"]) ?? "Download the document.",
+    href: `/downloads/${slug}`,
+    topics: tracks.filter((t): t is Topic => typeof t === "string" && t in topicLabels),
+    industry: edition && edition in industryLabels ? (edition as Industry) : "all",
+    fileType,
+  };
 }
 
-function mapDocument(doc: Doc): ResourceItem | null {
-  // Documents is an upload collection, so the file's URL is on the doc itself.
-  const title = pickString(doc, ["title"]);
-  const fileUrl = pickString(doc, ["url"]);
-  if (!title || !fileUrl) return null;
-
-  const type = pickString(doc, ["documentType"]);
-  const sector = pickString(doc, ["sector"]);
-  const areas = Array.isArray(doc.serviceAreas) ? doc.serviceAreas : [];
-  return {
-    meta: (type && documentTypeLabels[type]) ?? "Download",
-    title,
-    description: pickString(doc, ["description"]) ?? "Download the document.",
-    href: absoluteUrl(fileUrl),
-    audience: audienceOrder.includes(sector as Audience)
-      ? (sector as Audience)
-      : "general",
-    // Drop values this site doesn't know yet, so a new CMS option can't
-    // produce a card with a blank tag.
-    serviceAreas: areas.filter(
-      (a): a is ServiceArea => typeof a === "string" && a in serviceAreaLabels,
-    ),
-  };
+// Final J. Lynne assets marked for website download, from the library.
+async function fetchLibraryDownloads(): Promise<ResourceItem[]> {
+  const key = process.env.LIBRARY_API_KEY;
+  if (!key) return [];
+  const where = [
+    ["where[status][equals]", "final"],
+    ["where[brand][equals]", "jlynne"],
+    ["where[use][contains]", "website-download"],
+  ]
+    .map(([k, v]) => `${encodeURIComponent(k)}=${v}`)
+    .join("&");
+  try {
+    const res = await fetch(
+      `${LIBRARY_URL}/api/assets?limit=200&depth=0&sort=title&${where}`,
+      { headers: { Authorization: `users API-Key ${key}` } },
+    );
+    if (!res.ok) return [];
+    const docs = ((await res.json()) as { docs?: unknown })?.docs;
+    return Array.isArray(docs)
+      ? (docs as Doc[]).map(mapLibraryAsset).filter((x): x is ResourceItem => x !== null)
+      : [];
+  } catch {
+    return [];
+  }
 }
 
 // Which resource groups are CMS-backed, and how to fetch + map each.
@@ -174,35 +187,23 @@ const cmsSources: Record<
   podcast: { collection: "podcast-episodes", map: mapPodcast },
   transformidable: { collection: "articles", map: mapArticle },
   publications: { collection: "books", map: mapBook },
-  // Only published documents branded J. Lynne. The CMS already hides drafts
-  // from anonymous reads; the status filter keeps that true if this build
-  // ever authenticates.
-  downloads: {
-    collection: "documents",
-    map: mapDocument,
-    query: {
-      limit: 200,
-      sort: "sortOrder,title",
-      where:
-        `&${encodeURIComponent("where[brand][in]")}=jlynne` +
-        `&${encodeURIComponent("where[status][equals]")}=published`,
-    },
-  },
 };
 
 // The Resources groups with CMS-backed sections hydrated from Payload. Any
 // group whose fetch fails or returns nothing keeps its static placeholder items.
 export async function getResourceGroups(): Promise<ResourceGroup[]> {
   const entries = Object.entries(cmsSources);
-  const fetched = await Promise.all(
-    entries.map(([, { collection, query }]) => fetchDocs(collection, query)),
-  );
+  const [fetched, downloads] = await Promise.all([
+    Promise.all(entries.map(([, { collection, query }]) => fetchDocs(collection, query))),
+    fetchLibraryDownloads(),
+  ]);
 
   const byGroup = new Map<string, ResourceItem[]>();
   entries.forEach(([groupId, { map }], i) => {
     const items = fetched[i].map(map).filter((x): x is ResourceItem => x !== null);
     if (items.length) byGroup.set(groupId, items);
   });
+  if (downloads.length) byGroup.set("downloads", downloads);
 
   return staticGroups.map((group) => {
     const cmsItems = byGroup.get(group.id);
