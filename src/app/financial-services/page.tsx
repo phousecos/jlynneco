@@ -20,6 +20,9 @@ import {
 import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
+import { StageCards } from "@/components/ui/StageCards";
+import { SplitPanel } from "@/components/ui/SplitPanel";
 
 export const metadata: Metadata = {
   title: "Financial Services",
@@ -213,8 +216,8 @@ export default function FinancialServicesPage() {
       <Section ground="deep">
         <Eyebrow>Why independent governance matters here</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Financial institution leadership carries a level of exposure most
-          transformations don&apos;t.
+          Financial institution leadership carries{" "}
+          <em className="not-italic text-brand-secondary">a level of exposure</em> most transformations don&apos;t.
         </h2>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
@@ -285,38 +288,21 @@ export default function FinancialServicesPage() {
         </div>
       </Section>
 
-      {/* Core conversion lifecycle — mist band, a closer look at the
+      {/* Core conversion lifecycle — canvas band, closer look #1 at the
           flagship item in Institutional Transformation. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>A closer look: the core conversion</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
             Independent governance across every phase of the conversion.
           </h2>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-            {conversionPhases.map((phase) => (
-              <div
-                key={phase.n}
-                className="border-t-2 border-brand-primary/30 pt-4"
-              >
-                <span className="font-display text-3xl leading-none text-brand-primary">
-                  {phase.n}
-                </span>
-                <h3 className="font-display mt-3 text-xl leading-snug">
-                  {phase.title}
-                </h3>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-brand-ink/75">
-                  {phase.body}
-                </p>
-              </div>
-            ))}
-          </div>
+          <StageCards stages={conversionPhases} className="mt-12" />
         </div>
       </section>
 
-      {/* M&A as super-category — paper. */}
-      <Section ground="paper">
+      {/* M&A as super-category — paper, split panel (closer look #2). */}
+      <SplitPanel number="02">
         <Eyebrow>A closer look: mergers &amp; acquisitions</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           A single merger can trigger every bucket above at once.
@@ -335,7 +321,7 @@ export default function FinancialServicesPage() {
           </span>
         </p>
 
-        <ul className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2 xl:grid-cols-3">
           {maWorkstreams.map((item) => (
             <li key={item} className="flex items-center gap-3 text-brand-ink/85">
               <span
@@ -346,14 +332,14 @@ export default function FinancialServicesPage() {
             </li>
           ))}
         </ul>
-      </Section>
+      </SplitPanel>
 
       {/* The differentiator — dark ground, the firm's positioning question. */}
       <Section ground="deep">
         <Eyebrow>The governance continuum</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Plenty of firms can provide implementation resources. We answer a
-          different question.
+          Plenty of firms can provide implementation resources.{" "}
+          <em className="not-italic text-brand-secondary">We answer a different question.</em>
         </h2>
         <p className="mt-6 max-w-3xl border-l-2 border-brand-secondary pl-6 font-display text-2xl leading-snug text-brand-paper sm:text-3xl">
           Who is independently assessing whether the institution&apos;s
@@ -437,13 +423,14 @@ export default function FinancialServicesPage() {
       />
 
       {/* Closing — flagship blue. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Begin with confidence</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            The institution&apos;s next transformation deserves more than
-            hope.
+            The institution&apos;s next transformation{" "}
+            <em className="not-italic text-gold-light">deserves more than hope</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Bring in independent governance oversight before the stakes are

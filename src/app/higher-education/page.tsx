@@ -21,6 +21,7 @@ import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
 
 export const metadata: Metadata = {
   title: "Higher Education",
@@ -164,7 +165,8 @@ export default function HigherEducationPage() {
       <Section ground="deep">
         <Eyebrow>Where we help</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Nine common situations. Three governance families.
+          Nine common situations.{" "}
+          <em className="not-italic text-brand-secondary">Three governance families.</em>
         </h2>
 
         <div className="mt-12 grid gap-px overflow-hidden border border-brand-paper/12 bg-brand-paper/12 md:grid-cols-3">
@@ -225,7 +227,8 @@ export default function HigherEducationPage() {
       <Section ground="deep">
         <Eyebrow>Who we serve</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          The constituencies that must govern transformation together.
+          The constituencies that must{" "}
+          <em className="not-italic text-brand-secondary">govern transformation together</em>.
         </h2>
 
         <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -241,8 +244,8 @@ export default function HigherEducationPage() {
         </ul>
       </Section>
 
-      {/* The method — a pointer to its own page, light mist band. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* The method — a pointer to its own page, light canvas band. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <Container>
           <Eyebrow>Our method</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
@@ -268,15 +271,16 @@ export default function HigherEducationPage() {
       />
 
       {/* Begin the conversation — flagship blue closing. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">
             Begin the conversation
           </p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Complex institutions deserve governance built for their
-            complexity.
+            Complex institutions deserve governance{" "}
+            <em className="not-italic text-gold-light">built for their complexity</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Whether you are preparing for a major initiative, navigating an

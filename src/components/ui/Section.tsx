@@ -1,10 +1,11 @@
 import { clsx } from "@/lib/clsx";
 import { Container } from "./Container";
 
-type Ground = "paper" | "ink" | "deep";
+type Ground = "paper" | "canvas" | "ink" | "deep";
 
 const grounds: Record<Ground, string> = {
   paper: "bg-brand-paper text-brand-ink",
+  canvas: "bg-canvas text-brand-ink",
   ink: "bg-brand-ink text-brand-paper",
   deep: "bg-brand-ink text-brand-paper",
 };

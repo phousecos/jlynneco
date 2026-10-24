@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { Container } from "./Container";
 import { Eyebrow } from "./Eyebrow";
-import { HeroAmpersand } from "./HeroAmpersand";
+import { HeroEmblem } from "./HeroEmblem";
 import { clsx } from "@/lib/clsx";
 
 // Interior-page header on the dark authority ground. Cooler, formal register.
-// Carries the oversized ampersand device by default; pass `image` to place a
+// Carries the circle-and-bars emblem from the company deck by default; pass `image` to place a
 // darkened photo behind the copy, or `logo` to bleed a transparent brand mark
-// off the right margin in place of the ampersand.
+// off the right margin in place of the emblem.
 export function PageHero({
   eyebrow,
   title,
@@ -58,7 +58,7 @@ export function PageHero({
           className="pointer-events-none absolute -right-20 top-1/2 hidden h-auto w-[34rem] -translate-y-1/2 select-none opacity-90 lg:block"
         />
       ) : (
-        <HeroAmpersand />
+        <HeroEmblem />
       )}
       <Container className="relative py-20 sm:py-28">
         <Eyebrow>{eyebrow}</Eyebrow>

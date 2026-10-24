@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { CTALink } from "@/components/ui/CTALink";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
+import { StageCards } from "@/components/ui/StageCards";
 
 export const metadata: Metadata = {
   title: "The Transformidable Governance Method™",
@@ -82,11 +84,21 @@ export default function TransformidableGovernanceMethodPage() {
           through five stages.
         </p>
 
+        <StageCards
+          className="mt-12"
+          stages={methodStages.map(({ n, title }) => ({
+            n,
+            title,
+            href: `#stage-${title.toLowerCase()}`,
+          }))}
+        />
+
         <div className="mt-12 border-t border-brand-ink/12">
           {methodStages.map((stage) => (
             <div
               key={stage.n}
-              className="grid gap-3 border-b border-brand-ink/12 py-8 md:grid-cols-[5rem_1fr] md:gap-10 md:py-10"
+              id={`stage-${stage.title.toLowerCase()}`}
+              className="scroll-mt-24 grid gap-3 border-b border-brand-ink/12 py-8 md:grid-cols-[5rem_1fr] md:gap-10 md:py-10"
             >
               <span className="font-display text-4xl leading-none text-brand-primary sm:text-5xl">
                 {stage.n}
@@ -111,12 +123,14 @@ export default function TransformidableGovernanceMethodPage() {
       </Section>
 
       {/* Closing — flagship blue. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Put the method to work</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Governance that improves how leadership decides.
+            Governance that{" "}
+            <em className="not-italic text-gold-light">improves how leadership decides</em>.
           </h2>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <CTALink href={site.discoveryCall} variant="onColor">

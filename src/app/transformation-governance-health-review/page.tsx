@@ -7,6 +7,8 @@ import { IconCheck } from "@/components/ui/icons";
 import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
+import { DotTimeline } from "@/components/ui/DotTimeline";
 
 export const metadata: Metadata = {
   title: "Transformation Governance Health Review",
@@ -86,7 +88,8 @@ export default function TransformationGovernanceHealthReviewPage() {
       <Section ground="deep">
         <Eyebrow>When to use it</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Not every transformation needs recovery. Most need confirmation.
+          Not every transformation needs recovery.{" "}
+          <em className="not-italic text-brand-secondary">Most need confirmation.</em>
         </h2>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <p className="text-lg leading-relaxed text-brand-paper/80">
@@ -107,8 +110,8 @@ export default function TransformationGovernanceHealthReviewPage() {
         </div>
       </Section>
 
-      {/* What we review — mist band. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* What we review — canvas band. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>What we review</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
@@ -129,28 +132,14 @@ export default function TransformationGovernanceHealthReviewPage() {
         </div>
       </section>
 
-      {/* How a review runs — paper grid. */}
+      {/* How a review runs — paper, dot timeline. */}
       <Section ground="paper">
         <Eyebrow>How a review runs</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Four phases, scoped to the size and stakes of the transformation.
         </h2>
 
-        <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
-          {phases.map((phase, i) => (
-            <div key={phase.title} className="border-t-2 border-brand-primary/30 pt-4">
-              <span className="font-mono text-sm text-brand-primary">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-display mt-2 text-xl leading-snug">
-                {phase.title}
-              </h3>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-brand-ink/75">
-                {phase.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <DotTimeline steps={phases} className="mt-14" />
       </Section>
 
       {/* Deliverable — dark ground. */}
@@ -184,12 +173,14 @@ export default function TransformationGovernanceHealthReviewPage() {
       />
 
       {/* Closing — flagship blue. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Confirm, don&apos;t assume</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Confidence should rest on evidence, not on status reports alone.
+            Confidence should rest on{" "}
+            <em className="not-italic text-gold-light">evidence</em>, not on status reports alone.
           </h2>
           <div className="mt-9 flex justify-center">
             <CTALink href={site.discoveryCall} variant="onColor">

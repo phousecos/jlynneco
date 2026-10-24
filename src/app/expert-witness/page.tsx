@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import { Mark } from "@/components/site/Mark";
 import { site, leadership, credentials } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
 
 export const metadata: Metadata = {
   title: "Expert Witness & Litigation Support",
@@ -121,7 +122,8 @@ export default function ExpertWitnessPage() {
       <Section ground="deep">
         <Eyebrow>Why retain the firm</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Judgment that holds up under cross-examination.
+          Judgment that{" "}
+          <em className="not-italic text-brand-secondary">holds up under cross-examination</em>.
         </h2>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-paper/80">
           {principal.bio}
@@ -185,12 +187,14 @@ export default function ExpertWitnessPage() {
       </Section>
 
       {/* Closing — flagship blue. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Retain the firm</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            When a failure becomes a matter.
+            When a failure{" "}
+            <em className="not-italic text-gold-light">becomes a matter</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Bring the analysis in early. The sooner the record is understood,

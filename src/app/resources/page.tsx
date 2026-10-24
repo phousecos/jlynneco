@@ -37,7 +37,7 @@ export default async function ResourcesPage() {
           id={group.id}
           className={clsx(
             "scroll-mt-24 py-20 text-brand-ink sm:py-28",
-            i % 2 === 1 ? "bg-brand-mist" : "bg-brand-paper",
+            i % 2 === 1 ? "bg-canvas" : "bg-brand-paper",
           )}
         >
           <Container>
