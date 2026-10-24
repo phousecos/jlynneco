@@ -7,6 +7,7 @@ import { IconCheck } from "@/components/ui/icons";
 import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
 
 export const metadata: Metadata = {
   title: "Governance Reconstruction & Lessons-Learned Review",
@@ -88,7 +89,8 @@ export default function GovernanceReconstructionPage() {
       <Section ground="deep">
         <Eyebrow>What a reconstruction answers</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          A clear, evidence-based account, not blame.
+          A clear, evidence-based account,{" "}
+          <em className="not-italic text-brand-secondary">not blame</em>.
         </h2>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <ul className="divide-y divide-brand-paper/10 border-y border-brand-paper/10">
@@ -112,8 +114,8 @@ export default function GovernanceReconstructionPage() {
         </div>
       </Section>
 
-      {/* Our approach — mist band. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* Our approach — canvas band. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>What the engagement includes</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
@@ -170,13 +172,14 @@ export default function GovernanceReconstructionPage() {
       />
 
       {/* Closing — flagship blue. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Learn, then move forward</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            The organizations that improve are the ones willing to understand
-            what happened.
+            The organizations that improve are the ones{" "}
+            <em className="not-italic text-gold-light">willing to understand what happened</em>.
           </h2>
           <div className="mt-9 flex justify-center">
             <CTALink href={site.discoveryCall} variant="onColor">

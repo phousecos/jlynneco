@@ -19,6 +19,7 @@ import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
 
 export const metadata: Metadata = {
   title: "Executive Governance Advisory",
@@ -178,7 +179,8 @@ export default function ExecutiveGovernanceAdvisoryPage() {
       <Section ground="deep">
         <Eyebrow>When leadership engages us</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Organizations engage us at pivotal moments.
+          Organizations engage us at{" "}
+          <em className="not-italic text-brand-secondary">pivotal moments</em>.
         </h2>
 
         <div className="mt-12 grid gap-px overflow-hidden border border-brand-paper/12 bg-brand-paper/12 md:grid-cols-2">
@@ -272,8 +274,8 @@ export default function ExecutiveGovernanceAdvisoryPage() {
         </div>
       </Section>
 
-      {/* The method — a pointer to its own page, on a light mist band. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* The method — a pointer to its own page, on a light canvas band. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <Container>
           <Eyebrow>Our method</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
@@ -346,7 +348,8 @@ export default function ExecutiveGovernanceAdvisoryPage() {
       <Section ground="deep">
         <Eyebrow>Who we serve</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Organizations undertaking significant strategic initiatives.
+          Organizations undertaking{" "}
+          <em className="not-italic text-brand-secondary">significant strategic initiatives</em>.
         </h2>
 
         <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -375,14 +378,16 @@ export default function ExecutiveGovernanceAdvisoryPage() {
       />
 
       {/* Begin the conversation — flagship blue closing. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">
             Begin the conversation
           </p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Every transformation presents unique governance challenges.
+            Every transformation presents{" "}
+            <em className="not-italic text-gold-light">unique governance challenges</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Whether you are preparing for a major initiative, navigating an

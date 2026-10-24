@@ -34,6 +34,13 @@
   --color-background: rgb(var(--brand-paper-rgb));
   --color-foreground: rgb(var(--brand-ink-rgb));
 
+  /* Deck accents outside the shared preset (from the company slide system):
+     warm off-white light ground, pale gold for highlights on royal blue,
+     and the emblem's deep navy. */
+  --color-canvas: #f6f6f2;
+  --color-gold-light: #f3d77a;
+  --color-navy: #1b2a63;
+
   /* Type — display/body come from the shared preset + next/font
      (--font-display = Poppins, --font-body = Inter). Mono kept here. */
   --font-mono: var(--font-plex-mono); /* data/labels/eyebrows/exhibit numbers */

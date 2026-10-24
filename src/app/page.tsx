@@ -28,6 +28,7 @@ import {
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
 import { contactHref } from "@/content/nav";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
 
 // The Executive Governance Advisory homepage. Positioned for a C-suite,
 // board, and executive-sponsor audience: restrained, editorial, alternating
@@ -299,8 +300,8 @@ export default function Home() {
         <div className="mt-5 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
           <div>
             <h2 className="font-display text-3xl leading-tight text-brand-paper sm:text-4xl">
-              An independent executive advisor to leadership teams navigating
-              significant change.
+              An independent executive advisor to leadership teams{" "}
+              <em className="not-italic text-brand-secondary">navigating significant change</em>.
             </h2>
           </div>
 
@@ -471,14 +472,16 @@ export default function Home() {
       </Section>
 
       {/* Start the conversation — flagship blue closing. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-4xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">
             Start the conversation
           </p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Every transformation is different.
+            Every transformation is{" "}
+            <em className="not-italic text-gold-light">different</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Every organization faces unique governance challenges. We begin by

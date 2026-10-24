@@ -7,6 +7,8 @@ import { IconCheck } from "@/components/ui/icons";
 import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
+import { StageCards } from "@/components/ui/StageCards";
 
 export const metadata: Metadata = {
   title: "Technology Governance Readiness",
@@ -112,7 +114,8 @@ export default function TechnologyGovernanceReadinessPage() {
       <Section ground="deep">
         <Eyebrow>Why begin with readiness</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Transformation success begins long before implementation.
+          Transformation success begins{" "}
+          <em className="not-italic text-brand-secondary">long before implementation</em>.
         </h2>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
@@ -144,29 +147,15 @@ export default function TechnologyGovernanceReadinessPage() {
         </div>
       </Section>
 
-      {/* The method — five stages, one line each. Light mist band. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* The method — five stages, one line each. Light canvas band. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>The Transformidable Governance Method™</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
             Every engagement follows our five-stage framework.
           </h2>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-            {methodStages.map((stage) => (
-              <div key={stage.n} className="border-t-2 border-brand-primary/30 pt-4">
-                <span className="font-display text-3xl leading-none text-brand-primary">
-                  {stage.n}
-                </span>
-                <h3 className="font-display mt-3 text-xl leading-snug">
-                  {stage.title}
-                </h3>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-brand-ink/75">
-                  {stage.body}
-                </p>
-              </div>
-            ))}
-          </div>
+          <StageCards stages={methodStages} className="mt-12" />
         </div>
       </section>
 
@@ -268,12 +257,14 @@ export default function TechnologyGovernanceReadinessPage() {
       />
 
       {/* Begin with confidence — flagship blue closing. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Begin with confidence</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Major decisions deserve more than assumptions.
+            Major decisions deserve{" "}
+            <em className="not-italic text-gold-light">more than assumptions</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             A Technology Governance Readiness engagement gives leadership the

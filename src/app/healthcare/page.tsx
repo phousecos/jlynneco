@@ -22,6 +22,8 @@ import {
 import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
+import { SplitPanel } from "@/components/ui/SplitPanel";
 
 export const metadata: Metadata = {
   title: "Healthcare",
@@ -200,8 +202,8 @@ export default function HealthcarePage() {
       <Section ground="deep">
         <Eyebrow>Why independent governance matters here</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Health system leadership carries a level of exposure most
-          transformations don&apos;t.
+          Health system leadership carries{" "}
+          <em className="not-italic text-brand-secondary">a level of exposure</em> most transformations don&apos;t.
         </h2>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
@@ -271,51 +273,49 @@ export default function HealthcarePage() {
         </div>
       </Section>
 
-      {/* Closer look #1: clinical & enterprise systems — mist band. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
-        <Container>
-          <Eyebrow>A closer look: clinical &amp; enterprise systems</Eyebrow>
-          <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
-            Technology decisions here cross multiple domains at once.
-          </h2>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-ink/80">
-            EHR transformations are the flagship event, but the governance
-            challenge isn&apos;t EHR-specific. It runs across EHR, ERP,
-            revenue-cycle platforms, workforce systems, supply chain, and
-            other enterprise-wide programs, wherever clinical operations, IT,
-            finance, compliance, and patient experience have to make
-            decisions together.
-          </p>
+      {/* Closer look #1: clinical & enterprise systems — canvas, split panel. */}
+      <SplitPanel number="01" ground="canvas">
+        <Eyebrow>A closer look: clinical &amp; enterprise systems</Eyebrow>
+        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
+          Technology decisions here cross multiple domains at once.
+        </h2>
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-ink/80">
+          EHR transformations are the flagship event, but the governance
+          challenge isn&apos;t EHR-specific. It runs across EHR, ERP,
+          revenue-cycle platforms, workforce systems, supply chain, and
+          other enterprise-wide programs, wherever clinical operations, IT,
+          finance, compliance, and patient experience have to make
+          decisions together.
+        </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3 text-sm font-medium text-brand-ink/70 sm:text-base">
-            {["Clinical operations", "IT", "Finance", "Compliance", "Patient experience"].map(
-              (node, i, arr) => (
-                <span key={node} className="flex items-center gap-3">
-                  <span className="border border-brand-primary/30 bg-brand-paper px-4 py-2">
-                    {node}
-                  </span>
-                  {i < arr.length - 1 && (
-                    <span aria-hidden className="text-brand-primary/50">
-                      ↔
-                    </span>
-                  )}
+        <div className="mt-10 flex flex-wrap items-center gap-3 text-sm font-medium text-brand-ink/70 sm:text-base">
+          {["Clinical operations", "IT", "Finance", "Compliance", "Patient experience"].map(
+            (node, i, arr) => (
+              <span key={node} className="flex items-center gap-3">
+                <span className="border border-brand-primary/30 bg-brand-paper px-4 py-2">
+                  {node}
                 </span>
-              ),
-            )}
-          </div>
+                {i < arr.length - 1 && (
+                  <span aria-hidden className="text-brand-primary/50">
+                    ↔
+                  </span>
+                )}
+              </span>
+            ),
+          )}
+        </div>
 
-          <p className="mt-8 max-w-3xl font-display text-xl leading-snug text-brand-ink sm:text-2xl">
-            A technically successful implementation can still create
-            operational problems{" "}
-            <span className="text-brand-primary">
-              if those interests aren&apos;t governed effectively.
-            </span>
-          </p>
-        </Container>
-      </section>
+        <p className="mt-8 max-w-3xl font-display text-xl leading-snug text-brand-ink sm:text-2xl">
+          A technically successful implementation can still create
+          operational problems{" "}
+          <span className="text-brand-primary">
+            if those interests aren&apos;t governed effectively.
+          </span>
+        </p>
+      </SplitPanel>
 
-      {/* Closer look #2: M&A as super-category — paper. */}
-      <Section ground="paper">
+      {/* Closer look #2: M&A as super-category — paper, split panel. */}
+      <SplitPanel number="02">
         <Eyebrow>A closer look: M&amp;A &amp; health system integration</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Technology transformation governance for healthcare M&amp;A.
@@ -337,7 +337,7 @@ export default function HealthcarePage() {
           </span>
         </p>
 
-        <ul className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2 xl:grid-cols-3">
           {maWorkstreams.map((item) => (
             <li key={item} className="flex items-center gap-3 text-brand-ink/85">
               <span
@@ -348,14 +348,15 @@ export default function HealthcarePage() {
             </li>
           ))}
         </ul>
-      </Section>
+      </SplitPanel>
 
-      {/* Closer look #3: digital health — dark ground. Governance, not a
+      {/* Closer look #3: digital health — dark ground, split panel. Governance, not a
           digital-health product consultancy. */}
-      <Section ground="deep">
+      <SplitPanel number="03" ground="deep">
         <Eyebrow>A closer look: digital health &amp; care delivery</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          The governance questions matter more than the technology.
+          The governance questions{" "}
+          <em className="not-italic text-brand-secondary">matter more</em> than the technology.
         </h2>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-paper/80">
           Digital front doors, patient portals, telehealth, remote
@@ -375,10 +376,10 @@ export default function HealthcarePage() {
             </li>
           ))}
         </ul>
-      </Section>
+      </SplitPanel>
 
-      {/* The differentiator — mist band, the governance continuum. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* The differentiator — canvas band, the governance continuum. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <Container>
           <Eyebrow>The governance continuum</Eyebrow>
           <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight sm:text-4xl">
@@ -467,13 +468,14 @@ export default function HealthcarePage() {
       />
 
       {/* Closing — flagship blue. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Begin with confidence</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            The organization&apos;s next transformation deserves more than
-            hope.
+            The organization&apos;s next transformation{" "}
+            <em className="not-italic text-gold-light">deserves more than hope</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             Bring in independent governance oversight before the stakes are

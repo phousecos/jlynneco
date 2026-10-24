@@ -1,17 +1,20 @@
 import { CTALink } from "./CTALink";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
 
 // A single closing call-to-action — one intake, one discovery call. The
 // flagship blue ground: the firm's lead color, carried full-bleed.
 export function EngageCTA() {
   return (
-    <div className="bg-brand-primary text-brand-paper">
+    <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
       <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
         <Mark size={44} className="mx-auto text-brand-paper" />
         <p className="eyebrow mt-6 text-brand-paper/80">Engage the firm</p>
         <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-          The patience to see it. The drive to move it.
+          The patience to see it.{" "}
+          <em className="not-italic text-gold-light">The drive to move it.</em>
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
           Whether you&apos;re retaining for a matter or engaging the firm, it

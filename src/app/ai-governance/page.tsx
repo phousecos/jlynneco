@@ -5,8 +5,10 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CTALink } from "@/components/ui/CTALink";
 import { IconCheck } from "@/components/ui/icons";
 import { NextStep } from "@/components/ui/NextStep";
+import { StatCallout } from "@/components/ui/StatCallout";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
 
 export const metadata: Metadata = {
   title: "AI Governance Policy & Decision Workshop",
@@ -72,11 +74,37 @@ export default function AIGovernancePage() {
         </div>
       </Section>
 
+      {/* The policy gap in two figures — canvas band. */}
+      <Section ground="canvas">
+        <Eyebrow>The policy gap</Eyebrow>
+        <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
+          Everyone has a policy.{" "}
+          <span className="text-brand-primary">Half skip it.</span>
+        </h2>
+        <StatCallout
+          className="mt-12"
+          stats={[
+            {
+              value: "98%",
+              label: "of organizations have a formal AI governance policy.",
+              tone: "blue",
+            },
+            {
+              value: "47%",
+              label: "have skipped their own governance process to meet a deadline.",
+              tone: "gold",
+            },
+          ]}
+          source="EY, 2026"
+        />
+      </Section>
+
       {/* When to use it — dark ground. */}
       <Section ground="deep">
         <Eyebrow>When to use it</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Before the policy is written, or after it stops being enough.
+          Before the policy is written, or{" "}
+          <em className="not-italic text-brand-secondary">after it stops being enough</em>.
         </h2>
         <p className="mt-8 max-w-3xl text-lg leading-relaxed text-brand-paper/80">
           AI adoption, enterprise AI policy, generative-AI use, AI vendor
@@ -86,8 +114,8 @@ export default function AIGovernancePage() {
         </p>
       </Section>
 
-      {/* What the workshop scopes — mist band. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* What the workshop scopes — canvas band. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>What the workshop scopes</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
@@ -150,13 +178,14 @@ export default function AIGovernancePage() {
       />
 
       {/* Closing — flagship blue. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Govern the decision, not just the tool</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            AI adoption is a governance decision before it is a technology
-            decision.
+            AI adoption is a governance decision{" "}
+            <em className="not-italic text-gold-light">before it is a technology decision</em>.
           </h2>
           <div className="mt-9 flex justify-center">
             <CTALink href={site.discoveryCall} variant="onColor">

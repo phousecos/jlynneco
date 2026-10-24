@@ -7,6 +7,8 @@ import { IconCheck } from "@/components/ui/icons";
 import { NextStep } from "@/components/ui/NextStep";
 import { Mark } from "@/components/site/Mark";
 import { site } from "@/content/site";
+import { HeroEmblem } from "@/components/ui/HeroEmblem";
+import { DotTimeline } from "@/components/ui/DotTimeline";
 
 export const metadata: Metadata = {
   title: "Technology Transformation Recovery",
@@ -100,7 +102,8 @@ export default function TechnologyTransformationRecoveryPage() {
       <Section ground="deep">
         <Eyebrow>Recognize the warning signs</Eyebrow>
         <h2 className="font-display mt-5 max-w-2xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Most struggling initiatives don&rsquo;t fail overnight. They drift.
+          Most struggling initiatives don&rsquo;t fail overnight.{" "}
+          <em className="not-italic text-brand-secondary">They drift.</em>
         </h2>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
@@ -126,8 +129,8 @@ export default function TechnologyTransformationRecoveryPage() {
         </div>
       </Section>
 
-      {/* Our approach — mist band, reframes the first question asked. */}
-      <section className="bg-brand-mist py-20 text-brand-ink sm:py-28">
+      {/* Our approach — canvas band, reframes the first question asked. */}
+      <section className="bg-canvas py-20 text-brand-ink sm:py-28">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
           <Eyebrow>Our approach</Eyebrow>
           <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
@@ -150,28 +153,14 @@ export default function TechnologyTransformationRecoveryPage() {
         </div>
       </section>
 
-      {/* The four phases — paper grid. */}
+      {/* The four phases — paper, dot timeline. */}
       <Section ground="paper">
         <Eyebrow>How a recovery engagement runs</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight sm:text-4xl">
           Four phases, from evidence to governed recovery.
         </h2>
 
-        <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
-          {phases.map((phase, i) => (
-            <div key={phase.title} className="border-t-2 border-brand-primary/30 pt-4">
-              <span className="font-mono text-sm text-brand-primary">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-display mt-2 text-xl leading-snug">
-                {phase.title}
-              </h3>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-brand-ink/75">
-                {phase.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <DotTimeline steps={phases} className="mt-14" />
 
         <p className="mt-12 max-w-3xl text-lg leading-relaxed text-brand-ink/80">
           We can support implementation without becoming the project manager.
@@ -184,7 +173,8 @@ export default function TechnologyTransformationRecoveryPage() {
       <Section ground="deep">
         <Eyebrow>What success looks like</Eyebrow>
         <h2 className="font-display mt-5 max-w-3xl text-3xl leading-tight text-brand-paper sm:text-4xl">
-          Successful recovery is not simply getting a project back on schedule.
+          Successful recovery is{" "}
+          <em className="not-italic text-brand-secondary">not simply getting a project back on schedule</em>.
         </h2>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-paper/80">
           It means restoring leadership confidence, strengthening governance,
@@ -212,12 +202,14 @@ export default function TechnologyTransformationRecoveryPage() {
       />
 
       {/* Begin the recovery — flagship blue closing. */}
-      <div className="bg-brand-primary text-brand-paper">
+      <div className="relative isolate overflow-hidden bg-brand-primary text-brand-paper">
+        <HeroEmblem variant="blue" />
         <div className="mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
           <Mark size={44} className="mx-auto text-brand-paper" />
           <p className="eyebrow mt-6 text-brand-paper/80">Begin the recovery</p>
           <h2 className="font-display mt-6 text-3xl leading-tight sm:text-4xl">
-            Transformation challenges do not resolve themselves.
+            Transformation challenges{" "}
+            <em className="not-italic text-gold-light">do not resolve themselves</em>.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-paper/85">
             The sooner governance issues are identified, the more options
